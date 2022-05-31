@@ -2,7 +2,7 @@
     {
         "title": "Latest project - ReactFlix",
         "name": "Web site for movie information",
-        "description": "Web application made with React. It gets movie data from the \"themoviedb.org\" API. The app provides information such as reviews, photos, scores, release date, cast, etc. The styling of the page is done with Bootstrap. The application allows you to search and add movies to your favorites list. To test the app enter username \"reactflix\" and password \"react\".",
+        "description": "Web application made with React. It gets movie data from the \"themoviedb.org\" API. The app provides information such as reviews, photos, scores, release date, cast, etc. The styling of the page is done with Bootstrap. The application allows you to search and add movies to your favorites list. To test the app enter username \"reactflix@test.com\" and password \"react\".",
         "image": {
             "url":"reactflix.webp",
             "alt": "react-flix app demostration"
