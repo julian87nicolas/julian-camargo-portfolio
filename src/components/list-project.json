@@ -1,0 +1,73 @@
+[
+    {
+        "title": "Latest project - ReactFlix",
+        "name": "Web site for movie information",
+        "description": "Web application made with React. It gets movie data from the \"themoviedb.org\" API. The app provides information such as reviews, photos, scores, release date, cast, etc. The styling of the page is done with Bootstrap. The application allows you to search and add movies to your favorites list. To test the app enter username \"reactflix\" and password \"react\".",
+        "image": {
+            "url":"reactflix.webp",
+            "alt": "react-flix app demostration"
+        },
+        "repo": "https://github.com/julian87nicolas/react-flix-app",
+        "demo": "https://react-flix-app.herokuapp.com/",
+        "tech": [
+            "HTML", "CSS", "JavaScript", "React", "Bootstrap", "Axios"
+        ]
+
+    },
+    {
+        "title": "Contact Page",
+        "name": "Website for dental professional",
+        "description": "Website made to obtain information about a particular dental specialist. It was carried out under the requirements of the dental specialist in question, fulfilling the same by far. It has a home page, which has contact links, medical information (posts) and a drop-down list to consult the medical/prepaid social security accepted by the professional. It also has a page with information about the professional in question, which adds the experience and the fields of action of the same.",
+        "image": {
+            "url":"odonto-integral.webp",
+            "alt": "odonto-integral demostration photo"
+        },
+        "repo": "https://github.com/julian87nicolas/odontointegral.github.io",
+        "demo": "https://github.com/julian87nicolas/odontointegral.github.io",
+        "tech": [
+            "HTML", "CSS", "JavaScript"
+        ]
+
+    },
+    {
+        "title":"Introduction to APIs proyect",
+        "name":"Doggos app",
+        "description":"Application that displays random images of dogs, which are requested from a doggos API. Allows you to select a dog breed from a list or select a breed at random. This app is made with pure CSS and JavaScript. It is a project made for the FrontEndMaster course. This was done for practice and learning purposes only.",
+        "image": {
+            "url":"doggos.webp",
+            "alt":"doggos app screenshot"
+        },
+        "repo":"https://github.com/julian87nicolas/Doggos-App",
+        "demo":"",
+        "tech":[
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ]
+    },
+    {
+        "title":"Intro to web development project",
+        "name":"Calculator app",
+        "description":"Web app made with CSS and JS to simulate a calculator that looks like iOS calculator app. This app is made with pure CSS and JavaScript. It is a project made for the FrontEndMaster course.",
+        "image": {
+            "url":"calculator.webp",
+            "alt":"calculator app screenshot"
+        },
+        "repo":"https://github.com/julian87nicolas/CSSandJSCalculator",
+        "demo":"",
+        "tech":["HTML", "CSS", "JavaScript"]
+    },
+    {
+        "title":"IoT Project",
+        "name":"Smart Float",
+        "description":"It is an smart float, which through WiFi connection provides data from its sensors to a database Crate, which manages alerts and historical values. In addition, by obtaining the local time using a NTP server performs daily the addition of the chlorine measurement corresponding to the volume of the pool. <br> As an additional item to highlight, in the realization of the microcontroller code to perform all these functions, it was aided by the recently released “GitHub Copilot” tool, which saved a lot of time in the development of the project.",
+        "image": {
+            "url":"float-real.webp",
+            "alt":"smart float preview image"
+        },
+        "repo":"https://github.com/julian87nicolas/Smart-float",
+        "demo":"",
+        "tech":["ESP microcontroller", "Graphana Database (SQL)", "C programming language"]
+    }
+]
+

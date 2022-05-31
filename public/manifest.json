@@ -3,19 +3,50 @@
   "name": "Create React App Sample",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "united-states.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "spain.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    }
+    ,
+    {
+      "src": "odonto-integral.webp",
+      "sizes": "128x128",
+      "type": "image/webp"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "reactflix.webp",
+      "sizes": "128x128",
+      "type": "image/webp"
+    },
+    {
+      "src": "doggos.webp",
+      "sizes": "128x128",
+      "type": "image/webp"
+    },
+    {
+      "src": "calculator.webp",
+      "sizes": "128x128",
+      "type": "image/webp"
+    },
+    {
+      "src": "float-real.webp",
+      "sizes": "128x128",
+      "type": "image/webp"
+    },
+    {
+      "src": "profile.webp",
+      "sizes": "128x128",
+      "type": "image/webp"
+    },
+    {
+      "src": "logo.png",
+      "sizes":"64x64 32x32 24x24 16x16",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
