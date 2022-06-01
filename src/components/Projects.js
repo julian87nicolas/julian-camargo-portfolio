@@ -1,4 +1,5 @@
 import listProjects from "./list-project.json"
+import "./styles/ProjectAbout.css"
 
 function Projects () {
     return (

@@ -1,0 +1,21 @@
+#contact {
+    background-color: var(--plum);
+    margin: 0;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+#contact h2 {
+    display: block;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+#contact p {
+    width: 18rem;
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}

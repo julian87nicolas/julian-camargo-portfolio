@@ -1,4 +1,5 @@
 import Contact from "./Contact"
+import "./styles/Footer.css"
 
 function Footer() {
     return (

@@ -6,9 +6,9 @@ import Header from './components/Header';
 import Mainpage from './components/Mainpage';
 import About from './components/About';
 import Footer from './components/Footer';
-// styles
 
-import './App.css';
+// styles
+import './components/styles/App.css';
 
 
 function App() {

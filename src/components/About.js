@@ -25,7 +25,7 @@ function About () {
                                 <li>C</li>
                             </ul>
                     </div>
-                    <img src="profile.webp" alt="profile<" className="profile"/>
+                    <img src="images/profile.webp" alt="profile<" className="profile"/>
                 </article>
                 </section>
             </div>

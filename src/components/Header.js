@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 
+import "./styles/Header.css"
+
 function Header() {
     return (
         <>
@@ -44,7 +46,7 @@ function Header() {
                 </li>
                 <li>
                     <a href="../index.html">
-                        <img src="united-states.png" alt="english site" />
+                        <img src="images/united-states.png" alt="english site" />
                     </a>
                 </li>
             </ul>
