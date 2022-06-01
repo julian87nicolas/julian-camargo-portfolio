@@ -15,7 +15,7 @@ function Header() {
                     </h1>
                 </li>
                 <li>
-                    <a href="./#projects">
+                    <a href="/es/#projects">
                         Proyectos <i className="fa-solid fa-gears"></i>
                     </a>
                 </li>

@@ -45,7 +45,7 @@ function Header() {
                     </a>
                 </li>
                 <li>
-                    <Link to="/es">
+                    <Link to="/es/">
                         <img src="images/united-states.png" alt="english site" />
                     </Link>
                 </li>

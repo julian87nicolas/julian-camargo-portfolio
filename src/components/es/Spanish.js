@@ -12,8 +12,8 @@ function Spanish () {
         <div id='page'>
             <Header />
                 <Routes>
-                    <Route path='/' element={<Mainpage />} />
-                    <Route path='/about' element={<About />} />
+                    <Route path='*' element={<Mainpage />} />
+                    <Route path='about*' element={<About />} />
                 </Routes>
             <Footer />
         </div>
