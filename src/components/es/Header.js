@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 
-import "./styles/Header.css"
+import "./../styles/Header.css"
 
 function Header() {
     return (
@@ -9,24 +9,24 @@ function Header() {
             <ul>
                 <li>
                     <h1>
-                        <NavLink to={"/"}>
+                        <NavLink to={"/es"}>
                             <i className="fa-solid fa-code"></i> Julián Camargo
                         </NavLink>
                     </h1>
                 </li>
                 <li>
                     <a href="./#projects">
-                        Projects <i className="fa-solid fa-gears"></i>
+                        Proyectos <i className="fa-solid fa-gears"></i>
                     </a>
                 </li>
                 <li>
-                    <NavLink to={"/about"}>
-                        About <i className="fa-solid fa-circle-info"></i>
+                    <NavLink to={"/es/about"}>
+                        Sobre <i className="fa-solid fa-circle-info"></i>
                     </NavLink>
                 </li>
                 <li>
                     <a href="#contact">
-                        Contact <i className="fa-solid fa-envelope"></i>
+                        Contacto <i className="fa-solid fa-envelope"></i>
                     </a>
                 </li>
                 <li>
@@ -41,12 +41,12 @@ function Header() {
                 </li>
                 <li className="resume">
                     <a href="./CV.pdf" target="_blank" rel="noopener noreferrer">
-                        Resume <i className="fa-solid fa-user"></i>
+                        Curriculum <i className="fa-solid fa-user"></i>
                     </a>
                 </li>
                 <li>
-                    <Link to="/es">
-                        <img src="images/united-states.png" alt="english site" />
+                    <Link to="/">
+                        <img src="images/spain.png" alt="sitio en español" />
                     </Link>
                 </li>
             </ul>
