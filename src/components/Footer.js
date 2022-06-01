@@ -8,19 +8,19 @@ function Footer() {
         <h2>Julián Camargo - Advanced student</h2>
         <ul>
             <li>
-                <a href="https://www.linkedin.com/in/julian-camargo/" target="_blank">
+                <a href="https://www.linkedin.com/in/julian-camargo/" target="_blank" rel="noreferrer">
                     <i className="fa-brands fa-linkedin"></i>
                     <span className="sr-only">Linkedin</span>
                 </a>
             </li>
             <li>
-                <a href="https://github.com/julian87nicolas" target="_blank">
+                <a href="https://github.com/julian87nicolas" target="_blank" rel="noreferrer">
                     <i className="fa-brands fa-github"></i>
                     <span className="sr-only">Github</span>
                 </a>
             </li>
             <li>
-                <a href="mailto:julicmrgo@gmail.com" target="_blank">
+                <a href="mailto:julicmrgo@gmail.com" target="_blank" rel="noreferrer">
                     <i className="fa-solid fa-envelope"></i>
                     <span className="sr-only">mail</span>
                 </a>

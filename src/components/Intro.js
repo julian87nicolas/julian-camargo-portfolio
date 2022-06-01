@@ -10,7 +10,7 @@ function Intro () {
                 I'm a student of electronic Engineering specializing in HTML, CSS, Js, Python, C.
                 
                 Currently, I'm making a career switch from electronic engineer to web development
-                and machine learning development, studying at <a href="https://www.frontendmasters.com" target="_blank">FrontEndMaster</a>, <a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a> and <a href="https://www.kaggle.com" target="_blank">Kaggle</a>.    
+                and machine learning development, studying at <a href="https://www.frontendmasters.com" target="_blank" rel="noreferrer">FrontEndMaster</a>, <a href="https://www.freecodecamp.org" target="_blank" rel="noreferrer">FreeCodeCamp</a> and <a href="https://www.kaggle.com" target="_blank" rel="noreferrer">Kaggle</a>.    
             </p> 
         </section>
 

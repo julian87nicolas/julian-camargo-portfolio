@@ -1,9 +1,6 @@
 import listProjects from "./list-project.json"
 
 function Projects () {
-
-    let classArticle = ""
-
     return (
     <div className="section-blue">
         <section id="projects">
@@ -19,8 +16,8 @@ function Projects () {
                                 <p class="blackbox">
                                     {proj.description}
                                 </p>
-                                <h4><a href={proj.repo} target="_blank"><i class="fa-solid fa-link"></i> Link to the repo!</a></h4>
-                                { proj.demo && <h4><a href={proj.demo} target="_blank"><i class="fa-solid fa-link"></i> Link to the Website!</a></h4> }
+                                <h4><a href={proj.repo} target="_blank" rel="noreferrer"><i class="fa-solid fa-link"></i> Link to the repo!</a></h4>
+                                { proj.demo && <h4><a href={proj.demo} target="_blank" rel="noreferrer"><i class="fa-solid fa-link"></i> Link to the Website!</a></h4> }
                                 <h4>Technologies:</h4>
                                 <ul>
                                 {proj.tech.map( t => <li>{t}</li>)}

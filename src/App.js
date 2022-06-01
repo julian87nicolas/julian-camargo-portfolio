@@ -6,13 +6,14 @@ import Header from './components/Header';
 import Mainpage from './components/Mainpage';
 import About from './components/About';
 import Footer from './components/Footer';
-
 // styles
 
 import './App.css';
 
 
 function App() {
+
+
   return (
     <div>
       <Header />
