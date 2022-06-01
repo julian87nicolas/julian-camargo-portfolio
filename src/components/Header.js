@@ -10,7 +10,7 @@ function Header() {
                 <li>
                     <h1>
                         <NavLink to={"/"}>
-                            <i className="fa-solid fa-code"></i>Julián Camargo
+                            <i className="fa-solid fa-code"></i> Julián Camargo
                         </NavLink>
                     </h1>
                 </li>
