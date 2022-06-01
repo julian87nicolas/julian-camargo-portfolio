@@ -14,8 +14,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path ="*" element={<English/>} />
-      <Route path ="es*" element={<Spanish/>} />
+      <Route path ="/*" element={<English/>} />
+      <Route path ="/es*" element={<Spanish/>} />
     </Routes>
   );
 }
