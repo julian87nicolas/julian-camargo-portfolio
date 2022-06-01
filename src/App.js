@@ -15,12 +15,14 @@ function App() {
 
 
   return (
-    <div>
+    <div id='page'>
       <Header />
-      <Routes>
-        <Route path="/" element={<Mainpage />} />
-        <Route path='/about' element={<About />} />
-      </Routes>
+      <div id='content'>
+        <Routes>
+          <Route path="/" element={<Mainpage />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

@@ -1,5 +1,8 @@
+
+
 function About () {
     return (
+        
         <>
             <div className="section-blue">
             <section id="projects">
