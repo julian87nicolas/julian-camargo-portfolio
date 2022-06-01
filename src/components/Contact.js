@@ -2,7 +2,7 @@ function Contact () {
     return (
         <>
         <section id="contact">
-            <h2>Contacto</h2>
+            <h2>Contact</h2>
             <p>
                 I'm always interested in hearing about
                 new learning opportunities, taking
