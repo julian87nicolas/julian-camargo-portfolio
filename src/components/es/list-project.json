@@ -17,15 +17,15 @@
     {
         "title": "Página de contacto",
         "name": "Sitio web para profesional odontológico",
-        "description": "Sitio web realizado para obtener información sobre un especialista odontológico particular. El mismo se realizó bajo los requerimientos del especialista odontológico en cuestión, cumpliendo los mismos con creces. Cuenta con una página de inicio, la cual posee links de contacto, información médica (posteos) y una lista desplegable para consultar las obras sociales aceptadas por el profesional. Además posee una página con información sobre el profesional en cuestión, la cual añade la experiencia y los campos de acción del mismo.",
+        "description": "Sitio web realizado para obtener información sobre un especialista odontológico particular. El mismo se realizó bajo los requerimientos del especialista odontológico en cuestión, cumpliendo los mismos con creces. Cuenta con una página de inicio, la cual posee links de contacto, información médica (posteos) y una lista desplegable para consultar las obras sociales aceptadas por el profesional. Además posee una página con información sobre el profesional en cuestión, la cual añade la experiencia y los campos de acción del mismo. El sitio fue recientemente actualizado, siendo construido con React para un mejor funcionamiento y fácil mantenimiento.",
         "image": {
             "url":"images/odonto-integral.webp",
             "alt": "odonto-integral demostration photo"
         },
-        "repo": "https://github.com/julian87nicolas/odontointegral.github.io",
-        "demo": "https://github.com/julian87nicolas/odontointegral.github.io",
+        "repo": "https://github.com/julian87nicolas/odontointegral-react",
+        "demo": "https://odontointegralfs.onrender.com/",
         "tech": [
-            "HTML", "CSS", "JavaScript"
+            "HTML", "CSS", "JavaScript", "React"
         ]
 
     },

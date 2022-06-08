@@ -5,6 +5,7 @@ import "./../styles/Header.css"
 function Header() {
     return (
         <>
+        <div id="header">
         <nav>
             <ul>
                 <li>
@@ -53,6 +54,7 @@ function Header() {
         </nav>
 
         <div className="border-gradient"></div>
+        </div>
         </>
     )
 }

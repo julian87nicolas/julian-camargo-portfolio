@@ -17,15 +17,15 @@
     {
         "title": "Contact Page",
         "name": "Website for dental professional",
-        "description": "Website made to obtain information about a particular dental specialist. It was carried out under the requirements of the dental specialist in question, fulfilling the same by far. It has a home page, which has contact links, medical information (posts) and a drop-down list to consult the medical/prepaid social security accepted by the professional. It also has a page with information about the professional in question, which adds the experience and the fields of action of the same.",
+        "description": "Website made to obtain information about a particular dental specialist. It was carried out under the requirements of the dental specialist in question, fulfilling the same by far. It has a home page, which has contact links, medical information (posts) and a drop-down list to consult the medical/prepaid social security accepted by the professional. It also has a page with information about the professional in question, which adds the experience and the fields of action of the same. The site was recently updated, being built with React for better performance and easy maintenance.",
         "image": {
             "url":"images/odonto-integral.webp",
             "alt": "odonto-integral demostration photo"
         },
-        "repo": "https://github.com/julian87nicolas/odontointegral.github.io",
-        "demo": "https://github.com/julian87nicolas/odontointegral.github.io",
+        "repo": "https://github.com/julian87nicolas/odontointegral-react",
+        "demo": "https://odontointegralfs.onrender.com/",
         "tech": [
-            "HTML", "CSS", "JavaScript"
+            "HTML", "CSS", "JavaScript", "React"
         ]
 
     },
