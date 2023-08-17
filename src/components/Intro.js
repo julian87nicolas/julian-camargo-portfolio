@@ -9,10 +9,8 @@ function Intro () {
             <h2>I'm specializing in frontend dev and machine learning.</h2>    
             
             <p>
-                I'm a student of electronic Engineering specializing in HTML, CSS, Js, Python, C.
-                
-                Currently, I'm making a career switch from electronic engineer to web development
-                and machine learning development, studying at <a href="https://www.frontendmasters.com" target="_blank" rel="noreferrer">FrontEndMaster</a>, <a href="https://www.freecodecamp.org" target="_blank" rel="noreferrer">FreeCodeCamp</a> and <a href="https://www.kaggle.com" target="_blank" rel="noreferrer">Kaggle</a>.    
+            Software/Firmware Developer, currently working as Backend Developer at <a href="https://www.sitrack.com" target="_blank" rel="noreferrer">Sitrack</a> and advanced student of electronic engineering
+            at the National Technological University. Interested and in constant training in technologies related to backend development, firmware and machine learning.    
             </p> 
         </section>
 

@@ -9,8 +9,8 @@ function Intro () {
             <h2>Estoy especializándome en desarrollo FrontEnd y Machine Learning.</h2>    
             
             <p>
-            Soy un estudiante de ingeniería electrónica, especializándome en HTML, CSS, Js, Python, C. Actualmente, estoy haciendo un cambio de carrera desde ingeniería electrónica a desarrollo web y machine learning, 
-            estudiando en <a href="https://www.frontendmasters.com" target="_blank" rel="noreferrer">FrontEndMaster</a>, <a href="https://www.freecodecamp.org" target="_blank" rel="noreferrer">FreeCodeCamp</a> y <a href="https://www.kaggle.com" target="_blank" rel="noreferrer">Kaggle</a>.    
+            Desarrollador de Software/Firmware, actualmente trabajando como Desarrollador Backend en <a href="https://www.sitrack.com" target="_blank" rel="noreferrer">Sitrack</a> y estudiante avanzado de ingeniería electrónica
+            en la Universidad Tecnológica Nacional. Interesado y en constante capacitación en tecnologías relacionadas al desarrollo backend, firmware y machine learning.
             </p> 
         </section>
 
