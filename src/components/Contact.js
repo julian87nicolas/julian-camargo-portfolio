@@ -6,9 +6,7 @@ function Contact () {
         <section id="contact">
             <h2>Contact</h2>
             <p>
-                I'm always interested in hearing about
-                new learning opportunities, taking
-                bootcamps, or instructional design work.
+                Always interested in new growth opportunities.
             </p>
             <p>
                 <a href="mailto:julicmrgo@gmail.com">Email me</a>

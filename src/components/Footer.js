@@ -6,7 +6,7 @@ function Footer() {
         <>
         <Contact />
         <footer>
-        <h2>Julián Camargo - Advanced student</h2>
+        <h2>Julián Camargo - Software/Firmware Developer</h2>
         <ul>
             <li>
                 <a href="https://www.linkedin.com/in/julian-camargo/" target="_blank" rel="noreferrer">
