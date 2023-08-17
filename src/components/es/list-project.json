@@ -67,7 +67,7 @@
         },
         "repo":"https://github.com/julian87nicolas/Smart-float",
         "demo":"",
-        "tech":["ESP microcontroller", "Graphana","SQL Crate DB", "C programming language"]
+        "tech":["ESP microcontroller", "Grafana","Crate DB", "C programming language"]
     }
 ]
 
