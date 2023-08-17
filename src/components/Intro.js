@@ -6,7 +6,7 @@ function Intro () {
         <section id="intro">
             <p className="name">Hi, my name is <span>Julián Camargo.</span></p>
 
-            <h2>I'm specializing in frontend dev and machine learning.</h2>    
+            <h2>Backend Developer, advanced student of electronic engineering and specializing in Machine Learning..</h2>    
             
             <p>
             Software/Firmware Developer, currently working as Backend Developer at <a href="https://www.sitrack.com" target="_blank" rel="noreferrer">Sitrack</a> and advanced student of electronic engineering
