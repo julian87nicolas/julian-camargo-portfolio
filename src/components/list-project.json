@@ -8,7 +8,6 @@
             "alt": "react-flix app demostration"
         },
         "repo": "https://github.com/julian87nicolas/react-flix-app",
-        "demo": "https://react-flix-app.herokuapp.com/",
         "tech": [
             "HTML", "CSS", "JavaScript", "React", "Bootstrap", "Axios"
         ]
