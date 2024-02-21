@@ -42,7 +42,7 @@ function Header() {
                     </a>
                 </li>
                 <li className="resume">
-                    <a href="./CV.pdf" target="_blank" rel="noopener noreferrer">
+                    <a href="./CV-Eng.pdf" target="_blank" rel="noopener noreferrer">
                         Resume <i className="fa-solid fa-user"></i>
                     </a>
                 </li>
