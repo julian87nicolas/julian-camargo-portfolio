@@ -7,9 +7,8 @@
             "url": "images/SSPA.webp",
             "alt": "SSPA project demostration"
         },
-        "repo": [
-            "https://github.com/SPAUTN"
-        ],
+        "repo":"https://github.com/orgs/SPAUTN/repositories",
+        "demo": "https://github.com/SPAUTN",
         "tech": [
             "C/C++",
             "Platformio",
@@ -18,6 +17,40 @@
             "NodeJs",
             "PostgreSQL",
             "Grafana"
+        ]
+    },
+    {
+        "title": "Proyecto IoT",
+        "name": "Smart Float",
+        "description": "Se trata de una Boya inteligente, la cual mediante conexión WiFi provee datos de sus sensores a una base de datos Crate, la cual maneja alertas e históricos de valores. Además, mediante la obtención del horario local mediante un servidor NTP efectúa diariamente la adición de la medida de cloro correspondiente al volumen de la piscina. Como ítem adicional a resaltar, en la realización del código del microcontrolador para realizar todas estas funciones, se contó con la ayuda de la herramienta de reciente aparición “GitHub Copilot”, la cual ahorró gran cantidad de tiempo en el desarrollo del proyecto.",
+        "image": {
+            "url": "images/float-real.webp",
+            "alt": "smart float preview image"
+        },
+        "repo": "https://github.com/julian87nicolas/Smart-float",
+        "demo": "",
+        "tech": [
+            "ESP microcontroller",
+            "Grafana",
+            "Crate DB",
+            "C programming language"
+        ]
+    },
+    {
+        "title": "Página de contacto",
+        "name": "Sitio web para profesional odontológico",
+        "description": "Sitio web realizado para obtener información sobre un especialista odontológico particular. El mismo se realizó bajo los requerimientos del especialista odontológico en cuestión, cumpliendo los mismos con creces. Cuenta con una página de inicio, la cual posee links de contacto, información médica (posteos) y una lista desplegable para consultar las obras sociales aceptadas por el profesional. Además posee una página con información sobre el profesional en cuestión, la cual añade la experiencia y los campos de acción del mismo. El sitio fue recientemente actualizado, siendo construido con React para un mejor funcionamiento y fácil mantenimiento.",
+        "image": {
+            "url": "images/odonto-integral.webp",
+            "alt": "odonto-integral demostration photo"
+        },
+        "repo": "https://github.com/julian87nicolas/odontointegral-react",
+        "demo": "https://odontointegralfs.onrender.com/",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React"
         ]
     },
     {
@@ -36,23 +69,6 @@
             "React",
             "Bootstrap",
             "Axios"
-        ]
-    },
-    {
-        "title": "Página de contacto",
-        "name": "Sitio web para profesional odontológico",
-        "description": "Sitio web realizado para obtener información sobre un especialista odontológico particular. El mismo se realizó bajo los requerimientos del especialista odontológico en cuestión, cumpliendo los mismos con creces. Cuenta con una página de inicio, la cual posee links de contacto, información médica (posteos) y una lista desplegable para consultar las obras sociales aceptadas por el profesional. Además posee una página con información sobre el profesional en cuestión, la cual añade la experiencia y los campos de acción del mismo. El sitio fue recientemente actualizado, siendo construido con React para un mejor funcionamiento y fácil mantenimiento.",
-        "image": {
-            "url": "images/odonto-integral.webp",
-            "alt": "odonto-integral demostration photo"
-        },
-        "repo": "https://github.com/julian87nicolas/odontointegral-react",
-        "demo": "https://odontointegralfs.onrender.com/",
-        "tech": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "React"
         ]
     },
     {
@@ -85,23 +101,6 @@
             "HTML",
             "CSS",
             "JavaScript"
-        ]
-    },
-    {
-        "title": "Proyecto IoT",
-        "name": "Smart Float",
-        "description": "Se trata de una Boya inteligente, la cual mediante conexión WiFi provee datos de sus sensores a una base de datos Crate, la cual maneja alertas e históricos de valores. Además, mediante la obtención del horario local mediante un servidor NTP efectúa diariamente la adición de la medida de cloro correspondiente al volumen de la piscina. Como ítem adicional a resaltar, en la realización del código del microcontrolador para realizar todas estas funciones, se contó con la ayuda de la herramienta de reciente aparición “GitHub Copilot”, la cual ahorró gran cantidad de tiempo en el desarrollo del proyecto.",
-        "image": {
-            "url": "images/float-real.webp",
-            "alt": "smart float preview image"
-        },
-        "repo": "https://github.com/julian87nicolas/Smart-float",
-        "demo": "",
-        "tech": [
-            "ESP microcontroller",
-            "Grafana",
-            "Crate DB",
-            "C programming language"
         ]
     }
 ]

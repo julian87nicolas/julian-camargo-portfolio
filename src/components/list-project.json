@@ -7,9 +7,8 @@
             "url": "images/SSPA.webp",
             "alt": "SSPA project demonstration"
         },
-        "repo": [
-            "https://github.com/SPAUTN"
-        ],
+        "repo":"https://github.com/orgs/SPAUTN/repositories",
+        "demo": "https://github.com/SPAUTN",
         "tech": [
             "C/C++",
             "Platformio",
@@ -18,6 +17,40 @@
             "PostgreSQL",
             "Grafana",
             "Lora"
+        ]
+    },
+    {
+        "title": "IoT Project",
+        "name": "Smart Float",
+        "description": "It is an smart float, which through WiFi connection provides data from its sensors to a database Crate, which manages alerts and historical values. In addition, by obtaining the local time using a NTP server performs daily the addition of the chlorine measurement corresponding to the volume of the pool. <br> As an additional item to highlight, in the realization of the microcontroller code to perform all these functions, it was aided by the recently released “GitHub Copilot” tool, which saved a lot of time in the development of the project.",
+        "image": {
+            "url": "images/float-real.webp",
+            "alt": "smart float preview image"
+        },
+        "repo": "https://github.com/julian87nicolas/Smart-float",
+        "demo": "",
+        "tech": [
+            "ESP microcontroller",
+            "Grafana",
+            "Crate DB",
+            "C programming language"
+        ]
+    },
+    {
+        "title": "Contact Page",
+        "name": "Website for dental professional",
+        "description": "Website made to obtain information about a particular dental specialist. It was carried out under the requirements of the dental specialist in question, fulfilling the same by far. It has a home page, which has contact links, medical information (posts) and a drop-down list to consult the medical/prepaid social security accepted by the professional. It also has a page with information about the professional in question, which adds the experience and the fields of action of the same. The site was recently updated, being built with React for better performance and easy maintenance.",
+        "image": {
+            "url": "images/odonto-integral.webp",
+            "alt": "odonto-integral demostration photo"
+        },
+        "repo": "https://github.com/julian87nicolas/odontointegral-react",
+        "demo": "https://odontointegralfs.onrender.com/",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React"
         ]
     },
     {
@@ -36,23 +69,6 @@
             "React",
             "Bootstrap",
             "Axios"
-        ]
-    },
-    {
-        "title": "Contact Page",
-        "name": "Website for dental professional",
-        "description": "Website made to obtain information about a particular dental specialist. It was carried out under the requirements of the dental specialist in question, fulfilling the same by far. It has a home page, which has contact links, medical information (posts) and a drop-down list to consult the medical/prepaid social security accepted by the professional. It also has a page with information about the professional in question, which adds the experience and the fields of action of the same. The site was recently updated, being built with React for better performance and easy maintenance.",
-        "image": {
-            "url": "images/odonto-integral.webp",
-            "alt": "odonto-integral demostration photo"
-        },
-        "repo": "https://github.com/julian87nicolas/odontointegral-react",
-        "demo": "https://odontointegralfs.onrender.com/",
-        "tech": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "React"
         ]
     },
     {
@@ -85,23 +101,6 @@
             "HTML",
             "CSS",
             "JavaScript"
-        ]
-    },
-    {
-        "title": "IoT Project",
-        "name": "Smart Float",
-        "description": "It is an smart float, which through WiFi connection provides data from its sensors to a database Crate, which manages alerts and historical values. In addition, by obtaining the local time using a NTP server performs daily the addition of the chlorine measurement corresponding to the volume of the pool. <br> As an additional item to highlight, in the realization of the microcontroller code to perform all these functions, it was aided by the recently released “GitHub Copilot” tool, which saved a lot of time in the development of the project.",
-        "image": {
-            "url": "images/float-real.webp",
-            "alt": "smart float preview image"
-        },
-        "repo": "https://github.com/julian87nicolas/Smart-float",
-        "demo": "",
-        "tech": [
-            "ESP microcontroller",
-            "Grafana",
-            "Crate DB",
-            "C programming language"
         ]
     }
 ]
