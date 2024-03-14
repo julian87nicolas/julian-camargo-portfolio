@@ -2,12 +2,12 @@
 as the font stacks and sizes. */
 
 :root{
-  --black: #2e3440;
+  --black: #1b1e25;
   --dkblue: #3b4252;
   --plum: #4c566a;
-  --hotmag: #a3be8c;
-  --magenta: #8fbcbb;
-  --aqua: #5e81ac;
+  --hotmag: #5e81ac;
+  --magenta: #81a1c1;
+  --aqua: #d8dee9;
   --white: #f7f8fa;
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
