@@ -11,16 +11,15 @@ function About () {
                     <div className="text">
                         <h3>Highlights</h3>
                             <p className="blackbox">
-                            Nací y actualmente vivo en Argentina. Soy un estudiante avanzado de la carrera Ingeniería en electrónica en la Universidad Tecnológica Nacional. Actualmente estoy cursando el último año de la carrera. Además de los contenidos estudiados durante la carrera, que incluyen mayormente programación en C, Matlab y recursos matemáticos y estadísticos, he tomado numerosos cursos para obtener conocimientos de programación. La mayoría de ellos orientados a programación en lenguaje Python (mayormente usado para machine learning), desarrollo frontend de páginas web y manejo básico de base de datos.
+                                Como Desarrollador Backend Java en Sitrack, tengo el privilegio de combinar mi pasión por la programación con mi formación académica en Ingeniería Electrónica en la Universidad Tecnológica Nacional FRM. En mi día a día, aprovecho esta fusión de habilidades para contribuir a proyectos innovadores y desafiantes. Fuera del ámbito laboral y universitario, mi curiosidad por la tecnología me ha llevado a sumergirme en el fascinante mundo del Machine Learning. Me dedico de manera autodidacta a explorar sus conceptos, algoritmos y aplicaciones, siempre buscando nuevas formas de expandir mis conocimientos y aplicarlos de manera creativa en mi trabajo y proyectos personales. Esta combinación de experiencia práctica y aprendizaje continuo no solo me impulsa profesionalmente, sino que también alimenta mi entusiasmo por seguir descubriendo los límites de la tecnología y su potencial para transformar el mundo
                             </p>
                             <h4>Mis tecnologías favoritas son:</h4>
                             <ul>
-                                <li>HTML</li>
-                                <li>CSS</li>
+                                <li>Java</li>
+                                <li>C/C++</li>
+                                <li>Python</li>
                                 <li>JavaScript</li>
                                 <li>React</li>
-                                <li>Python</li>
-                                <li>C</li>
                             </ul>
                     </div>
                     <img src="images/profile.webp" alt="perfil" className="profile"/>
