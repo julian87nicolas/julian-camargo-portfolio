@@ -1,72 +1,107 @@
 [
     {
-        "title": "Último proyecto - ReactFlix",
+        "title": "Último proyecto - SPA",
+        "name": "Sistema SPA - Proyecto Final Ingeniería Electrónica",
+        "description": "Proyecto de culminación para la carrera de Ingeniería Electrónica, el cual implementa una arquitectura de comunicación maestro-esclavo entre dos microcontroladores utilizando LoRa. Integrado con diversos sensores, se establece una conexión con un servidor para la creación de una API, respaldada por una base de datos PostgreSQL. Además, se emplea Grafana como herramienta de visualización para monitorear y hacer seguimiento de variables relacionadas con el microclima. Este sistema permite llevar a cabo un riego preciso, fusionando funcionalidades de una estación meteorológica con las capacidades de un lisímetro de pesada.",
+        "image": {
+            "url": "images/SSPA.webp",
+            "alt": "SSPA project demostration"
+        },
+        "repo": [
+            "https://github.com/SPAUTN"
+        ],
+        "tech": [
+            "C/C++",
+            "Platformio",
+            "LoRa",
+            "JavaScript",
+            "NodeJs",
+            "PostgreSQL",
+            "Grafana"
+        ]
+    },
+    {
+        "title": "ReactFlix",
         "name": "Sitio web sobre películas",
         "description": "Aplicación web realizada con React. Obtiene datos de películas desde la API \"themoviedb.org\". La app provee informacion como reviews, fotos, puntajes, fecha de estreno, reparto, etc. El estilo de la página fue realizado con Bootstap. La aplicación permite buscar y añadir películas a una lista de favoritos. Para testear la aplicación ingresar con el nombre de usuario \"reactflix@test.com\" y constraseña \"react\".",
         "image": {
-            "url":"images/reactflix.webp",
+            "url": "images/reactflix.webp",
             "alt": "react-flix app demostration"
         },
         "repo": "https://github.com/julian87nicolas/react-flix-app",
         "tech": [
-            "HTML", "CSS", "JavaScript", "React", "Bootstrap", "Axios"
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Bootstrap",
+            "Axios"
         ]
-
     },
     {
         "title": "Página de contacto",
         "name": "Sitio web para profesional odontológico",
         "description": "Sitio web realizado para obtener información sobre un especialista odontológico particular. El mismo se realizó bajo los requerimientos del especialista odontológico en cuestión, cumpliendo los mismos con creces. Cuenta con una página de inicio, la cual posee links de contacto, información médica (posteos) y una lista desplegable para consultar las obras sociales aceptadas por el profesional. Además posee una página con información sobre el profesional en cuestión, la cual añade la experiencia y los campos de acción del mismo. El sitio fue recientemente actualizado, siendo construido con React para un mejor funcionamiento y fácil mantenimiento.",
         "image": {
-            "url":"images/odonto-integral.webp",
+            "url": "images/odonto-integral.webp",
             "alt": "odonto-integral demostration photo"
         },
         "repo": "https://github.com/julian87nicolas/odontointegral-react",
         "demo": "https://odontointegralfs.onrender.com/",
         "tech": [
-            "HTML", "CSS", "JavaScript", "React"
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React"
         ]
-
     },
     {
-        "title":"Proyecto Introducción a APIs",
-        "name":"Doggos app",
-        "description":"Aplicación que muestra imagenes aleatorias de perros, las cuales son requeridas a una API (doggos). Permite seleccionar una raza de perros de una lista o simplemente que sea una raza aleatoria. Esta aplicación fue realizada con CSS puro y JavaScript. Es un proyecto hecho para el curso de FrontEndMasters y su propósito es puramente para aprendizaje y práctica.",
+        "title": "Proyecto Introducción a APIs",
+        "name": "Doggos app",
+        "description": "Aplicación que muestra imagenes aleatorias de perros, las cuales son requeridas a una API (doggos). Permite seleccionar una raza de perros de una lista o simplemente que sea una raza aleatoria. Esta aplicación fue realizada con CSS puro y JavaScript. Es un proyecto hecho para el curso de FrontEndMasters y su propósito es puramente para aprendizaje y práctica.",
         "image": {
-            "url":"images/doggos.webp",
-            "alt":"doggos app screenshot"
+            "url": "images/doggos.webp",
+            "alt": "doggos app screenshot"
         },
-        "repo":"https://github.com/julian87nicolas/Doggos-App",
-        "demo":"",
-        "tech":[
+        "repo": "https://github.com/julian87nicolas/Doggos-App",
+        "demo": "",
+        "tech": [
             "HTML",
             "CSS",
             "JavaScript"
         ]
     },
     {
-        "title":"Introducción al desarrollo web",
-        "name":"App calculadora",
-        "description":"Aplicación web hecha con CSS y JS para simular el funcionamiento y aspecto de la calculadora de celulares iOS. Esta aplicación está hecha con CSS y JavaScript. Es un proyecto hecho para el curso FrontEndMasters.",
+        "title": "Introducción al desarrollo web",
+        "name": "App calculadora",
+        "description": "Aplicación web hecha con CSS y JS para simular el funcionamiento y aspecto de la calculadora de celulares iOS. Esta aplicación está hecha con CSS y JavaScript. Es un proyecto hecho para el curso FrontEndMasters.",
         "image": {
-            "url":"images/calculator.webp",
-            "alt":"calculator app screenshot"
+            "url": "images/calculator.webp",
+            "alt": "calculator app screenshot"
         },
-        "repo":"https://github.com/julian87nicolas/CSSandJSCalculator",
-        "demo":"",
-        "tech":["HTML", "CSS", "JavaScript"]
+        "repo": "https://github.com/julian87nicolas/CSSandJSCalculator",
+        "demo": "",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ]
     },
     {
-        "title":"Proyecto IoT",
-        "name":"Smart Float",
-        "description":"Se trata de una Boya inteligente, la cual mediante conexión WiFi provee datos de sus sensores a una base de datos Crate, la cual maneja alertas e históricos de valores. Además, mediante la obtención del horario local mediante un servidor NTP efectúa diariamente la adición de la medida de cloro correspondiente al volumen de la piscina. Como ítem adicional a resaltar, en la realización del código del microcontrolador para realizar todas estas funciones, se contó con la ayuda de la herramienta de reciente aparición “GitHub Copilot”, la cual ahorró gran cantidad de tiempo en el desarrollo del proyecto.",
+        "title": "Proyecto IoT",
+        "name": "Smart Float",
+        "description": "Se trata de una Boya inteligente, la cual mediante conexión WiFi provee datos de sus sensores a una base de datos Crate, la cual maneja alertas e históricos de valores. Además, mediante la obtención del horario local mediante un servidor NTP efectúa diariamente la adición de la medida de cloro correspondiente al volumen de la piscina. Como ítem adicional a resaltar, en la realización del código del microcontrolador para realizar todas estas funciones, se contó con la ayuda de la herramienta de reciente aparición “GitHub Copilot”, la cual ahorró gran cantidad de tiempo en el desarrollo del proyecto.",
         "image": {
-            "url":"images/float-real.webp",
-            "alt":"smart float preview image"
+            "url": "images/float-real.webp",
+            "alt": "smart float preview image"
         },
-        "repo":"https://github.com/julian87nicolas/Smart-float",
-        "demo":"",
-        "tech":["ESP microcontroller", "Grafana","Crate DB", "C programming language"]
+        "repo": "https://github.com/julian87nicolas/Smart-float",
+        "demo": "",
+        "tech": [
+            "ESP microcontroller",
+            "Grafana",
+            "Crate DB",
+            "C programming language"
+        ]
     }
 ]
-
