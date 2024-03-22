@@ -70,37 +70,5 @@
             "Bootstrap",
             "Axios"
         ]
-    },
-    {
-        "title": "Introduction to APIs proyect",
-        "name": "Doggos app",
-        "description": "Application that displays random images of dogs, which are requested from a doggos API. Allows you to select a dog breed from a list or select a breed at random. This app is made with pure CSS and JavaScript. It is a project made for the FrontEndMaster course. This was done for practice and learning purposes only.",
-        "image": {
-            "url": "images/doggos.webp",
-            "alt": "doggos app screenshot"
-        },
-        "repo": "https://github.com/julian87nicolas/Doggos-App",
-        "demo": "",
-        "tech": [
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ]
-    },
-    {
-        "title": "Intro to web development project",
-        "name": "Calculator app",
-        "description": "Web app made with CSS and JS to simulate a calculator that looks like iOS calculator app. This app is made with pure CSS and JavaScript. It is a project made for the FrontEndMaster course.",
-        "image": {
-            "url": "images/calculator.webp",
-            "alt": "calculator app screenshot"
-        },
-        "repo": "https://github.com/julian87nicolas/CSSandJSCalculator",
-        "demo": "",
-        "tech": [
-            "HTML",
-            "CSS",
-            "JavaScript"
-        ]
     }
 ]
