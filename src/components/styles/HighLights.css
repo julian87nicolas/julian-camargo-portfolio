@@ -8,8 +8,6 @@
 
 .section-black {
   background-color: var(--plum);
-  border-left: 1px solid var(--aqua);
-  border-bottom: 1px solid var(--aqua);
 }
 
 .hl_item {
@@ -89,13 +87,15 @@
 
 
 @media (min-width: 800px) {
-  article {
+
+  article .hl_article{
     display: flex;
     justify-content: flex-start;
   }
 
-  .text {
+  .hl_text {
     text-align: left;
+    width: max-content;
   }
 
   #highlights ul {
