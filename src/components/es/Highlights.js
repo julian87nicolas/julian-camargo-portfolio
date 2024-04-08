@@ -8,8 +8,8 @@ function Highlights() {
             <h2>Hitos</h2>
             {listHighlights.map( (highl, idx) =>
             <div className="hl_item"> 
-            <article>
-                <div class="text">
+            <article className="hl_article">
+                <div class="hl_text">
                     
                     <h3>{highl.title} - { highl.company.url && <a href={highl.company.url} target="_blank" rel="noreferrer">{highl.company.name}</a> }{ !highl.company.url && highl.company.name }</h3>        
                     <h5>{highl.time_interval}</h5>
