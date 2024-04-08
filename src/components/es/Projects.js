@@ -5,7 +5,7 @@ function Projects () {
     return (
     <div className="section-blue">
         <section id="projects">
-        <h2>Proyectos realizados</h2>
+        <h2>Side projects</h2>
         
             {listProjects.map( (proj, idx) =>
                     <> 
