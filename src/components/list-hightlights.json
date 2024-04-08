@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Java Backend Developer",
+        "company": {
+            "name": "Sitrack",
+            "desc": "Leading technology company providing vehicle and asset tracking and monitoring solutions.",
+            "url": "https://www.sitrack.com/"
+        },
+        "time_interval": "June 2022 - Present",
+        "description": [
+            {
+                "summary": "Development and monitoring of microservices",
+                "tech": "Java 17, PostgreSQL, MongoDB, Redis, Kubernetes, Docker, Stern, Datadog."
+            },
+            {
+                "summary": "Migration and adoption of systems in GCP cloud environments",
+                "tech": "Cloud Functions, Cloud Scheduler, Compute Engine, Cloud Storage (Buckets)"
+            },
+            {
+                "summary": "Automation of processes through scripting",
+                "tech": "Python 3, Bash script"
+            },
+            {
+                "summary": "Development of unit tests",
+                "tech": "Junit, Mockito"
+            }
+        ]
+    }
+]
