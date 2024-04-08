@@ -1,0 +1,126 @@
+/*------------------------PROJECT and ABOUT page------------------------*/
+#highlights {
+  /*padding: 4rem 1rem;*/
+  padding: 4rem 1rem 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-black {
+  background-color: var(--plum);
+  border-left: 1px solid var(--aqua);
+  border-bottom: 1px solid var(--aqua);
+}
+
+.hl_item {
+  /*add border to round the item*/
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black);
+  color: var(--white);
+  border-left: 1px solid var(--aqua);
+  border-bottom: 1px solid var(--aqua);
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.hl_item:hover {
+  cursor: pointer;
+  transform: scale(1.025);
+}
+
+.blackbox {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  background-color: var(--black);
+  font-size: 1rem;
+  line-height: 1.5;
+  border-left: 1px solid var(--aqua);
+  border-bottom: 1px solid var(--aqua);
+}
+
+
+#highlights ul {
+  list-style: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+#highlights ul .tech {
+  list-style: none;
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+#highlights h2 {
+  font-size: 2.5rem;
+  margin-bottom: calc(2.5rem * 1.5);
+}
+
+#highlights h3 {
+  color: var(--aqua);
+}
+#highlights h4 {
+  font-size: 1.2rem;
+  margin: 1rem 0 0 0;
+  padding-bottom: 0;
+}
+
+#highlights h5 {
+  font-size: 1rem;
+  font-family: var(--mono);
+  margin: 0;
+}
+
+#highlights a {
+  color: var(--magenta);
+  text-decoration: none;
+}
+
+#highlights a:hover {
+  color: var(--hotmag);
+}
+
+
+@media (min-width: 800px) {
+  article {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .text {
+    text-align: left;
+  }
+
+  #highlights ul {
+    justify-content: flex-start;
+  }
+}
+
+.cross-fade-leave {
+  opacity: 1;
+}
+
+.cross-fade-leave.cross-fade-leave-active {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.cross-fade-enter {
+  opacity: 0;
+}
+
+.cross-fade-enter.cross-fade-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.cross-fade-height {
+  transition: height 0.5s ease-in-out;
+}
