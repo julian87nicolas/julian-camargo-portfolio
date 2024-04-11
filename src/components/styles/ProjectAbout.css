@@ -6,7 +6,19 @@
     max-width: 1200px;
     margin: 0 auto;
   }
+
+  @keyframes initialTransition {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
   .section-blue{
+    animation: initialTransition 1s ease-out forwards;
     background-color: var(--dkblue);
   }
   
@@ -19,6 +31,7 @@
     line-height: 1.5;
     border-left: 1px solid var(--aqua);
     border-bottom: 1px solid var(--aqua);
+    transition: transform 0.5s ease;
   }
   
   
@@ -64,7 +77,11 @@
   #projects a:hover{
     color: var(--hotmag);
   }
-  
+
+  .blackbox:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
   
   @media (min-width: 800px) {
     article {
