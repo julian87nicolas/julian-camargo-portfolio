@@ -1,6 +1,10 @@
 /* variables declared here - these are the colors for our pages, as well
 as the font stacks and sizes. */
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root{
   --black: #1b1e25;
   --dkblue: #3b4252;
