@@ -1,12 +1,27 @@
 [
     {
+        "title": "Semi Sr Backend Developer",
+        "company": {
+            "name": "IT Patagonia",
+            "desc": "Certified B technology consulting firm.",
+            "url": "https://itpatagonia.com/"
+        },
+        "time_interval": "June 2024 - Present",
+        "description": [
+            {
+                "summary": "Migration to Java microservices of ICBC bank's current middleware layer.",
+                "tech": "Java 8, Cucumber, Junit, AppFlow, Kibana."
+            }
+        ]
+    },
+    {
         "title": "Java Backend Developer",
         "company": {
             "name": "Sitrack",
-            "desc": "Leading technology company providing vehicle and asset tracking and monitoring solutions.",
+            "desc": "Leading technology company providing vehicle and asset tracking and monitoring solutions",
             "url": "https://www.sitrack.com/"
         },
-        "time_interval": "June 2022 - Present",
+        "time_interval": "June 2022 - June 2024",
         "description": [
             {
                 "summary": "Development and monitoring of microservices",
