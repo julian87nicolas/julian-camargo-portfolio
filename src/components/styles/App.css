@@ -6,13 +6,13 @@ html {
 }
 
 :root{
-  --black: #1b1e25;
-  --dkblue: #3b4252;
-  --plum: #4c566a;
-  --hotmag: #5e81ac;
-  --magenta: #81a1c1;
-  --aqua: #d8dee9;
-  --white: #f7f8fa;
+  --black: #0f1115;
+  --dkblue: #171b23;
+  --plum: #1f2632;
+  --hotmag: #5b7fa3;
+  --magenta: #8cb4d9;
+  --aqua: #e6eef7;
+  --white: #f6f8fb;
   --font-size: 1.3rem;
   --mono: "Oxygen mono", monospace;
   --sans: Oxygen, sans-serif;
@@ -35,6 +35,10 @@ body{
   margin: 0;
 
   font-family: var(--sans);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(140, 180, 217, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 90% 0%, rgba(91, 127, 163, 0.16) 0%, transparent 35%),
+    linear-gradient(180deg, #0e1118 0%, #0f1115 40%, #11151d 100%);
   background-color: var(--black);
   color: var(--white);
   font-size: var(--font-size);
@@ -62,8 +66,7 @@ img{
 /*--------------------BORDER GRADIENT--------------------*/
 .border-gradient{
   height: 2px;
-  background: var(--hotmag);
-  background: linear-gradient(90deg, var(--hotmag) 35%, var(--aqua) 70%);
+  background: linear-gradient(90deg, rgba(91, 127, 163, 0.3) 0%, rgba(140, 180, 217, 0.9) 50%, rgba(230, 238, 247, 0.25) 100%);
 }
 
 .sr-only {
