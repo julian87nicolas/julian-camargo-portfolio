@@ -13,7 +13,11 @@ html {
   --magenta: #8cb4d9;
   --aqua: #e6eef7;
   --white: #f6f8fb;
-  --font-size: 1.3rem;
+  --font-size: 1rem;
+  --step-1: 1.125rem;
+  --step-2: 1.5rem;
+  --step-3: 2rem;
+  --step-4: clamp(2.4rem, 4vw, 3.4rem);
   --mono: "Oxygen mono", monospace;
   --sans: Oxygen, sans-serif;
 }
@@ -42,10 +46,12 @@ body{
   background-color: var(--black);
   color: var(--white);
   font-size: var(--font-size);
+  line-height: 1.6;
 }
 
 h1, h2, h3{
   margin: 0;
+  line-height: 1.2;
 }
 
 a{

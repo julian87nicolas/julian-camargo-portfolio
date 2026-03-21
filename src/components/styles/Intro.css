@@ -1,14 +1,15 @@
 
 #intro{
-    padding-bottom: 10rem;
-    padding: 4rem 1rem 10rem 1rem;
+    padding-bottom: 8rem;
+    padding: 4.5rem 1rem 8rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 #intro p{
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: var(--step-1);
+    line-height: 1.75;
+    max-width: 66ch;
 }
 
 #intro .name{
@@ -17,12 +18,15 @@
 
 .name span{
     font-family: var(--sans);
-    font-size: 4rem;
+    font-size: clamp(2.2rem, 8vw, 4.2rem);
     color: var(--aqua);
     display: block;
+    letter-spacing: 0.015em;
 }
 
 #intro h2{
-    font-size: 4rem;
+    font-size: var(--step-4);
     font-weight: normal;
+    max-width: 18ch;
+    margin: 1.25rem 0 1.5rem;
 }
