@@ -1,0 +1,86 @@
+#certifications {
+  padding: 5rem var(--section-pad-x);
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+#certifications h2 {
+  font-size: var(--step-3);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.9rem;
+}
+
+.cert-intro {
+  margin: 0 0 2rem;
+  color: var(--text-soft);
+  max-width: 65ch;
+}
+
+.cert-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+}
+
+.cert-card {
+  padding: 1.2rem 1.1rem;
+}
+
+.cert-meta {
+  margin: 0 0 0.45rem;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+}
+
+.cert-card h3 {
+  margin: 0 0 0.65rem;
+  color: var(--aqua);
+  line-height: 1.35;
+  font-size: 1.02rem;
+}
+
+.cert-card a {
+  font-size: 0.92rem;
+  color: var(--magenta);
+}
+
+.cert-card a:hover {
+  color: var(--hotmag);
+}
+
+.cert-more {
+  margin-top: 1.6rem;
+}
+
+.cert-more-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8.3rem;
+  height: 2.2rem;
+  padding: 0 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--chip-border-soft);
+  background: var(--chip-bg-soft);
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cert-more-link:hover {
+  color: var(--aqua);
+  border-color: color-mix(in srgb, var(--magenta) 48%, transparent);
+}
+
+@media (min-width: 800px) {
+  #certifications {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  #certifications h2 {
+    font-size: clamp(2rem, 3.5vw, 3.1rem);
+  }
+}

@@ -6,10 +6,10 @@ function Intro () {
         <section id="intro">
             <p className="name">Hola, soy <span>Julián Camargo.</span></p>
 
-            <h2>Construyo sistemas backend confiables para productos que necesitan escalar.</h2>
+            <h2>Desarrollador backend con foco en Java, cloud e integraciones IoT.</h2>
 
             <p>
-            Desarrollador Backend y de Software/Firmware, actualmente en <a href="https://www.sitrack.com" target="_blank" rel="noreferrer">Sitrack</a> y estudiante avanzado de ingeniería electrónica. Enfocado en arquitectura limpia, microservicios resilientes y aprendizaje continuo.
+            Desarrollador backend especializado en microservicios Java, infraestructura cloud e integración entre software y sistemas embebidos. Experiencia en proyectos de migración cloud, automatización de CI/CD y diseño de APIs para servicios escalables y confiables.
             </p>
 
             <div className="intro-actions">

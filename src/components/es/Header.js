@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { FaAward, FaCircleInfo, FaCode, FaEnvelope, FaGears, FaGithub, FaMoon, FaSun, FaUser } from "react-icons/fa6";
+import { FaAward, FaCertificate, FaCircleInfo, FaCode, FaEnvelope, FaGears, FaGithub, FaMoon, FaSun, FaUser } from "react-icons/fa6";
 
 import "./../styles/Header.css"
 
@@ -24,6 +24,11 @@ function Header({ theme, onToggleTheme }) {
                         <li>
                             <a href="/es/#projects">
                                 Proyectos <FaGears className="fa-solid fa-gears" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/es/#certifications">
+                                Certificaciones <FaCertificate className="fa-solid fa-certificate" />
                             </a>
                         </li>
                         <li>

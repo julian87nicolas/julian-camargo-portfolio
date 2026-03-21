@@ -36,7 +36,7 @@ nav a {
   color: var(--white);
   text-decoration: none;
   display: block;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  transition: color var(--theme-transition-duration) var(--theme-transition-easing), opacity var(--theme-transition-duration) var(--theme-transition-easing);
   opacity: 0.86;
 }
 
@@ -61,7 +61,7 @@ nav li:first-child {
 
 nav li:first-child {
   color: var(--aqua);
-  transition: color 0.2s ease;
+  transition: color var(--theme-transition-duration) var(--theme-transition-easing);
 }
 
 nav li:first-child a:hover {
@@ -75,7 +75,7 @@ nav .resume a {
   padding: 0.48rem 0.82rem;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--magenta) 35%, transparent);
-  transition: all 0.2s ease;
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-easing), border-color var(--theme-transition-duration) var(--theme-transition-easing), color var(--theme-transition-duration) var(--theme-transition-easing), box-shadow var(--theme-transition-duration) var(--theme-transition-easing);
   opacity: 1;
 }
 
@@ -108,7 +108,7 @@ nav .resume a:active {
   border: 1px solid color-mix(in srgb, var(--magenta) 32%, transparent);
   background: color-mix(in srgb, var(--magenta) 14%, transparent);
   cursor: pointer;
-  transition: background-color 0.24s ease, border-color 0.24s ease;
+  transition: background-color var(--theme-transition-duration) var(--theme-transition-easing), border-color var(--theme-transition-duration) var(--theme-transition-easing), color var(--theme-transition-duration) var(--theme-transition-easing);
 }
 
 .theme-switch:hover {
@@ -126,7 +126,7 @@ nav .resume a:active {
   background: color-mix(in srgb, var(--black) 75%, white 25%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   transform: translateX(0);
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), color 0.24s ease, background-color 0.24s ease;
+  transition: transform var(--theme-transition-duration) var(--theme-transition-easing), color var(--theme-transition-duration) var(--theme-transition-easing), background-color var(--theme-transition-duration) var(--theme-transition-easing), border-color var(--theme-transition-duration) var(--theme-transition-easing), box-shadow var(--theme-transition-duration) var(--theme-transition-easing);
 }
 
 .theme-switch.is-light .theme-switch-thumb {

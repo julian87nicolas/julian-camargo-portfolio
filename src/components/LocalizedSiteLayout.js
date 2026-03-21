@@ -35,7 +35,7 @@ function LocalizedSiteLayout({
 
     window.setTimeout(() => {
       setIsThemeFlowActive(false);
-    }, 460);
+    }, 900);
   };
 
   return (
