@@ -10,7 +10,7 @@
         "description": [
             {
                 "summary": "Migration to Java microservices of ICBC bank's current middleware layer.",
-                "tech": "Java 8, Cucumber, Junit, AppFlow, Kibana."
+                "tech": "Java 8, Cucumber, JUnit, AppFlow, Kibana."
             }
         ]
     },
@@ -37,7 +37,7 @@
             },
             {
                 "summary": "Development of unit tests",
-                "tech": "Junit, Mockito"
+                "tech": "JUnit, Mockito"
             }
         ]
     }
