@@ -38,7 +38,7 @@ function Header() {
 
                         <li>
                             <a href="https://github.com/julian87nicolas" target="_blank" rel="noreferrer">
-                                Github <i className="fa-brands fa-github"></i>
+                                GitHub <i className="fa-brands fa-github"></i>
                             </a>
                         </li>
                         <li className="resume">
@@ -48,7 +48,7 @@ function Header() {
                         </li>
                         <li>
                             <Link to="/">
-                                <img src="images/spain.png" alt="sitio en español" />
+                                <img src="images/united-states.png" alt="Switch to English" />
                             </Link>
                         </li>
                     </ul>

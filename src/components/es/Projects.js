@@ -5,7 +5,7 @@ function Projects () {
     return (
     <div className="section-blue">
         <section id="projects">
-        <h2>Side projects</h2>
+        <h2>Proyectos personales</h2>
         
                 {listProjects.map( (proj, idx) =>
                     <article className={ idx % 2 === 0 ? "reverse" : "" } key={`${proj.name}-${idx}`}>

@@ -19,5 +19,5 @@ test('renders spanish landing page for es route', () => {
     </MemoryRouter>
   );
 
-  expect(screen.getByRole('heading', { name: /side projects/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /proyectos personales/i })).toBeInTheDocument();
 });
