@@ -13,8 +13,8 @@ function English () {
             <Header />
             <div id='content'>
                 <Routes>
-                    <Route path='/' element={<Mainpage />} />
-                    <Route path='/about' element={<About />} />
+                    <Route index element={<Mainpage />} />
+                    <Route path='about' element={<About />} />
                 </Routes>
             </div>
             <Footer />
