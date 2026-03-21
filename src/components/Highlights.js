@@ -6,27 +6,26 @@ function Highlights() {
         <div className="section-black">
             <section id="highlights">
                 <h2>Highlights</h2>
-                {listHighlights.map((highl, idx) =>
-                    <div className="hl_item surface-card" key={`${highl.title}-${idx}`}>
-                        <article className="hl_article">
-                            <div className="hl_text">
-
+                <div className="hl_timeline">
+                    {listHighlights.map((highl, idx) =>
+                        <article className="hl_item surface-card" key={`${highl.title}-${idx}`}>
+                            <span className="hl_marker" aria-hidden="true"></span>
+                            <div className="hl_content">
+                                <p className="hl_time">{highl.time_interval}</p>
                                 <h3>{highl.title} - {highl.company.url && <a href={highl.company.url} target="_blank" rel="noreferrer">{highl.company.name}</a>}{!highl.company.url && highl.company.name}</h3>
-                                <h5>{highl.time_interval}</h5>
-                                <h4>Description:</h4>
-                                {highl.description.map((d, descIdx) =>
-                                    <ul key={`${highl.title}-${descIdx}`}>
-                                        <li>{d.summary}:
-                                            <ul>
-                                                <li className="tech">Technologies used: {d.tech}</li>
-                                            </ul>
+                                <h4>Description</h4>
+                                <ul className="hl_points">
+                                    {highl.description.map((d, descIdx) =>
+                                        <li key={`${highl.title}-${descIdx}`}>
+                                            <p>{d.summary}</p>
+                                            <p className="tech">Technologies used: {d.tech}</p>
                                         </li>
-                                    </ul>
-                                )}
+                                    )}
+                                </ul>
                             </div>
                         </article>
-                    </div>
-                )}
+                    )}
+                </div>
             </section>
             <div className="border-gradient"></div>
         </div>
