@@ -36,7 +36,6 @@ nav a {
 nav li:first-child {
   flex-basis: 100%;
   text-align: left;
-  padding-left: auto;
 }
 
 nav li:first-child {
@@ -54,7 +53,7 @@ nav .resume a {
   color: var(--black);
   padding: 0.5rem;
   border-radius: 0.5rem;
-  transition: all 0.5;
+  transition: all 0.5s;
 }
 
 nav .resume a:hover {

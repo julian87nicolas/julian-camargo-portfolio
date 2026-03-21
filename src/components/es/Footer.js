@@ -1,4 +1,5 @@
 import Contact from "./Contact"
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 import "../styles/Footer.css"
 
 function Footer() {
@@ -10,25 +11,25 @@ function Footer() {
         <ul>
             <li>
                 <a href="https://www.linkedin.com/in/julian-camargo/" target="_blank" rel="noreferrer">
-                    <i className="fa-brands fa-linkedin"></i>
+                    <FaLinkedin className="fa-brands fa-linkedin" />
                     <span className="sr-only">Linkedin</span>
                 </a>
             </li>
             <li>
                 <a href="https://github.com/julian87nicolas" target="_blank" rel="noreferrer">
-                    <i className="fa-brands fa-github"></i>
+                    <FaGithub className="fa-brands fa-github" />
                     <span className="sr-only">Github</span>
                 </a>
             </li>
             <li>
                 <a href="mailto:julicmrgo@gmail.com" target="_blank" rel="noreferrer">
-                    <i className="fa-solid fa-envelope"></i>
+                    <FaEnvelope className="fa-solid fa-envelope" />
                     <span className="sr-only">mail</span>
                 </a>
             </li>
         </ul>                
         </footer>
-        <p class="rights"><small>© 2022 Julián Camargo. All rights reserved</small></p>
+        <p className="rights"><small>© 2022 Julián Camargo. All rights reserved</small></p>
         </>
     )
 }

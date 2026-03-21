@@ -1,4 +1,4 @@
-import listHighlights from "./list-hightlights.json"
+import listHighlights from "./list-highlights.json"
 import "./styles/HighLights.css"
 
 function Highlights() {
@@ -7,15 +7,15 @@ function Highlights() {
             <section id="highlights">
                 <h2>Highlights</h2>
                 {listHighlights.map((highl, idx) =>
-                    <div className="hl_item">
+                    <div className="hl_item" key={`${highl.title}-${idx}`}>
                         <article className="hl_article">
-                            <div class="hl_text">
+                            <div className="hl_text">
 
                                 <h3>{highl.title} - {highl.company.url && <a href={highl.company.url} target="_blank" rel="noreferrer">{highl.company.name}</a>}{!highl.company.url && highl.company.name}</h3>
                                 <h5>{highl.time_interval}</h5>
                                 <h4>Description:</h4>
-                                {highl.description.map(d =>
-                                    <ul>
+                                {highl.description.map((d, descIdx) =>
+                                    <ul key={`${highl.title}-${descIdx}`}>
                                         <li>{d.summary}:
                                             <ul>
                                                 <li className="tech">Technologies used: {d.tech}</li>
@@ -28,7 +28,7 @@ function Highlights() {
                     </div>
                 )}
             </section>
-            <div class="border-gradient"></div>
+            <div className="border-gradient"></div>
         </div>
     );
 }

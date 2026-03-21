@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { FaAward, FaCircleInfo, FaCode, FaEnvelope, FaGears, FaGithub, FaUser } from "react-icons/fa6";
 
 import "./styles/Header.css"
 
@@ -12,43 +13,43 @@ function Header() {
                         <li>
                             <h1>
                                 <NavLink to={"/"}>
-                                    <i className="fa-solid fa-code"></i> Julián Camargo
+                                    <FaCode className="fa-solid fa-code" /> Julián Camargo
                                 </NavLink>
                             </h1>
                         </li>
                         <li>
-                            <a href="./#highlights">
-                                Highlights <i className="fa-solid fa-award"></i>
+                            <a href="/#highlights">
+                                Highlights <FaAward className="fa-solid fa-award" />
                             </a>
                         </li>
                         <li>
-                            <a href="./#projects">
-                                Projects <i className="fa-solid fa-gears"></i>
+                            <a href="/#projects">
+                                Projects <FaGears className="fa-solid fa-gears" />
                             </a>
                         </li>
                         <li>
                             <NavLink to={"/about"}>
-                                About <i className="fa-solid fa-circle-info"></i>
+                                About <FaCircleInfo className="fa-solid fa-circle-info" />
                             </NavLink>
                         </li>
                         <li>
-                            <a href="#contact">
-                                Contact <i className="fa-solid fa-envelope"></i>
+                            <a href="/#contact">
+                                Contact <FaEnvelope className="fa-solid fa-envelope" />
                             </a>
                         </li>
                         <li>
                             <a href="https://github.com/julian87nicolas" target="_blank" rel="noreferrer">
-                                Github <i className="fa-brands fa-github"></i>
+                                GitHub <FaGithub className="fa-brands fa-github" />
                             </a>
                         </li>
                         <li className="resume">
                             <a href="./CV-Eng.pdf" target="_blank" rel="noopener noreferrer">
-                                Resume <i className="fa-solid fa-user"></i>
+                                Resume <FaUser className="fa-solid fa-user" />
                             </a>
                         </li>
                         <li>
                             <Link to="/es/">
-                                <img src="images/united-states.png" alt="english site" />
+                                <img src="images/spain.png" alt="Switch to Spanish" />
                             </Link>
                         </li>
                     </ul>

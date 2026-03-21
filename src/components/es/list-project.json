@@ -5,7 +5,7 @@
         "description": "Proyecto de culminación para la carrera de Ingeniería Electrónica, el cual implementa una arquitectura de comunicación maestro-esclavo entre dos microcontroladores utilizando LoRa. Integrado con diversos sensores, se establece una conexión con un servidor para la creación de una API, respaldada por una base de datos PostgreSQL. Además, se emplea Grafana como herramienta de visualización para monitorear y hacer seguimiento de variables relacionadas con el microclima. Este sistema permite llevar a cabo un riego preciso, fusionando funcionalidades de una estación meteorológica con las capacidades de un lisímetro de pesada.",
         "image": {
             "url": "images/SSPA.webp",
-            "alt": "SSPA project demostration"
+            "alt": "SSPA project demonstration"
         },
         "repo":"https://github.com/orgs/SPAUTN/repositories",
         "demo": "https://github.com/SPAUTN",
@@ -14,7 +14,7 @@
             "Platformio",
             "LoRa",
             "JavaScript",
-            "NodeJs",
+            "Node.js",
             "PostgreSQL",
             "Grafana"
         ]
@@ -42,7 +42,7 @@
         "description": "Sitio web realizado para obtener información sobre un especialista odontológico particular. El mismo se realizó bajo los requerimientos del especialista odontológico en cuestión, cumpliendo los mismos con creces. Cuenta con una página de inicio, la cual posee links de contacto, información médica (posteos) y una lista desplegable para consultar las obras sociales aceptadas por el profesional. Además posee una página con información sobre el profesional en cuestión, la cual añade la experiencia y los campos de acción del mismo. El sitio fue recientemente actualizado, siendo construido con React para un mejor funcionamiento y fácil mantenimiento.",
         "image": {
             "url": "images/odonto-integral.webp",
-            "alt": "odonto-integral demostration photo"
+            "alt": "odonto-integral demonstration photo"
         },
         "repo": "https://github.com/julian87nicolas/odontointegral-react",
         "demo": "https://odontointegralfs.onrender.com/",
@@ -56,10 +56,10 @@
     {
         "title": "ReactFlix",
         "name": "Sitio web sobre películas",
-        "description": "Aplicación web realizada con React. Obtiene datos de películas desde la API \"themoviedb.org\". La app provee informacion como reviews, fotos, puntajes, fecha de estreno, reparto, etc. El estilo de la página fue realizado con Bootstap. La aplicación permite buscar y añadir películas a una lista de favoritos. Para testear la aplicación ingresar con el nombre de usuario \"reactflix@test.com\" y constraseña \"react\".",
+        "description": "Aplicación web realizada con React. Obtiene datos de películas desde la API \"themoviedb.org\". La app provee información como reseñas, fotos, puntajes, fecha de estreno y reparto. El estilo de la página fue realizado con Bootstrap. La aplicación permite buscar y añadir películas a una lista de favoritos. Para testear la aplicación ingresar con el nombre de usuario \"reactflix@test.com\" y contraseña \"react\".",
         "image": {
             "url": "images/reactflix.webp",
-            "alt": "react-flix app demostration"
+            "alt": "react-flix app demonstration"
         },
         "repo": "https://github.com/julian87nicolas/react-flix-app",
         "tech": [

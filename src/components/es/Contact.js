@@ -9,14 +9,14 @@ function Contact() {
                     Siempre interesado en nuevas oportunidades de crecimiento.
                 </p>
                 <p>
-                    <a href="mailto:julicmrgo@gmail.com">Email me</a> - <a href="https://www.linkedin.com/in/julian-camargo/" target="_blank" rel="noreferrer">
+                    <a href="mailto:julicmrgo@gmail.com">Enviame un email</a> - <a href="https://www.linkedin.com/in/julian-camargo/" target="_blank" rel="noreferrer">
                         LinkedIn
                     </a>
                 </p>
 
             </section>
 
-            <div class="border-gradient"></div>
+            <div className="border-gradient"></div>
         </>
     )
 }

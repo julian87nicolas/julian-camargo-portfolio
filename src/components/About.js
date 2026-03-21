@@ -22,7 +22,7 @@ function About () {
                                 <li>React</li>
                             </ul>
                     </div>
-                    <img src="images/profile.webp" alt="profile<" className="profile"/>
+                    <img src="images/profile.webp" alt="Julián Camargo profile" className="profile"/>
                 </article>
                 </section>
             </div>
