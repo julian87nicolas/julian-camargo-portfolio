@@ -7,7 +7,7 @@ function Highlights() {
             <section id="highlights">
                 <h2>Highlights</h2>
                 {listHighlights.map((highl, idx) =>
-                    <div className="hl_item" key={`${highl.title}-${idx}`}>
+                    <div className="hl_item surface-card" key={`${highl.title}-${idx}`}>
                         <article className="hl_article">
                             <div className="hl_text">
 

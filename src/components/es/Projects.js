@@ -9,7 +9,7 @@ function Projects () {
         <h2>Proyectos personales</h2>
         
                 {listProjects.map( (proj, idx) =>
-                    <article className={ idx % 2 === 0 ? "reverse" : "" } key={`${proj.name}-${idx}`}>
+                    <article className={`project-card surface-card ${idx % 2 === 0 ? "reverse" : ""}`.trim()} key={`${proj.name}-${idx}`}>
                         <div className="text">
                             
                             <h4>{proj.title}</h4>

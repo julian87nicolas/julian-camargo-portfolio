@@ -75,6 +75,20 @@ img{
   background: linear-gradient(90deg, rgba(91, 127, 163, 0.3) 0%, rgba(140, 180, 217, 0.9) 50%, rgba(230, 238, 247, 0.25) 100%);
 }
 
+.surface-card {
+  background: linear-gradient(180deg, rgba(22, 27, 35, 0.95) 0%, rgba(15, 17, 21, 0.98) 100%);
+  border: 1px solid rgba(140, 180, 217, 0.24);
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.surface-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(140, 180, 217, 0.45);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
