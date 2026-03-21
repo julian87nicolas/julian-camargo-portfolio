@@ -1,9 +1,19 @@
 /*NAVIGATOR BAR STYLES*/
 
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(15, 17, 21, 0.88) 0%, rgba(15, 17, 21, 0.72) 100%);
+  border-bottom: 1px solid rgba(140, 180, 217, 0.2);
+}
+
 nav {
   font-family: var(--mono);
-  font-size: 80%;
-  padding: 2rem;
+  font-size: 0.78rem;
+  padding: 1.15rem 1.25rem;
 }
 
 nav ul {
@@ -14,18 +24,25 @@ nav ul {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.35rem;
 }
 
 nav h1 a {
   font-family: var(--sans);
+  letter-spacing: 0.01em;
 }
 
 nav a {
   color: var(--white);
   text-decoration: none;
   display: block;
-  transition: all 0.5s;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.86;
+}
+
+nav a.active {
+  color: var(--aqua);
+  opacity: 1;
 }
 
 /*name icon*/
@@ -40,32 +57,31 @@ nav li:first-child {
 
 nav li:first-child {
   color: var(--aqua);
-  transition: all 0.5s;
+  transition: color 0.2s ease;
 }
 
 nav li:first-child a:hover {
-  color: var(--magenta);
+  color: var(--aqua);
 }
 
 /*resume button*/
 nav .resume a {
-  background-color: var(--magenta);
-  color: var(--black);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  transition: all 0.5s;
+  background-color: rgba(140, 180, 217, 0.18);
+  color: var(--aqua);
+  padding: 0.5rem 0.78rem;
+  border-radius: 999px;
+  border: 1px solid rgba(140, 180, 217, 0.35);
+  transition: all 0.2s ease;
+  opacity: 1;
 }
 
 nav .resume a:hover {
   color: var(--white);
+  background-color: rgba(140, 180, 217, 0.26);
 }
 
 nav .resume a:active {
-  padding: 0.25rem;
-  border: solid 0.25rem var(--plum);
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  background-color: var(--hotmag);
+  transform: translateY(1px);
 }
 
 nav li:last-child {
@@ -74,7 +90,12 @@ nav li:last-child {
   right: 0;*/
   border: none;
   list-style: none;
-  width: 2rem;
+  width: 1.6rem;
+}
+
+nav li:last-child img {
+  border-radius: 999px;
+  border: 1px solid rgba(230, 238, 247, 0.4);
 }
 
 
@@ -82,6 +103,7 @@ nav li:last-child {
   nav {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem 1.5rem;
   }
 
   nav li:first-child {

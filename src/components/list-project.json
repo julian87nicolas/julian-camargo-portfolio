@@ -24,7 +24,7 @@
         "name": "Smart Float",
         "description": "It is a smart float that, through a WiFi connection, provides data from its sensors to a Crate database, which manages alerts and historical values. In addition, by obtaining local time from an NTP server, it performs the daily chlorine measurement adjustment corresponding to the pool volume. As an additional point, the microcontroller code for these features was developed with support from GitHub Copilot, which saved significant development time.",
         "image": {
-            "url": "images/float-real.webp",
+            "url": "images/boya.png",
             "alt": "smart float preview image"
         },
         "repo": "https://github.com/julian87nicolas/Smart-float",
@@ -40,8 +40,8 @@
         "title": "Contact Page",
         "name": "Website for dental professional",
         "description": "Website made to obtain information about a particular dental specialist. It was carried out under the requirements of the dental specialist in question, fulfilling the same by far. It has a home page, which has contact links, medical information (posts) and a drop-down list to consult the medical/prepaid social security accepted by the professional. It also has a page with information about the professional in question, which adds the experience and the fields of action of the same. The site was recently updated, being built with React for better performance and easy maintenance.",
-        "image": {
-            "url": "images/odonto-integral.webp",
+            "image": {
+                "url": "images/odontointegral-cover.png",
             "alt": "odonto-integral demonstration photo"
         },
         "repo": "https://github.com/julian87nicolas/odontointegral-react",

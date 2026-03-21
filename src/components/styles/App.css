@@ -6,14 +6,18 @@ html {
 }
 
 :root{
-  --black: #1b1e25;
-  --dkblue: #3b4252;
-  --plum: #4c566a;
-  --hotmag: #5e81ac;
-  --magenta: #81a1c1;
-  --aqua: #d8dee9;
-  --white: #f7f8fa;
-  --font-size: 1.3rem;
+  --black: #0f1115;
+  --dkblue: #171b23;
+  --plum: #1f2632;
+  --hotmag: #5b7fa3;
+  --magenta: #8cb4d9;
+  --aqua: #e6eef7;
+  --white: #f6f8fb;
+  --font-size: 1rem;
+  --step-1: 1.125rem;
+  --step-2: 1.5rem;
+  --step-3: 2rem;
+  --step-4: clamp(2.4rem, 4vw, 3.4rem);
   --mono: "Oxygen mono", monospace;
   --sans: Oxygen, sans-serif;
 }
@@ -35,13 +39,19 @@ body{
   margin: 0;
 
   font-family: var(--sans);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(140, 180, 217, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 90% 0%, rgba(91, 127, 163, 0.16) 0%, transparent 35%),
+    linear-gradient(180deg, #0e1118 0%, #0f1115 40%, #11151d 100%);
   background-color: var(--black);
   color: var(--white);
   font-size: var(--font-size);
+  line-height: 1.6;
 }
 
 h1, h2, h3{
   margin: 0;
+  line-height: 1.2;
 }
 
 a{
@@ -62,8 +72,21 @@ img{
 /*--------------------BORDER GRADIENT--------------------*/
 .border-gradient{
   height: 2px;
-  background: var(--hotmag);
-  background: linear-gradient(90deg, var(--hotmag) 35%, var(--aqua) 70%);
+  background: linear-gradient(90deg, rgba(91, 127, 163, 0.3) 0%, rgba(140, 180, 217, 0.9) 50%, rgba(230, 238, 247, 0.25) 100%);
+}
+
+.surface-card {
+  background: linear-gradient(180deg, rgba(22, 27, 35, 0.95) 0%, rgba(15, 17, 21, 0.98) 100%);
+  border: 1px solid rgba(140, 180, 217, 0.24);
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.surface-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(140, 180, 217, 0.45);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
 }
 
 .sr-only {

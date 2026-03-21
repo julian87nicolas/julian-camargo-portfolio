@@ -4,14 +4,18 @@ function Intro () {
     return (
         <>
         <section id="intro">
-            <p className="name">Hi, my name is <span>Julián Camargo.</span></p>
+            <p className="name">Hi, I am <span>Julián Camargo.</span></p>
 
-            <h2>Backend Developer, advanced student of electronic engineering and specializing in Machine Learning.</h2>    
-            
+            <h2>I build reliable backend systems for products that need to scale.</h2>
+
             <p>
-            Software/Firmware Developer, currently working as Backend Developer at <a href="https://www.sitrack.com" target="_blank" rel="noreferrer">Sitrack</a> and advanced student of electronic engineering
-            at the National Technological University. Interested and in constant training in technologies related to backend development, firmware and machine learning.    
-            </p> 
+            Backend and Software/Firmware Developer, currently working at <a href="https://www.sitrack.com" target="_blank" rel="noreferrer">Sitrack</a> and advanced electronics engineering student. Focused on clean architecture, resilient microservices and continuous learning.
+            </p>
+
+            <div className="intro-actions">
+                <a href="/#projects" className="btn-primary">View Projects</a>
+                <a href="/#contact" className="btn-secondary">Let&apos;s Talk</a>
+            </div>
         </section>
 
         <div className="border-gradient"></div>
