@@ -1,4 +1,5 @@
 import listProjects from "./list-project.json"
+import { FaLink } from "react-icons/fa6";
 import "../styles/ProjectAbout.css"
 
 function Projects () {
@@ -16,8 +17,8 @@ function Projects () {
                                 <p className="blackbox">
                                     {proj.description}
                                 </p>
-                                <h4><a href={proj.repo} target="_blank" rel="noreferrer"><i className="fa-solid fa-link"></i> Link al repositorio!</a></h4>
-                                { proj.demo && <h4><a href={proj.demo} target="_blank" rel="noreferrer"><i className="fa-solid fa-link"></i> Link al sitio web!</a></h4> }
+                                <h4><a href={proj.repo} target="_blank" rel="noreferrer"><FaLink className="fa-solid fa-link" /> Link al repositorio!</a></h4>
+                                { proj.demo && <h4><a href={proj.demo} target="_blank" rel="noreferrer"><FaLink className="fa-solid fa-link" /> Link al sitio web!</a></h4> }
                                 <h4>Tecnologías usadas:</h4>
                                 <ul>
                                 {proj.tech.map((t, techIdx) => <li key={`${proj.name}-${t}-${techIdx}`}>{t}</li>)}
