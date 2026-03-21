@@ -1,9 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
-import { FaAward, FaCircleInfo, FaCode, FaEnvelope, FaGears, FaGithub, FaUser } from "react-icons/fa6";
+import { FaAward, FaCircleInfo, FaCode, FaEnvelope, FaGears, FaGithub, FaMoon, FaSun, FaUser } from "react-icons/fa6";
 
 import "./styles/Header.css"
 
-function Header() {
+function Header({ theme, onToggleTheme }) {
 
     return (
         <>
@@ -47,7 +47,20 @@ function Header() {
                                 Resume <FaUser className="fa-solid fa-user" />
                             </a>
                         </li>
-                        <li>
+                        <li className="theme-toggle">
+                            <button
+                                type="button"
+                                className={`theme-switch ${theme === "light" ? "is-light" : "is-dark"}`}
+                                onClick={onToggleTheme}
+                                aria-label="Switch color mode"
+                                aria-pressed={theme === "light"}
+                            >
+                                <span className="theme-switch-thumb" aria-hidden="true">
+                                    {theme === "dark" ? <FaMoon /> : <FaSun />}
+                                </span>
+                            </button>
+                        </li>
+                        <li className="lang-switch">
                             <Link to="/es/">
                                 <img src="images/spain.png" alt="Switch to Spanish" />
                             </Link>

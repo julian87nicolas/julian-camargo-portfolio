@@ -59,7 +59,7 @@
   font-size: 0.84rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(230, 238, 247, 0.72);
+  color: var(--text-faint);
 }
 
 #highlights .hl_points {
@@ -73,8 +73,8 @@
 #highlights .hl_points li {
   padding: 0.78rem 0.9rem;
   border-radius: 10px;
-  background: rgba(15, 17, 21, 0.45);
-  border: 1px solid rgba(140, 180, 217, 0.16);
+  background: var(--chip-bg-soft);
+  border: 1px solid var(--chip-border-soft);
 }
 
 #highlights .hl_points p {
@@ -87,7 +87,7 @@
 #highlights .hl_points .tech {
   margin-top: 0.35rem;
   font-size: 0.86rem;
-  color: rgba(230, 238, 247, 0.82);
+  color: var(--text-soft);
 }
 
 #highlights h2 {
@@ -106,7 +106,7 @@
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: rgba(230, 238, 247, 0.75);
+  color: var(--text-faint);
   margin: 0;
 }
 

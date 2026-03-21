@@ -34,7 +34,7 @@
 #projects.projects-section .projects-intro {
   margin: 0;
   max-width: var(--reading-max);
-  color: rgba(230, 238, 247, 0.85);
+  color: var(--text-soft);
   font-size: 1.05rem;
   line-height: 1.62;
 }
@@ -57,7 +57,7 @@
   position: relative;
   border: none;
   background: transparent;
-  color: rgba(230, 238, 247, 0.72);
+  color: var(--text-faint);
   padding: 0.5rem 1rem;
   font-family: var(--sans);
   font-size: 1rem;
@@ -76,7 +76,7 @@
   left: 0;
   right: 0;
   bottom: -0.25rem;
-  border-top: 1px solid rgba(230, 238, 247, 0.95);
+  border-top: 1px solid var(--aqua);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
@@ -115,7 +115,7 @@
   margin: 0;
   border-radius: 1.2rem;
   border: 1px solid rgba(140, 180, 217, 0.22);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--panel-bg-soft);
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -148,7 +148,7 @@
   max-width: 90%;
   font-size: 1rem;
   line-height: 1.5;
-  color: rgba(246, 248, 251, 0.9);
+  color: var(--text-soft);
 }
 
 #projects.projects-section .project-links {
@@ -173,9 +173,9 @@
   text-transform: uppercase;
   padding: 0.34rem 0.56rem;
   border-radius: 999px;
-  border: 1px solid rgba(140, 180, 217, 0.28);
-  color: rgba(230, 238, 247, 0.82);
-  background: rgba(15, 17, 21, 0.36);
+  border: 1px solid var(--chip-border-soft);
+  color: var(--text-soft);
+  background: var(--chip-bg-soft);
   text-decoration: none;
 }
 
