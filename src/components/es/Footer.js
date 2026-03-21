@@ -28,7 +28,7 @@ function Footer() {
             </li>
         </ul>                
         </footer>
-        <p class="rights"><small>© 2022 Julián Camargo. All rights reserved</small></p>
+        <p className="rights"><small>© 2022 Julián Camargo. All rights reserved</small></p>
         </>
     )
 }

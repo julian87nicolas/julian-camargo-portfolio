@@ -16,7 +16,7 @@ function Contact() {
 
             </section>
 
-            <div class="border-gradient"></div>
+            <div className="border-gradient"></div>
         </>
     )
 }

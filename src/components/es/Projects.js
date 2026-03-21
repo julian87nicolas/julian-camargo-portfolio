@@ -10,15 +10,15 @@ function Projects () {
             {listProjects.map( (proj, idx) =>
                     <> 
                     <article className={ idx % 2 === 0 ? "reverse" : "" }>
-                        <div class="text">
+                        <div className="text">
                             
                             <h4>{proj.title}</h4>
                             <h3>{proj.name}</h3>
-                                <p class="blackbox">
+                                <p className="blackbox">
                                     {proj.description}
                                 </p>
-                                <h4><a href={proj.repo} target="_blank" rel="noreferrer"><i class="fa-solid fa-link"></i> Link al repositorio!</a></h4>
-                                { proj.demo && <h4><a href={proj.demo} target="_blank" rel="noreferrer"><i class="fa-solid fa-link"></i> Link al sitio web!</a></h4> }
+                                <h4><a href={proj.repo} target="_blank" rel="noreferrer"><i className="fa-solid fa-link"></i> Link al repositorio!</a></h4>
+                                { proj.demo && <h4><a href={proj.demo} target="_blank" rel="noreferrer"><i className="fa-solid fa-link"></i> Link al sitio web!</a></h4> }
                                 <h4>Tecnologías usadas:</h4>
                                 <ul>
                                 {proj.tech.map( t => <li>{t}</li>)}
@@ -29,7 +29,7 @@ function Projects () {
                     </>
             )}
         </section>
-        <div class="border-gradient"></div>
+        <div className="border-gradient"></div>
         </div>
     )
 }
