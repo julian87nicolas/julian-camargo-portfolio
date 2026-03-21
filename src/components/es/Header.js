@@ -16,7 +16,7 @@ function Header() {
                             </h1>
                         </li>
                         <li>
-                            <a href="./#highlights">
+                            <a href="/es/#highlights">
                                 Hitos <i className="fa-solid fa-award"></i>
                             </a>
                         </li>
@@ -31,7 +31,7 @@ function Header() {
                             </NavLink>
                         </li>
                         <li>
-                            <a href="#contact">
+                            <a href="/es/#contact">
                                 Contacto <i className="fa-solid fa-envelope"></i>
                             </a>
                         </li>

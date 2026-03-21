@@ -17,12 +17,12 @@ function Header() {
                             </h1>
                         </li>
                         <li>
-                            <a href="./#highlights">
+                            <a href="/#highlights">
                                 Highlights <i className="fa-solid fa-award"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="./#projects">
+                            <a href="/#projects">
                                 Projects <i className="fa-solid fa-gears"></i>
                             </a>
                         </li>
@@ -32,7 +32,7 @@ function Header() {
                             </NavLink>
                         </li>
                         <li>
-                            <a href="#contact">
+                            <a href="/#contact">
                                 Contact <i className="fa-solid fa-envelope"></i>
                             </a>
                         </li>
