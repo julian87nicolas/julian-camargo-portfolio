@@ -14,6 +14,7 @@
 
 #intro .name{
     font-family: var(--mono);
+    letter-spacing: 0.01em;
 }
 
 .name span{
@@ -29,4 +30,46 @@
     font-weight: normal;
     max-width: 18ch;
     margin: 1.25rem 0 1.5rem;
+}
+
+.intro-actions {
+    display: flex;
+    gap: 0.9rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.intro-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.intro-actions .btn-primary {
+    color: var(--black);
+    background-color: var(--aqua);
+    border-color: var(--aqua);
+}
+
+.intro-actions .btn-primary:hover {
+    color: var(--black);
+    background-color: #f4f8fd;
+}
+
+.intro-actions .btn-secondary {
+    color: var(--aqua);
+    background-color: rgba(140, 180, 217, 0.14);
+    border-color: rgba(140, 180, 217, 0.45);
+}
+
+.intro-actions .btn-secondary:hover {
+    color: var(--white);
+    border-color: rgba(230, 238, 247, 0.65);
 }
