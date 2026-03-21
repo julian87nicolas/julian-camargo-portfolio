@@ -6,10 +6,10 @@ function Intro () {
         <section id="intro">
             <p className="name">Hi, I am <span>Julián Camargo.</span></p>
 
-            <h2>I build reliable backend systems for products that need to scale.</h2>
+            <h2>Backend developer focused on Java, cloud and IoT integrations.</h2>
 
             <p>
-            Backend and Software/Firmware Developer, currently working at <a href="https://www.sitrack.com" target="_blank" rel="noreferrer">Sitrack</a> and advanced electronics engineering student. Focused on clean architecture, resilient microservices and continuous learning.
+            Backend developer specialized in Java microservices, cloud infrastructure, and integration between software and embedded systems. Experience in cloud migration projects, CI/CD automation, and API design for scalable and reliable services.
             </p>
 
             <div className="intro-actions">

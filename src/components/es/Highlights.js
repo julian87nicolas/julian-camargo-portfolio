@@ -18,7 +18,7 @@ function Highlights() {
                                 {highl.description.map((d, descIdx) =>
                                     <li key={`${highl.title}-${descIdx}`}>
                                         <p>{d.summary}</p>
-                                        <p className="tech">Tecnologías usadas: {d.tech}</p>
+                                        {d.tech && <p className="tech">{d.tech}</p>}
                                     </li>
                                 )}
                             </ul>

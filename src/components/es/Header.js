@@ -1,9 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
-import { FaAward, FaCircleInfo, FaCode, FaEnvelope, FaGears, FaGithub, FaUser } from "react-icons/fa6";
+import { FaAward, FaCertificate, FaCircleInfo, FaCode, FaEnvelope, FaGears, FaGithub, FaMoon, FaSun, FaUser } from "react-icons/fa6";
 
 import "./../styles/Header.css"
 
-function Header() {
+function Header({ theme, onToggleTheme }) {
     return (
         <>
             <div id="header">
@@ -27,6 +27,11 @@ function Header() {
                             </a>
                         </li>
                         <li>
+                            <a href="/es/#certifications">
+                                Certificaciones <FaCertificate className="fa-solid fa-certificate" />
+                            </a>
+                        </li>
+                        <li>
                             <NavLink to={"/es/about"}>
                                 Sobre <FaCircleInfo className="fa-solid fa-circle-info" />
                             </NavLink>
@@ -47,7 +52,20 @@ function Header() {
                                 Curriculum <FaUser className="fa-solid fa-user" />
                             </a>
                         </li>
-                        <li>
+                        <li className="theme-toggle">
+                            <button
+                                type="button"
+                                className={`theme-switch ${theme === "light" ? "is-light" : "is-dark"}`}
+                                onClick={onToggleTheme}
+                                aria-label="Cambiar modo de color"
+                                aria-pressed={theme === "light"}
+                            >
+                                <span className="theme-switch-thumb" aria-hidden="true">
+                                    {theme === "dark" ? <FaMoon /> : <FaSun />}
+                                </span>
+                            </button>
+                        </li>
+                        <li className="lang-switch">
                             <Link to="/">
                                 <img src="images/united-states.png" alt="Switch to English" />
                             </Link>

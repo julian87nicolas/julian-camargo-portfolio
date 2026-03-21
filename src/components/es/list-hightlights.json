@@ -40,5 +40,32 @@
                 "tech": "JUnit, Mockito"
             }
         ]
+    },
+    {
+        "title": "Certificaciones",
+        "company": {
+            "name": "Google · Platzi · NVIDIA",
+            "desc": "",
+            "url": ""
+        },
+        "time_interval": "2023 – 2026",
+        "description": [
+            {
+                "summary": "Google Cybersecurity Professional Certificate",
+                "tech": "Coursera · 2026"
+            },
+            {
+                "summary": "Go — Básico, OOP y Concurrencia, REST y WebSockets, Testing unitario",
+                "tech": "Platzi · 2025"
+            },
+            {
+                "summary": "Google Cloud Big Data and Machine Learning Fundamentals",
+                "tech": "Google Cloud · 2024"
+            },
+            {
+                "summary": "Getting Started with Deep Learning",
+                "tech": "NVIDIA · 2023"
+            }
+        ]
     }
 ]
