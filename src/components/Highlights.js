@@ -1,4 +1,4 @@
-import listHighlights from "./list-hightlights.json"
+import listHighlights from "./list-highlights.json"
 import "./styles/HighLights.css"
 
 function Highlights() {

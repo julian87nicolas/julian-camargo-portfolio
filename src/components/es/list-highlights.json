@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Semi Sr Backend Developer",
+        "company": {
+            "name": "IT Patagonia",
+            "desc": "Empresa consultora de tecnología B certificada.",
+            "url": "https://itpatagonia.com/"
+        },
+        "time_interval": "Junio 2024 - Actualidad",
+        "description": [
+            {
+                "summary": "Migración a microservicios Java de capa middleware actual del banco ICBC",
+                "tech": "Java 8, Cucumber, JUnit, AppFlow, Kibana."
+            }
+        ]
+    },
+    {
+        "title": "Desarrollador Backend Java",
+        "company": {
+            "name": "Sitrack",
+            "desc": "Empresa líder de tecnología que brinda soluciones de rastreo y monitoreo de vehículos y activos.",
+            "url": "https://www.sitrack.com/"
+        },
+        "time_interval": "Junio 2022 - Junio 2024",
+        "description": [
+            {
+                "summary": "Desarrollo y monitoreo de microservicios",
+                "tech": "Java 17, PostgreSQL, MongoDB, Redis, Kubernetes, Docker, Stern, Datadog."
+            },
+            {
+                "summary": "Migración y adopción de sistemas en entornos cloud GCP",
+                "tech": "Cloud Functions, Cloud Scheduler, Compute Engine, Cloud Storage (Buckets)"
+            },
+            {
+                "summary": "Automatización de procesos mediante scripting",
+                "tech": "Python 3, Bash script"
+            },
+            {
+                "summary": "Desarrollo de pruebas unitarias",
+                "tech": "JUnit, Mockito"
+            }
+        ]
+    }
+]
