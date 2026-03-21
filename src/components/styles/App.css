@@ -18,6 +18,9 @@ html {
   --step-2: 1.5rem;
   --step-3: 2rem;
   --step-4: clamp(2.4rem, 4vw, 3.4rem);
+  --content-max: 1200px;
+  --reading-max: 64ch;
+  --section-pad-x: 1rem;
   --mono: "Oxygen mono", monospace;
   --sans: Oxygen, sans-serif;
 }
@@ -64,9 +67,33 @@ a:hover{
   color: var(--aqua);
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgba(230, 238, 247, 0.9);
+  outline-offset: 3px;
+}
+
 img{
   width: 100%;
   background-color: var(--black);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /*--------------------BORDER GRADIENT--------------------*/

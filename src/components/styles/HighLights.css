@@ -1,7 +1,7 @@
 /*------------------------PROJECT and ABOUT page------------------------*/
 #highlights {
-  padding: 4rem 1rem;
-  max-width: 1200px;
+  padding: 5rem var(--section-pad-x);
+  max-width: var(--content-max);
   margin: 0 auto;
 }
 
@@ -12,7 +12,7 @@
 .hl_timeline {
   position: relative;
   display: grid;
-  gap: 1.15rem;
+  gap: 1.3rem;
   padding-left: 1.35rem;
 }
 
@@ -30,7 +30,7 @@
   position: relative;
   width: 100%;
   color: var(--white);
-  padding: 1.25rem 1.25rem 1.05rem;
+  padding: 1.3rem 1.3rem 1.15rem;
 }
 
 .hl_marker {
@@ -51,7 +51,7 @@
 
 .hl_content {
   display: grid;
-  gap: 0.55rem;
+  gap: 0.65rem;
 }
 
 .hl_time {
@@ -71,7 +71,7 @@
 }
 
 #highlights .hl_points li {
-  padding: 0.7rem 0.8rem;
+  padding: 0.78rem 0.9rem;
   border-radius: 10px;
   background: rgba(15, 17, 21, 0.45);
   border: 1px solid rgba(140, 180, 217, 0.16);
@@ -79,7 +79,9 @@
 
 #highlights .hl_points p {
   margin: 0;
-  font-size: 0.95rem;
+  max-width: 60ch;
+  font-size: 0.96rem;
+  line-height: 1.6;
 }
 
 #highlights .hl_points .tech {
@@ -90,11 +92,13 @@
 
 #highlights h2 {
   font-size: var(--step-3);
-  margin-bottom: 2.6rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 2.8rem;
 }
 
 #highlights h3 {
   color: var(--aqua);
+  line-height: 1.3;
   margin: 0;
 }
 
@@ -117,6 +121,15 @@
 
 
 @media (min-width: 800px) {
+  #highlights {
+    padding-top: 6rem;
+    padding-bottom: 6.4rem;
+  }
+
+  #highlights h2 {
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+  }
+
   .hl_timeline {
     gap: 1.25rem;
     padding-left: 1.75rem;
