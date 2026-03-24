@@ -61,8 +61,11 @@ function Projects () {
                     {visibleProjects.map((proj, idx) =>
                         <article className="project-card" key={`${proj.name}-${idx}`} role="listitem">
                             <a className="project-card-link" href={proj.demo || proj.repo} target="_blank" rel="noreferrer" aria-label={proj.name}>
-                            <div className={`project-media${proj.image.url.includes("odontointegral-cover") ? " project-media--left-crop" : ""}`}>
-                                <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />
+                            <div className={`project-media${proj.embed ? " project-media--embed" : proj.image.url.includes("odontointegral-cover") ? " project-media--left-crop" : ""}`}>
+                                {proj.embed
+                                    ? <iframe src={proj.embed} title={proj.name} scrolling="no" loading="lazy" sandbox="allow-scripts allow-same-origin" />
+                                    : <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />
+                                }
                             </div>
 
                             <div className="project-info">

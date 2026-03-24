@@ -44,6 +44,7 @@
             "url": "images/odontointegral-cover.png",
             "alt": "odonto-integral demonstration photo"
         },
+        "embed": "https://odontointegralfs.onrender.com/",
         "repo": "https://github.com/julian87nicolas/odontointegral-react",
         "demo": "https://odontointegralfs.onrender.com/",
         "tech": [
