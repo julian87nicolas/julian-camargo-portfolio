@@ -131,6 +131,14 @@
   object-position: left center;
 }
 
+#projects.projects-section .project-media--embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  pointer-events: none;
+}
+
 #projects.projects-section .project-card:hover .project-media {
   transform: scale(0.985);
 }
