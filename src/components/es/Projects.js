@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import listProjects from "./list-project.json"
 import { FaLink } from "react-icons/fa6";
 import "../styles/ProjectAbout.css"
@@ -23,6 +23,65 @@ const categorizeProject = (project) => {
     return "app";
 };
 
+function ProjectCard({ proj }) {
+    const handleMouseMove = useCallback((e) => {
+        const card = e.currentTarget;
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+        card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+    }, []);
+
+    const mediaClass = `project-media${proj.embed ? " project-media--embed" : proj.image.url.includes("odontointegral-cover") ? " project-media--left-crop" : ""}`;
+
+    return (
+        <article
+            className="project-card"
+            role="listitem"
+            onMouseMove={handleMouseMove}
+        >
+            <div className="project-card-glow" aria-hidden="true" />
+
+            <a
+                className="project-media-wrap"
+                href={proj.demo || proj.repo}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={proj.name}
+            >
+                <div className={mediaClass}>
+                    {proj.embed
+                        ? <iframe src={proj.embed} title={proj.name} scrolling="no" loading="lazy" sandbox="allow-scripts allow-same-origin" />
+                        : <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />
+                    }
+                </div>
+            </a>
+
+            <div className="project-body">
+                <div className="project-header">
+                    <span className="project-category-badge">{proj.category}</span>
+                    <h3 className="project-name">{proj.name}</h3>
+                    <p className="project-subtitle">{proj.title}</p>
+                </div>
+
+                {proj.description && (
+                    <p className="project-description">{proj.description}</p>
+                )}
+
+                <ul className="project-tech-list" aria-label="Tecnologías">
+                    {proj.tech.map((tag) => (
+                        <li key={tag} className="project-tech-tag">{tag}</li>
+                    ))}
+                </ul>
+
+                <div className="project-links">
+                    <a href={proj.repo} target="_blank" rel="noreferrer"><FaLink /> Repo</a>
+                    {proj.demo && <a href={proj.demo} target="_blank" rel="noreferrer"><FaLink /> Demo</a>}
+                </div>
+            </div>
+        </article>
+    );
+}
+
 function Projects () {
     const [activeFilter, setActiveFilter] = useState("all");
 
@@ -37,10 +96,10 @@ function Projects () {
     );
 
     return (
-    <div className="section-blue">
-        <section id="projects" className="projects-section">
-        <h2>Proyectos personales</h2>
-        <p className="projects-intro">Seleccion de trabajos en web, aplicaciones y sistemas de ingenieria.</p>
+        <div className="section-blue">
+            <section id="projects" className="projects-section">
+                <h2>Proyectos personales</h2>
+                <p className="projects-intro">Seleccion de trabajos en web, aplicaciones y sistemas de ingenieria.</p>
 
                 <div className="projects-filters" role="tablist" aria-label="Categorias de proyectos">
                     {PROJECT_FILTERS.map((filter) => (
@@ -58,32 +117,14 @@ function Projects () {
                 </div>
 
                 <div className="projects-grid" role="list">
-                    {visibleProjects.map((proj, idx) =>
-                        <article className="project-card" key={`${proj.name}-${idx}`} role="listitem">
-                            <a className="project-card-link" href={proj.demo || proj.repo} target="_blank" rel="noreferrer" aria-label={proj.name}>
-                            <div className={`project-media${proj.embed ? " project-media--embed" : proj.image.url.includes("odontointegral-cover") ? " project-media--left-crop" : ""}`}>
-                                {proj.embed
-                                    ? <iframe src={proj.embed} title={proj.name} scrolling="no" loading="lazy" sandbox="allow-scripts allow-same-origin" />
-                                    : <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />
-                                }
-                            </div>
-
-                            <div className="project-info">
-                                <p className="project-caption"><b>{proj.name}</b> - {proj.title}</p>
-                            </div>
-                            </a>
-
-                            <div className="project-links">
-                                <a href={proj.repo} target="_blank" rel="noreferrer"><FaLink /> Repo</a>
-                                {proj.demo && <a href={proj.demo} target="_blank" rel="noreferrer"><FaLink /> Demo</a>}
-                            </div>
-                        </article>
-                    )}
+                    {visibleProjects.map((proj, idx) => (
+                        <ProjectCard key={`${proj.name}-${idx}`} proj={proj} />
+                    ))}
                 </div>
-        </section>
-        <div className="border-gradient"></div>
+            </section>
+            <div className="border-gradient"></div>
         </div>
-    )
+    );
 }
 
 export default Projects;
