@@ -1,5 +1,7 @@
 /* ================================================================
    CMR2 – Certifications section
+   Blue panel cards with cyan headings, yellow metadata (like
+   CMR2's settings values), blue "See more" button.
    ================================================================ */
 
 #certifications {
@@ -12,7 +14,7 @@
   font-size: var(--step-3);
   letter-spacing: 0.04em;
   margin-bottom: 0.9rem;
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
 }
 
 .cert-intro {
@@ -37,23 +39,23 @@
   font-family: var(--mono);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--rally-amber);
+  color: var(--cmr-yellow);
 }
 
 .cert-card h3 {
   margin: 0 0 0.65rem;
-  color: var(--rally-gold);
+  color: var(--cmr-lightblue);
   line-height: 1.35;
   font-size: 1.02rem;
 }
 
 .cert-card a {
   font-size: 0.92rem;
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
 }
 
 .cert-card a:hover {
-  color: var(--rally-gold);
+  color: var(--cmr-lightblue);
 }
 
 .cert-more {
@@ -68,20 +70,20 @@
   height: 2.2rem;
   padding: 0 0.95rem;
   border-radius: 2px;
-  border: 2px solid var(--rally-orange);
+  border: 2px solid var(--cmr-blue);
   background: transparent;
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .cert-more-link:hover {
-  color: var(--rally-dark);
-  background: var(--rally-orange);
-  box-shadow: 0 0 12px var(--rally-glow);
+  color: var(--cmr-dark);
+  background: var(--cmr-blue);
+  box-shadow: 0 0 12px var(--cmr-glow);
 }
 
 @media (min-width: 800px) {

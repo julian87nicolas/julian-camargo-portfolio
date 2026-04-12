@@ -1,5 +1,7 @@
 /* ================================================================
    CMR2 – Projects & About section
+   Blue tab filters (like CMR2 CHAMPIONSHIP/SINGLE STAGE tabs),
+   dark panels with blue borders, blue highlight bar on hover.
    ================================================================ */
 
 #projects {
@@ -26,7 +28,7 @@
   font-size: var(--step-3);
   margin-bottom: 0.8rem;
   letter-spacing: 0.04em;
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
 }
 
 #projects.projects-section .projects-intro {
@@ -37,7 +39,7 @@
   line-height: 1.62;
 }
 
-/* ---- filter tabs (CMR2 style) ---- */
+/* ---- filter tabs (CMR2 horizontal tab style with blue highlight bar) ---- */
 #projects.projects-section .projects-filters {
   margin: 2.4rem 0 2.8rem;
   display: flex;
@@ -46,7 +48,7 @@
   overflow-x: auto;
   white-space: nowrap;
   scrollbar-width: none;
-  border-bottom: 2px solid var(--rally-panel-border);
+  border-bottom: 1px solid var(--cmr-separator);
 }
 
 #projects.projects-section .projects-filters::-webkit-scrollbar {
@@ -59,15 +61,14 @@
   background: transparent;
   color: var(--text-faint);
   padding: 0.6rem 1rem;
-  font-family: var(--mono);
-  font-size: 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
   line-height: 1.1;
   cursor: pointer;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  letter-spacing: 0.05em;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 #projects.projects-section .projects-filter-btn span {
@@ -87,14 +88,24 @@
 }
 
 #projects.projects-section .projects-filter-btn:hover {
-  color: var(--rally-gold);
-  background-color: var(--rally-glow);
+  color: var(--cmr-lightblue);
+  background-color: var(--cmr-highlight);
 }
 
+/* CMR2-style active tab: blue translucent highlight bar */
 #projects.projects-section .projects-filter-btn.is-active {
-  color: var(--rally-orange);
-  border-bottom-color: var(--rally-orange);
-  background-color: var(--rally-glow);
+  color: var(--cmr-cyan);
+  background-color: var(--cmr-highlight-strong);
+}
+
+#projects.projects-section .projects-filter-btn.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--cmr-blue);
 }
 
 #projects.projects-section .projects-filter-btn.is-active span::after {
@@ -124,10 +135,10 @@
   overflow: hidden;
   aspect-ratio: 1 / 1;
   margin: 0;
-  border-radius: 4px;
-  border: 2px solid var(--rally-panel-border);
+  border-radius: 2px;
+  border: 1px solid var(--cmr-panel-border);
   background: var(--panel-bg-soft);
-  transition: transform 0.5s ease, border-color 0.3s ease;
+  transition: transform 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #projects.projects-section .project-media img {
@@ -152,8 +163,8 @@
 
 #projects.projects-section .project-card:hover .project-media {
   transform: scale(0.985);
-  border-color: var(--rally-orange);
-  box-shadow: 0 0 16px var(--rally-glow);
+  border-color: var(--cmr-blue);
+  box-shadow: 0 0 16px var(--cmr-glow);
 }
 
 #projects.projects-section .project-card:hover .project-media img {
@@ -195,18 +206,18 @@
   text-transform: uppercase;
   padding: 0.34rem 0.56rem;
   border-radius: 2px;
-  border: 1px solid var(--rally-panel-border);
-  color: var(--rally-orange);
+  border: 1px solid var(--cmr-panel-border);
+  color: var(--cmr-cyan);
   background: var(--chip-bg-soft);
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 #projects.projects-section .project-links a:hover {
-  background: var(--rally-orange);
-  color: var(--rally-dark);
-  border-color: var(--rally-orange);
-  box-shadow: 0 0 10px var(--rally-glow);
+  background: var(--cmr-blue);
+  color: var(--cmr-dark);
+  border-color: var(--cmr-blue);
+  box-shadow: 0 0 10px var(--cmr-glow);
 }
 
 @media (min-width: 800px) {

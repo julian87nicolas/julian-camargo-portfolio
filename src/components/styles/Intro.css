@@ -1,5 +1,6 @@
 /* ================================================================
    CMR2 – Intro / Hero section
+   Clean dark panel with cyan name highlight, like a rally stage intro
    ================================================================ */
 
 #intro {
@@ -30,11 +31,11 @@
   font-family: var(--sans);
   font-size: clamp(2.2rem, 8vw, 4.2rem);
   font-weight: 700;
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
   display: block;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  text-shadow: 0 0 20px var(--rally-glow);
+  text-shadow: 0 0 20px var(--cmr-glow);
 }
 
 #intro h2 {
@@ -73,27 +74,27 @@
 }
 
 .intro-actions .btn-primary {
-  color: var(--rally-dark);
-  background-color: var(--rally-orange);
-  border-color: var(--rally-orange);
+  color: var(--cmr-dark);
+  background-color: var(--cmr-blue);
+  border-color: var(--cmr-blue);
 }
 
 .intro-actions .btn-primary:hover {
-  color: var(--rally-dark);
-  background-color: var(--rally-gold);
-  box-shadow: 0 0 18px var(--rally-glow);
+  color: var(--cmr-dark);
+  background-color: var(--cmr-cyan);
+  box-shadow: 0 0 18px var(--cmr-glow);
 }
 
 .intro-actions .btn-secondary {
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
   background-color: transparent;
-  border-color: var(--rally-orange);
+  border-color: var(--cmr-blue);
 }
 
 .intro-actions .btn-secondary:hover {
-  color: var(--rally-dark);
-  background-color: var(--rally-orange);
-  box-shadow: 0 0 18px var(--rally-glow);
+  color: var(--cmr-dark);
+  background-color: var(--cmr-blue);
+  box-shadow: 0 0 18px var(--cmr-glow);
 }
 
 @media (min-width: 900px) {

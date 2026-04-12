@@ -1,11 +1,12 @@
 /* ================================================================
    CMR2 – Footer section
+   Dark background, blue social icons, thin blue top border
    ================================================================ */
 
 footer {
   padding: 3rem;
-  border-top: 2px solid var(--rally-panel-border);
-  background-color: var(--rally-dark);
+  border-top: 1px solid var(--cmr-separator);
+  background-color: var(--cmr-dark);
 }
 
 footer h2 {
@@ -31,13 +32,12 @@ footer ul {
 }
 
 footer ul a {
-  color: var(--rally-orange);
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+  color: var(--cmr-cyan);
+  transition: color 0.2s ease;
 }
 
 footer ul a:hover {
-  color: var(--rally-gold);
-  text-shadow: 0 0 12px var(--rally-glow);
+  color: var(--cmr-lightblue);
 }
 
 .rights {

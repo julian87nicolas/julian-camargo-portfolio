@@ -1,23 +1,25 @@
 /* ================================================================
-   CMR2 – Navigation bar (rally-style tab menu)
+   CMR2 – Navigation bar
+   Horizontal tabs with blue highlight bars, thin blue separator,
+   matching the game's CHAMPIONSHIP / SINGLE STAGE / OPTIONS tabs.
    ================================================================ */
 
 #header {
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: linear-gradient(180deg, var(--header-bg) 0%, color-mix(in srgb, var(--header-bg) 90%, transparent) 100%);
-  border-bottom: 2px solid var(--rally-orange);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, var(--header-bg) 0%, rgba(6, 13, 24, 0.88) 100%);
 }
 
 nav {
-  font-family: var(--mono);
-  font-size: 0.82rem;
-  padding: 0.7rem 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 
 nav ul {
@@ -37,38 +39,53 @@ nav h1 a {
   font-weight: 700;
 }
 
+/* CMR2-style nav links: translucent blue highlight bar on hover/active */
 nav a {
   color: var(--white);
   text-decoration: none;
   display: block;
+  padding: 0.5rem 0.9rem;
+  position: relative;
+  opacity: 0.7;
   transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
-  opacity: 0.75;
-  padding: 0.55rem 0.85rem;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
+    color 0.15s ease,
+    opacity 0.15s ease,
+    background-color 0.15s ease;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--cmr-highlight);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+  border-left: 3px solid var(--cmr-blue);
 }
 
 nav a:hover {
   opacity: 1;
-  color: var(--rally-orange);
-  background-color: var(--rally-glow);
-  border-bottom-color: var(--rally-orange);
+  color: var(--cmr-cyan);
+}
+
+nav a:hover::before {
+  opacity: 1;
 }
 
 nav a.active {
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
   opacity: 1;
-  border-bottom-color: var(--rally-orange);
-  background-color: var(--rally-glow);
-  text-shadow: 0 0 6px var(--rally-glow);
+}
+
+nav a.active::before {
+  opacity: 1;
+  background: var(--cmr-highlight-strong);
 }
 
 /* name / logo */
 .fa-solid.fa-code {
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
 }
 
 nav li:first-child {
@@ -77,41 +94,44 @@ nav li:first-child {
 }
 
 nav li:first-child {
-  color: var(--rally-gold);
+  color: var(--cmr-lightblue);
   transition: color var(--theme-transition-duration) var(--theme-transition-easing);
 }
 
 nav li:first-child a {
-  border-bottom: none;
-  margin-bottom: 0;
   opacity: 1;
 }
 
-nav li:first-child a:hover {
-  color: var(--rally-orange);
-  background-color: transparent;
+nav li:first-child a::before {
+  display: none;
 }
 
-/* resume / curriculum button */
+nav li:first-child a:hover {
+  color: var(--cmr-cyan);
+}
+
+/* resume / curriculum button – CMR2 blue button style */
 nav .resume a {
-  background-color: var(--rally-orange);
-  color: var(--rally-dark);
-  padding: 0.45rem 0.82rem;
+  background-color: var(--cmr-blue);
+  color: var(--cmr-dark);
+  padding: 0.42rem 0.82rem;
   border-radius: 2px;
-  border: none;
-  border-bottom: 2px solid var(--rally-orange);
   font-weight: 700;
+  opacity: 1;
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
     box-shadow 0.2s ease;
-  opacity: 1;
+}
+
+nav .resume a::before {
+  display: none;
 }
 
 nav .resume a:hover {
-  color: var(--rally-dark);
-  background-color: var(--rally-gold);
-  box-shadow: 0 0 12px var(--rally-glow);
+  color: var(--cmr-dark);
+  background-color: var(--cmr-cyan);
+  box-shadow: 0 0 12px var(--cmr-glow);
 }
 
 nav .resume a:active {
@@ -136,8 +156,8 @@ nav .resume a:active {
   height: 1.9rem;
   padding: 0.12rem;
   border-radius: 2px;
-  border: 1px solid var(--rally-panel-border);
-  background: var(--rally-glow);
+  border: 1px solid var(--cmr-panel-border);
+  background: var(--cmr-highlight);
   cursor: pointer;
   transition:
     background-color 0.2s ease,
@@ -145,8 +165,8 @@ nav .resume a:active {
 }
 
 .theme-switch:hover {
-  background: rgba(255, 106, 0, 0.22);
-  border-color: var(--rally-orange);
+  background: var(--cmr-highlight-strong);
+  border-color: var(--cmr-blue);
 }
 
 .theme-switch-thumb {
@@ -156,8 +176,8 @@ nav .resume a:active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--rally-orange);
-  background: var(--rally-dark);
+  color: var(--cmr-cyan);
+  background: var(--cmr-dark);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   transform: translateX(0);
   transition:
@@ -180,14 +200,14 @@ nav .resume a:active {
 
 .lang-switch img {
   border-radius: 2px;
-  border: 1px solid var(--rally-panel-border);
+  border: 1px solid var(--cmr-panel-border);
 }
 
 @media (min-width: 850px) {
   nav {
     max-width: var(--content-max);
     margin: 0 auto;
-    padding: 0.55rem 1.5rem;
+    padding: 0.45rem 1.5rem;
   }
 
   nav li:first-child {

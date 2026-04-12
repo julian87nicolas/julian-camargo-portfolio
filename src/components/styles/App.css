@@ -1,6 +1,8 @@
 /* =================================================================
-   Colin McRae Rally 2.0 – Inspired Theme
-   Dark navy backgrounds, orange/amber accents, uppercase blocky UI
+   Colin McRae Rally 2.0 – Faithful UI Theme
+   Deep dark blue backgrounds, blue/cyan highlight bars, white text,
+   horizontal tab navigation, thin blue separator lines.
+   Based on the actual game menus from Codemasters (2000).
    ================================================================= */
 
 html {
@@ -8,31 +10,31 @@ html {
 }
 
 :root {
-  /* ---- CMR2 palette ---- */
-  --black: #080c14;
-  --dkblue: #0c1018;
-  --plum: #10151f;
-  --hotmag: #ff8c00;
-  --magenta: #ff6a00;
-  --aqua: #ffa733;
-  --white: #e8e0d4;
-  --text-muted: #9a927e;
-  --text-soft: rgba(232, 224, 212, 0.82);
-  --text-faint: rgba(154, 146, 126, 0.85);
-  --border-soft: #1e2636;
-  --header-bg: rgba(8, 12, 20, 0.92);
-  --bg-gradient-1: rgba(255, 106, 0, 0.06);
-  --bg-gradient-2: rgba(255, 140, 0, 0.04);
-  --bg-gradient-3-start: #080c14;
-  --bg-gradient-3-mid: #0a0f18;
-  --bg-gradient-3-end: #0c121c;
-  --surface-1: rgba(14, 18, 28, 0.96);
-  --surface-2: rgba(10, 14, 22, 0.98);
-  --surface-border: rgba(255, 106, 0, 0.22);
-  --surface-border-hover: rgba(255, 140, 0, 0.5);
-  --panel-bg-soft: rgba(255, 255, 255, 0.02);
-  --chip-bg-soft: rgba(8, 12, 20, 0.5);
-  --chip-border-soft: rgba(255, 106, 0, 0.18);
+  /* ---- CMR2 palette (actual game colors) ---- */
+  --black: #060d18;
+  --dkblue: #081020;
+  --plum: #0b1428;
+  --hotmag: #5cb8ff;
+  --magenta: #3a9fd8;
+  --aqua: #d6eaf8;
+  --white: #e8eef6;
+  --text-muted: #8aa4c0;
+  --text-soft: rgba(214, 234, 248, 0.82);
+  --text-faint: rgba(138, 164, 192, 0.85);
+  --border-soft: #162640;
+  --header-bg: rgba(6, 13, 24, 0.94);
+  --bg-gradient-1: rgba(30, 90, 160, 0.08);
+  --bg-gradient-2: rgba(40, 120, 200, 0.05);
+  --bg-gradient-3-start: #060d18;
+  --bg-gradient-3-mid: #081222;
+  --bg-gradient-3-end: #0a1530;
+  --surface-1: rgba(10, 18, 34, 0.96);
+  --surface-2: rgba(8, 14, 28, 0.98);
+  --surface-border: rgba(58, 159, 216, 0.18);
+  --surface-border-hover: rgba(92, 184, 255, 0.4);
+  --panel-bg-soft: rgba(20, 50, 90, 0.12);
+  --chip-bg-soft: rgba(10, 30, 60, 0.4);
+  --chip-border-soft: rgba(58, 159, 216, 0.15);
   --theme-transition-duration: 0.35s;
   --theme-transition-easing: cubic-bezier(0.22, 1, 0.36, 1);
   --font-size: 1rem;
@@ -47,48 +49,56 @@ html {
   --sans: "Rajdhani", "Oxygen", sans-serif;
 
   /* CMR2 specific tokens */
-  --rally-orange: #ff6a00;
-  --rally-amber: #ff8c00;
-  --rally-gold: #ffa733;
-  --rally-dark: #080c14;
-  --rally-panel: #0e121c;
-  --rally-panel-border: rgba(255, 106, 0, 0.25);
-  --rally-glow: rgba(255, 106, 0, 0.15);
+  --cmr-blue: #3a9fd8;
+  --cmr-cyan: #5cb8ff;
+  --cmr-lightblue: #8ed0ff;
+  --cmr-highlight: rgba(58, 159, 216, 0.25);
+  --cmr-highlight-strong: rgba(58, 159, 216, 0.40);
+  --cmr-dark: #060d18;
+  --cmr-panel: #0a1428;
+  --cmr-panel-border: rgba(58, 159, 216, 0.20);
+  --cmr-glow: rgba(92, 184, 255, 0.15);
+  --cmr-yellow: #e8c840;
+  --cmr-separator: rgba(58, 159, 216, 0.30);
 }
 
-/* Light theme: slightly softer racing panel feel */
+/* Light theme */
 [data-theme="light"] {
-  --black: #f0ece4;
-  --dkblue: #faf8f4;
-  --plum: #e8e2d6;
-  --hotmag: #cc5500;
-  --magenta: #e06000;
-  --aqua: #1a1000;
-  --white: #1a1000;
-  --text-muted: #5c5040;
-  --text-soft: #3a3020;
-  --text-faint: #70644c;
-  --border-soft: #d6ccb8;
-  --header-bg: rgba(240, 236, 228, 0.9);
-  --bg-gradient-1: rgba(204, 85, 0, 0.08);
-  --bg-gradient-2: rgba(224, 96, 0, 0.05);
-  --bg-gradient-3-start: #f0ece4;
-  --bg-gradient-3-mid: #ece6dc;
-  --bg-gradient-3-end: #e6e0d4;
-  --surface-1: rgba(250, 248, 244, 0.96);
-  --surface-2: rgba(232, 226, 214, 0.98);
-  --surface-border: rgba(26, 16, 0, 0.12);
-  --surface-border-hover: rgba(204, 85, 0, 0.35);
-  --panel-bg-soft: rgba(26, 16, 0, 0.04);
-  --chip-bg-soft: rgba(26, 16, 0, 0.06);
-  --chip-border-soft: rgba(26, 16, 0, 0.14);
-  --rally-orange: #e06000;
-  --rally-amber: #cc5500;
-  --rally-gold: #a04400;
-  --rally-dark: #f0ece4;
-  --rally-panel: #faf8f4;
-  --rally-panel-border: rgba(204, 85, 0, 0.2);
-  --rally-glow: rgba(204, 85, 0, 0.1);
+  --black: #eef3f8;
+  --dkblue: #f5f8fc;
+  --plum: #e4ecf4;
+  --hotmag: #1a6fa0;
+  --magenta: #2080b8;
+  --aqua: #0c1e30;
+  --white: #0c1e30;
+  --text-muted: #4a6580;
+  --text-soft: #2a4560;
+  --text-faint: #5a7a98;
+  --border-soft: #c8d8e8;
+  --header-bg: rgba(238, 243, 248, 0.92);
+  --bg-gradient-1: rgba(32, 128, 184, 0.08);
+  --bg-gradient-2: rgba(26, 111, 160, 0.05);
+  --bg-gradient-3-start: #eef3f8;
+  --bg-gradient-3-mid: #e8eef6;
+  --bg-gradient-3-end: #e2eaf4;
+  --surface-1: rgba(245, 248, 252, 0.96);
+  --surface-2: rgba(228, 236, 244, 0.98);
+  --surface-border: rgba(12, 30, 48, 0.12);
+  --surface-border-hover: rgba(32, 128, 184, 0.30);
+  --panel-bg-soft: rgba(12, 30, 48, 0.04);
+  --chip-bg-soft: rgba(12, 30, 48, 0.06);
+  --chip-border-soft: rgba(12, 30, 48, 0.12);
+  --cmr-blue: #2080b8;
+  --cmr-cyan: #1a6fa0;
+  --cmr-lightblue: #186090;
+  --cmr-highlight: rgba(32, 128, 184, 0.15);
+  --cmr-highlight-strong: rgba(32, 128, 184, 0.25);
+  --cmr-dark: #eef3f8;
+  --cmr-panel: #f5f8fc;
+  --cmr-panel-border: rgba(32, 128, 184, 0.18);
+  --cmr-glow: rgba(32, 128, 184, 0.10);
+  --cmr-yellow: #8a6a10;
+  --cmr-separator: rgba(32, 128, 184, 0.22);
 }
 
 /* border box model */
@@ -107,7 +117,7 @@ body {
   margin: 0;
   font-family: var(--sans);
   font-weight: 500;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   background:
     radial-gradient(circle at 10% 10%, var(--bg-gradient-1) 0%, transparent 45%),
     radial-gradient(circle at 90% 0%, var(--bg-gradient-2) 0%, transparent 35%),
@@ -138,7 +148,7 @@ h1, h2, h3, h4, p, li, a, button {
     box-shadow var(--theme-transition-duration) var(--theme-transition-easing);
 }
 
-/* ---- theme sweep effect ---- */
+/* ---- theme sweep effect (blue wash, like CMR2 screen transitions) ---- */
 .theme-flow-rtl {
   position: fixed;
   top: 0;
@@ -148,7 +158,7 @@ h1, h2, h3, h4, p, li, a, button {
   pointer-events: none;
   z-index: 120;
   opacity: 0;
-  background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--rally-orange) 35%, transparent) 55%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(58, 159, 216, 0.30) 55%, transparent 100%);
   filter: blur(10px);
 }
 
@@ -158,7 +168,7 @@ h1, h2, h3, h4, p, li, a, button {
 
 @keyframes theme-flow-right-to-left {
   0%   { transform: translateX(135vw); opacity: 0; }
-  25%  { opacity: 0.4; }
+  25%  { opacity: 0.5; }
   100% { transform: translateX(-35vw); opacity: 0; }
 }
 
@@ -167,7 +177,7 @@ h1, h2, h3 {
   margin: 0;
   line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 h2 {
@@ -175,23 +185,21 @@ h2 {
 }
 
 a {
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
   text-decoration: none;
   transition:
-    color var(--theme-transition-duration) var(--theme-transition-easing),
-    border-color var(--theme-transition-duration) var(--theme-transition-easing),
-    background-color var(--theme-transition-duration) var(--theme-transition-easing),
-    box-shadow var(--theme-transition-duration) var(--theme-transition-easing);
+    color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 a:hover {
-  color: var(--rally-gold);
-  text-shadow: 0 0 8px var(--rally-glow);
+  color: var(--cmr-lightblue);
 }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--rally-orange);
+  outline: 2px solid var(--cmr-cyan);
   outline-offset: 3px;
 }
 
@@ -213,38 +221,37 @@ p {
   }
 }
 
-/* ---- CMR2 border gradient (orange sweep) ---- */
+/* ---- CMR2 blue separator line (thin blue line like the game) ---- */
 .border-gradient {
-  height: 3px;
+  height: 2px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--rally-orange) 15%,
-    var(--rally-amber) 50%,
-    var(--rally-orange) 85%,
+    var(--cmr-separator) 10%,
+    var(--cmr-blue) 50%,
+    var(--cmr-separator) 90%,
     transparent 100%
   );
-  opacity: 0.7;
 }
 
-/* ---- surface cards (CMR2 panel style) ---- */
+/* ---- surface cards (CMR2 dark panel with blue left accent) ---- */
 .surface-card {
   background: linear-gradient(180deg, var(--surface-1) 0%, var(--surface-2) 100%);
   border: 1px solid var(--surface-border);
-  border-left: 3px solid var(--rally-orange);
-  border-radius: 4px;
+  border-left: 3px solid var(--cmr-blue);
+  border-radius: 2px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
   transition:
     transform 0.22s ease,
-    box-shadow var(--theme-transition-duration) var(--theme-transition-easing),
-    border-color var(--theme-transition-duration) var(--theme-transition-easing),
-    background var(--theme-transition-duration) var(--theme-transition-easing);
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .surface-card:hover {
   transform: translateY(-2px);
   border-color: var(--surface-border-hover);
-  box-shadow: 0 8px 24px rgba(255, 106, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(58, 159, 216, 0.10);
 }
 
 .sr-only {

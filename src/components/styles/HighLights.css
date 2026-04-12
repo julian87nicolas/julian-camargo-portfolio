@@ -1,5 +1,6 @@
 /* ================================================================
    CMR2 – Highlights / Timeline section
+   Blue timeline line, cyan markers, blue highlight bars on items
    ================================================================ */
 
 #highlights {
@@ -26,7 +27,7 @@
   top: 0.2rem;
   bottom: 0.2rem;
   width: 2px;
-  background: linear-gradient(180deg, var(--rally-orange) 0%, rgba(255, 106, 0, 0.15) 100%);
+  background: linear-gradient(180deg, var(--cmr-blue) 0%, rgba(58, 159, 216, 0.15) 100%);
 }
 
 .hl_item {
@@ -42,12 +43,10 @@
   top: 1.55rem;
   width: 0.78rem;
   height: 0.78rem;
-  border-radius: 2px;
-  background: var(--rally-orange);
-  border: 2px solid var(--rally-dark);
-  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.2);
-  /* Rotated square creates a diamond shape – CMR2 marker style */
-  transform: rotate(45deg);
+  border-radius: 50%;
+  background: var(--cmr-cyan);
+  border: 2px solid var(--cmr-dark);
+  box-shadow: 0 0 0 3px rgba(58, 159, 216, 0.2), 0 0 8px rgba(92, 184, 255, 0.15);
 }
 
 .hl_item:hover {
@@ -65,7 +64,7 @@
   font-family: var(--mono);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--rally-amber);
+  color: var(--cmr-yellow);
 }
 
 #highlights .hl_points {
@@ -78,10 +77,10 @@
 
 #highlights .hl_points li {
   padding: 0.78rem 0.9rem;
-  border-radius: 4px;
+  border-radius: 2px;
   background: var(--chip-bg-soft);
   border: 1px solid var(--chip-border-soft);
-  border-left: 3px solid var(--rally-orange);
+  border-left: 3px solid var(--cmr-blue);
 }
 
 #highlights .hl_points p {
@@ -95,18 +94,18 @@
   margin-top: 0.35rem;
   font-size: 0.86rem;
   font-family: var(--mono);
-  color: var(--text-soft);
+  color: var(--cmr-yellow);
 }
 
 #highlights h2 {
   font-size: var(--step-3);
   letter-spacing: 0.04em;
   margin-bottom: 2.8rem;
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
 }
 
 #highlights h3 {
-  color: var(--rally-gold);
+  color: var(--cmr-lightblue);
   line-height: 1.3;
   margin: 0;
 }
@@ -120,12 +119,12 @@
 }
 
 #highlights a {
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
   text-decoration: none;
 }
 
 #highlights a:hover {
-  color: var(--rally-gold);
+  color: var(--cmr-lightblue);
 }
 
 @media (min-width: 800px) {

@@ -1,5 +1,6 @@
 /* ================================================================
    CMR2 – Contact section
+   Blue heading, cyan links, dark panel background
    ================================================================ */
 
 #contact {
@@ -17,7 +18,7 @@
   font-size: 2rem;
   margin: 0;
   padding: 0;
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
   letter-spacing: 0.06em;
 }
 
@@ -29,13 +30,12 @@
 }
 
 #contact a {
-  color: var(--rally-orange);
+  color: var(--cmr-cyan);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
 #contact a:hover {
-  color: var(--rally-gold);
-  text-shadow: 0 0 8px var(--rally-glow);
+  color: var(--cmr-lightblue);
 }
