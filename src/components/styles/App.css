@@ -4,19 +4,19 @@
    ================================================================= */
 
 :root {
-  --bg-main:       #1C1C1E;
-  --bg-surface:    #3A3A3C;
-  --text-primary:  #FFFFFF;
-  --text-secondary:#C7C7CC;
-  --accent-blue:   #007AFF;
-  --highlight-blue:#5AC8FA;
+  --bg-main:       #57667d;
+  --bg-surface:    #4a5a70;
+  --text-primary:  #f9f9f8;
+  --text-secondary:#b2b6b8;
+  --accent-blue:   #f9f9f8;
+  --highlight-blue:#ffffff;
   --accent-green:  #34C759;
   --accent-red:    #FF3B30;
-  --accent-yellow: #FFD60A;
+  --accent-yellow: #b2b6b8;
   --overlay:       rgba(0,0,0,0.6);
 
-  --highlight-bar: rgba(0, 122, 255, 0.15);
-  --separator:     rgba(90, 200, 250, 0.18);
+  --highlight-bar: rgba(249, 249, 248, 0.12);
+  --separator:     rgba(178, 182, 184, 0.25);
   --nav-height:    48px;
 
   --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -50,10 +50,11 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 700;
+  color: var(--text-secondary);
 }
 
 a {
-  color: var(--accent-blue);
+  color: var(--text-primary);
   text-decoration: none;
   transition: color 150ms ease;
 }

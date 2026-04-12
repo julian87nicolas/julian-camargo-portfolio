@@ -1,25 +1,29 @@
 /* ================================================================
-   Top nav bar — minimal, videogame-style tab bar
+   Bottom nav bar — CMR2-style centered sliding navigation
    ================================================================ */
 
 #header {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 50;
   height: var(--nav-height, 48px);
   display: flex;
   align-items: center;
-  background: var(--bg-main);
-  border-bottom: 1px solid var(--separator);
+  justify-content: center;
+  background: rgba(55, 65, 80, 0.85);
+  border-top: 1px solid var(--separator);
+  backdrop-filter: blur(8px);
 }
 
 nav {
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 nav ul {
@@ -29,11 +33,16 @@ nav ul {
   display: flex;
   align-items: center;
   gap: 0;
+  transition: transform 300ms ease-in-out;
+  white-space: nowrap;
 }
 
-nav li:first-child {
-  margin-right: 1.5rem;
+nav li {
+  display: flex;
+  align-items: center;
 }
+
+/* Don't hide any nav items */
 
 nav h1 {
   font-size: 0.85rem;
@@ -48,7 +57,17 @@ nav h1 button.nav-tab {
   opacity: 1;
 }
 
-nav h1 button.nav-tab:hover { color: var(--accent-blue); }
+nav h1 button.nav-tab:hover { color: var(--highlight-blue); }
+
+/* Pipe separator between menu items */
+.nav-separator {
+  color: var(--text-secondary);
+  opacity: 0.4;
+  font-size: 0.85rem;
+  padding: 0 0.5rem;
+  user-select: none;
+  pointer-events: none;
+}
 
 nav button.nav-tab {
   display: flex;
@@ -56,7 +75,7 @@ nav button.nav-tab {
   gap: 0.3rem;
   padding: 0.4rem 0.65rem;
   font-family: var(--sans);
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -66,34 +85,28 @@ nav button.nav-tab {
   cursor: pointer;
   position: relative;
   transition: color 150ms ease, background-color 150ms ease;
+  white-space: nowrap;
 }
 
 nav button.nav-tab:hover {
   color: var(--text-primary);
-  background: var(--highlight-bar);
 }
 
 nav button.nav-tab.is-active {
-  color: var(--accent-blue);
-}
-
-nav button.nav-tab.is-active::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0.5rem;
-  right: 0.5rem;
-  height: 2px;
-  background: var(--accent-blue);
-  border-radius: 1px;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .nav-spacer {
-  flex: 1;
+  display: none;
 }
 
 .lang-switch {
+  position: fixed;
+  bottom: 12px;
+  right: 16px;
   width: 1.2rem;
+  z-index: 55;
 }
 
 .lang-switch img {
@@ -107,7 +120,6 @@ nav button.nav-tab.is-active::after {
 nav .resume { display: none; }
 
 @media (max-width: 600px) {
-  nav { padding: 0 0.5rem; }
-  nav button.nav-tab { font-size: 0.68rem; padding: 0.35rem 0.45rem; }
-  nav h1 { font-size: 0.78rem; }
+  nav button.nav-tab { font-size: 0.7rem; padding: 0.35rem 0.4rem; }
+  .nav-separator { padding: 0 0.3rem; font-size: 0.7rem; }
 }

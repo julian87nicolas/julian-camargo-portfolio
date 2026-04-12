@@ -6,7 +6,8 @@
   position: fixed;
   inset: 0;
   overflow: hidden;
-  top: var(--nav-height, 48px);
+  bottom: var(--nav-height, 48px);
+  top: 0;
 }
 
 .panel-track {
@@ -62,7 +63,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-blue);
+  color: var(--text-secondary);
   margin: 0 0 0.4rem;
 }
 
@@ -94,7 +95,7 @@
 
 .back-btn:hover,
 .back-btn:focus-visible {
-  color: var(--accent-blue);
+  color: var(--text-primary);
 }
 
 /* ---- Focus item (menu item with highlight bar) ---- */
@@ -133,7 +134,7 @@
 }
 
 .focus-item.is-focused .focus-indicator {
-  background: var(--accent-blue);
+  background: var(--text-primary);
 }
 
 .focus-item:hover {
@@ -167,7 +168,7 @@
 
 .focus-item.is-focused .menu-hint {
   opacity: 1;
-  color: var(--accent-blue);
+  color: var(--text-primary);
 }
 
 /* ---- Screen footer (keyboard hints) ---- */
