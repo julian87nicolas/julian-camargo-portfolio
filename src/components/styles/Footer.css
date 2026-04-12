@@ -1,31 +1,54 @@
-/*--------------------FOOTER STYLES--------------------*/
-footer{
-    padding: 3rem;
-  }
-  
-  footer h2{
-    display: flex;
-    justify-content: center;
-    flex-basis: 100%;
-    padding: 0;
-    margin: 2rem;
-  }
-  
-  footer ul{
-    display: flex;
-    flex-basis: 100%;
-    list-style: none;
-    margin: 0;
-    justify-content: center;
-    font-size: 3rem;
-    gap: 3rem;
-  }
-  
-  .rights{
-    display: flex;
-    justify-content: center;
-    flex-basis: 100%;
-    padding: 0 0 1rem 0;
-    margin: 0;
-    font-size: 1rem;
-  }
+/* ================================================================
+   CMR2 – Footer section
+   ================================================================ */
+
+footer {
+  padding: 3rem;
+  border-top: 2px solid var(--rally-panel-border);
+  background-color: var(--rally-dark);
+}
+
+footer h2 {
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+  padding: 0;
+  margin: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+footer ul {
+  display: flex;
+  flex-basis: 100%;
+  list-style: none;
+  margin: 0;
+  justify-content: center;
+  font-size: 3rem;
+  gap: 3rem;
+}
+
+footer ul a {
+  color: var(--rally-orange);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+footer ul a:hover {
+  color: var(--rally-gold);
+  text-shadow: 0 0 12px var(--rally-glow);
+}
+
+.rights {
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+  padding: 0 0 1rem 0;
+  margin: 0;
+  font-size: 0.85rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+}

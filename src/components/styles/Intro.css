@@ -1,92 +1,107 @@
+/* ================================================================
+   CMR2 – Intro / Hero section
+   ================================================================ */
 
-#intro{
-    padding-bottom: 8rem;
-    padding: 5rem var(--section-pad-x) 8rem;
-    max-width: min(1100px, var(--content-max));
-    margin: 0 auto;
-    text-align: left;
+#intro {
+  padding-bottom: 8rem;
+  padding: 5rem var(--section-pad-x) 8rem;
+  max-width: min(1100px, var(--content-max));
+  margin: 0 auto;
+  text-align: left;
 }
 
 #intro > * {
-    max-width: 84ch;
+  max-width: 84ch;
 }
 
-#intro p{
-    font-size: var(--step-1);
-    line-height: 1.72;
-    color: var(--text-muted);
+#intro p {
+  font-size: var(--step-1);
+  line-height: 1.72;
+  color: var(--text-muted);
 }
 
-#intro .name{
-    font-family: var(--mono);
-    letter-spacing: 0.01em;
+#intro .name {
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.name span{
-    font-family: var(--sans);
-    font-size: clamp(2.2rem, 8vw, 4.2rem);
-    color: var(--aqua);
-    display: block;
-    letter-spacing: 0.015em;
+.name span {
+  font-family: var(--sans);
+  font-size: clamp(2.2rem, 8vw, 4.2rem);
+  font-weight: 700;
+  color: var(--rally-orange);
+  display: block;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px var(--rally-glow);
 }
 
-#intro h2{
-    font-size: var(--step-4);
-    font-weight: 400;
-    max-width: 20ch;
-    letter-spacing: -0.01em;
-    margin: 1.25rem 0 1.4rem;
+#intro h2 {
+  font-size: var(--step-4);
+  font-weight: 600;
+  max-width: 20ch;
+  letter-spacing: 0.02em;
+  margin: 1.25rem 0 1.4rem;
+  color: var(--white);
 }
 
 .intro-actions {
-    display: flex;
-    gap: 0.9rem;
-    margin-top: 2.2rem;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 2.2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .intro-actions a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.6rem 1.1rem;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    border: 1px solid transparent;
-    transition: background-color var(--theme-transition-duration) var(--theme-transition-easing), border-color var(--theme-transition-duration) var(--theme-transition-easing), color var(--theme-transition-duration) var(--theme-transition-easing), box-shadow var(--theme-transition-duration) var(--theme-transition-easing);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.3rem;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .intro-actions .btn-primary {
-    color: var(--black);
-    background-color: var(--aqua);
-    border-color: var(--aqua);
+  color: var(--rally-dark);
+  background-color: var(--rally-orange);
+  border-color: var(--rally-orange);
 }
 
 .intro-actions .btn-primary:hover {
-    color: var(--black);
-    background-color: color-mix(in srgb, var(--aqua) 90%, white);
+  color: var(--rally-dark);
+  background-color: var(--rally-gold);
+  box-shadow: 0 0 18px var(--rally-glow);
 }
 
 .intro-actions .btn-secondary {
-    color: var(--aqua);
-    background-color: color-mix(in srgb, var(--magenta) 14%, transparent);
-    border-color: color-mix(in srgb, var(--magenta) 42%, transparent);
+  color: var(--rally-orange);
+  background-color: transparent;
+  border-color: var(--rally-orange);
 }
 
 .intro-actions .btn-secondary:hover {
-    color: var(--white);
-    border-color: color-mix(in srgb, var(--aqua) 55%, transparent);
+  color: var(--rally-dark);
+  background-color: var(--rally-orange);
+  box-shadow: 0 0 18px var(--rally-glow);
 }
 
 @media (min-width: 900px) {
-    #intro {
-        padding-top: 5.8rem;
-    }
+  #intro {
+    padding-top: 5.8rem;
+  }
 
-    #intro h2 {
-        max-width: 17ch;
-    }
+  #intro h2 {
+    max-width: 17ch;
+  }
 }

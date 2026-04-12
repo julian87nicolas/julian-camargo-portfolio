@@ -1,21 +1,41 @@
+/* ================================================================
+   CMR2 – Contact section
+   ================================================================ */
+
 #contact {
-    background-color: var(--plum);
-    margin: 0;
-    padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+  background-color: var(--plum);
+  margin: 0;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
+
 #contact h2 {
-    display: block;
-    font-size: 2rem;
-    margin: 0;
-    padding: 0;
+  display: block;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  color: var(--rally-orange);
+  letter-spacing: 0.06em;
 }
+
 #contact p {
-    width: 18rem;
-    font-size: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 0;
+  width: 18rem;
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+#contact a {
+  color: var(--rally-orange);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+#contact a:hover {
+  color: var(--rally-gold);
+  text-shadow: 0 0 8px var(--rally-glow);
 }

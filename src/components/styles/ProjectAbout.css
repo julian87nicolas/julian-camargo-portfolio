@@ -1,4 +1,7 @@
-/*------------------------PROJECT and ABOUT page------------------------*/
+/* ================================================================
+   CMR2 – Projects & About section
+   ================================================================ */
+
 #projects {
   padding: 5rem var(--section-pad-x) 8rem;
   max-width: var(--content-max);
@@ -6,18 +9,12 @@
 }
 
 @keyframes initialTransition {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  0%   { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
 .section-blue {
-  animation: initialTransition 1s ease-out forwards;
+  animation: initialTransition 0.6s ease-out forwards;
   background-color: var(--dkblue);
 }
 
@@ -28,7 +25,8 @@
 #projects h2 {
   font-size: var(--step-3);
   margin-bottom: 0.8rem;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.04em;
+  color: var(--rally-orange);
 }
 
 #projects.projects-section .projects-intro {
@@ -39,14 +37,16 @@
   line-height: 1.62;
 }
 
+/* ---- filter tabs (CMR2 style) ---- */
 #projects.projects-section .projects-filters {
   margin: 2.4rem 0 2.8rem;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0;
   overflow-x: auto;
   white-space: nowrap;
   scrollbar-width: none;
+  border-bottom: 2px solid var(--rally-panel-border);
 }
 
 #projects.projects-section .projects-filters::-webkit-scrollbar {
@@ -58,11 +58,16 @@
   border: none;
   background: transparent;
   color: var(--text-faint);
-  padding: 0.5rem 1rem;
-  font-family: var(--sans);
-  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.9rem;
   line-height: 1.1;
   cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
 #projects.projects-section .projects-filter-btn span {
@@ -75,22 +80,28 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -0.25rem;
-  border-top: 1px solid var(--aqua);
+  bottom: -0.55rem;
+  border: none;
+  height: 0;
   transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#projects.projects-section .projects-filter-btn:hover,
+#projects.projects-section .projects-filter-btn:hover {
+  color: var(--rally-gold);
+  background-color: var(--rally-glow);
+}
+
 #projects.projects-section .projects-filter-btn.is-active {
-  color: var(--white);
+  color: var(--rally-orange);
+  border-bottom-color: var(--rally-orange);
+  background-color: var(--rally-glow);
 }
 
 #projects.projects-section .projects-filter-btn.is-active span::after {
   transform: scaleX(1);
 }
 
+/* ---- project grid ---- */
 #projects.projects-section .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -113,10 +124,10 @@
   overflow: hidden;
   aspect-ratio: 1 / 1;
   margin: 0;
-  border-radius: 1.2rem;
-  border: 1px solid rgba(140, 180, 217, 0.22);
+  border-radius: 4px;
+  border: 2px solid var(--rally-panel-border);
   background: var(--panel-bg-soft);
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s ease, border-color 0.3s ease;
 }
 
 #projects.projects-section .project-media img {
@@ -124,7 +135,7 @@
   height: 100%;
   object-fit: cover;
   transform: scale(1.01);
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s ease;
 }
 
 #projects.projects-section .project-media.project-media--left-crop img {
@@ -141,6 +152,8 @@
 
 #projects.projects-section .project-card:hover .project-media {
   transform: scale(0.985);
+  border-color: var(--rally-orange);
+  box-shadow: 0 0 16px var(--rally-glow);
 }
 
 #projects.projects-section .project-card:hover .project-media img {
@@ -159,6 +172,7 @@
   color: var(--text-soft);
 }
 
+/* ---- project link pills (CMR2 button style) ---- */
 #projects.projects-section .project-links {
   display: flex;
   flex-wrap: wrap;
@@ -177,19 +191,22 @@
   flex: 0 0 6.4rem;
   font-family: var(--mono);
   font-size: 0.72rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.34rem 0.56rem;
-  border-radius: 999px;
-  border: 1px solid var(--chip-border-soft);
-  color: var(--text-soft);
+  border-radius: 2px;
+  border: 1px solid var(--rally-panel-border);
+  color: var(--rally-orange);
   background: var(--chip-bg-soft);
   text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 #projects.projects-section .project-links a:hover {
-  background: rgba(140, 180, 217, 0.16);
-  color: var(--white);
+  background: var(--rally-orange);
+  color: var(--rally-dark);
+  border-color: var(--rally-orange);
+  box-shadow: 0 0 10px var(--rally-glow);
 }
 
 @media (min-width: 800px) {
@@ -206,14 +223,14 @@
   }
 
   #projects.projects-section .projects-filters {
-    gap: 0.85rem;
+    gap: 0;
     margin: 4rem 0 5.5rem;
     overflow: visible;
   }
 
   #projects.projects-section .projects-filter-btn {
-    font-size: 1.4rem;
-    padding: 0.55rem 0.75rem;
+    font-size: 1.1rem;
+    padding: 0.65rem 1.2rem;
   }
 
   #projects.projects-section .projects-grid {
@@ -240,24 +257,8 @@
   }
 }
 
-.cross-fade-leave {
-  opacity: 1;
-}
-
-.cross-fade-leave.cross-fade-leave-active {
-  opacity: 0;
-  transition: opacity 1s ease-in;
-}
-
-.cross-fade-enter {
-  opacity: 0;
-}
-
-.cross-fade-enter.cross-fade-enter-active {
-  opacity: 1;
-  transition: opacity 1s ease-in;
-}
-
-.cross-fade-height {
-  transition: height 0.5s ease-in-out;
-}
+.cross-fade-leave { opacity: 1; }
+.cross-fade-leave.cross-fade-leave-active { opacity: 0; transition: opacity 1s ease-in; }
+.cross-fade-enter { opacity: 0; }
+.cross-fade-enter.cross-fade-enter-active { opacity: 1; transition: opacity 1s ease-in; }
+.cross-fade-height { transition: height 0.5s ease-in-out; }

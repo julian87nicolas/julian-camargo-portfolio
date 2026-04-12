@@ -1,3 +1,7 @@
+/* ================================================================
+   CMR2 – Certifications section
+   ================================================================ */
+
 #certifications {
   padding: 5rem var(--section-pad-x);
   max-width: var(--content-max);
@@ -6,8 +10,9 @@
 
 #certifications h2 {
   font-size: var(--step-3);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.04em;
   margin-bottom: 0.9rem;
+  color: var(--rally-orange);
 }
 
 .cert-intro {
@@ -29,25 +34,26 @@
 .cert-meta {
   margin: 0 0 0.45rem;
   font-size: 0.84rem;
+  font-family: var(--mono);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--text-faint);
+  letter-spacing: 0.06em;
+  color: var(--rally-amber);
 }
 
 .cert-card h3 {
   margin: 0 0 0.65rem;
-  color: var(--aqua);
+  color: var(--rally-gold);
   line-height: 1.35;
   font-size: 1.02rem;
 }
 
 .cert-card a {
   font-size: 0.92rem;
-  color: var(--magenta);
+  color: var(--rally-orange);
 }
 
 .cert-card a:hover {
-  color: var(--hotmag);
+  color: var(--rally-gold);
 }
 
 .cert-more {
@@ -61,17 +67,21 @@
   min-width: 8.3rem;
   height: 2.2rem;
   padding: 0 0.95rem;
-  border-radius: 999px;
-  border: 1px solid var(--chip-border-soft);
-  background: var(--chip-bg-soft);
-  color: var(--text-soft);
+  border-radius: 2px;
+  border: 2px solid var(--rally-orange);
+  background: transparent;
+  color: var(--rally-orange);
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cert-more-link:hover {
-  color: var(--aqua);
-  border-color: color-mix(in srgb, var(--magenta) 48%, transparent);
+  color: var(--rally-dark);
+  background: var(--rally-orange);
+  box-shadow: 0 0 12px var(--rally-glow);
 }
 
 @media (min-width: 800px) {
