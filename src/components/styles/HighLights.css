@@ -46,6 +46,7 @@
   background: var(--rally-orange);
   border: 2px solid var(--rally-dark);
   box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.2);
+  /* Rotated square creates a diamond shape – CMR2 marker style */
   transform: rotate(45deg);
 }
 
