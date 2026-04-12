@@ -44,9 +44,9 @@
                 "url": "images/odontointegral-cover.png",
             "alt": "odonto-integral demonstration photo"
         },
-        "embed": "https://odontointegralfs.onrender.com/",
+        "embed": "https://www.aura-odontologia.com.ar/",
         "repo": "https://github.com/julian87nicolas/odontointegral-react",
-        "demo": "https://odontointegralfs.onrender.com/",
+        "demo": "https://www.aura-odontologia.com.ar/",
         "tech": [
             "HTML",
             "CSS",

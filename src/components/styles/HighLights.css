@@ -1,5 +1,5 @@
 /* ================================================================
-   Highlights / Experience screen — split list + detail
+   Highlights / Experience screen — centered titles, slide-left detail
    ================================================================ */
 
 #highlights.screen {
@@ -10,20 +10,36 @@
   margin-bottom: 1.2rem;
 }
 
-/* Split layout: list on left, detail on right */
+/* Layout: titles centered by default, slide left when detail opens */
 .hl-layout {
   display: flex;
   gap: 2rem;
   flex: 1;
   min-height: 0;
   overflow: hidden;
+  transition: all 300ms ease-in-out;
 }
 
+/* By default: list centered */
 .hl-list {
-  flex: 0 0 260px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0;
+  align-items: center;
+  justify-content: center;
+  transition: flex 300ms ease-in-out, align-items 300ms ease-in-out;
+}
+
+/* When detail is open: list slides to the left side */
+.hl-layout.has-detail .hl-list {
+  flex: 0 0 260px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.hl-layout.has-detail .hl-list .focus-item {
+  width: 100%;
 }
 
 .hl-item-title {

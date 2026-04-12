@@ -12,58 +12,55 @@ function Projects () {
     const projects = useMemo(() => listProjects, []);
 
     useEffect(() => {
-        if (selectedProject === null) {
-            setFocusCount(projects.length);
-        }
-    }, [setFocusCount, projects.length, selectedProject]);
+        setFocusCount(projects.length);
+    }, [setFocusCount, projects.length]);
 
-    if (selectedProject !== null) {
-        const proj = projects[selectedProject];
-        return (
-            <section id="projects" className="screen">
-                <button className="back-btn" onClick={() => setSelectedProject(null)}>
-                    ← Back to list
-                </button>
-                <div className="proj-detail" key={selectedProject}>
-                    <h2 className="screen-title">{proj.name}</h2>
-                    <p className="proj-detail-subtitle">{proj.title}</p>
-
-                    <div className="proj-detail-media">
-                        {proj.image && <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />}
-                    </div>
-
-                    <p className="proj-detail-desc">{proj.description}</p>
-
-                    <div className="proj-detail-tech">
-                        {proj.tech.map((t, i) => (
-                            <span key={i} className="tech-tag">{t}</span>
-                        ))}
-                    </div>
-
-                    <div className="proj-detail-links">
-                        <a href={proj.repo} target="_blank" rel="noreferrer"><FaLink /> Repository</a>
-                        {proj.demo && <a href={proj.demo} target="_blank" rel="noreferrer"><FaLink /> Live Demo</a>}
-                    </div>
-                </div>
-            </section>
-        );
-    }
+    const proj = selectedProject !== null ? projects[selectedProject] : null;
 
     return (
         <section id="projects" className="screen">
-            <button className="back-btn" onClick={goBack}>
+            <button className="back-btn" onClick={selectedProject !== null ? () => setSelectedProject(null) : goBack}>
                 ← Back
             </button>
             <h2 className="screen-title">Projects</h2>
 
-            <nav className="proj-list" role="menu" aria-label="Project list">
-                {projects.map((proj, idx) => (
-                    <FocusableItem key={idx} index={idx} onSelect={() => setSelectedProject(idx)}>
-                        <span className="proj-item-name">{proj.name}</span>
-                        <span className="proj-item-title">{proj.title}</span>
-                    </FocusableItem>
-                ))}
-            </nav>
+            <div className={`proj-layout${selectedProject !== null ? ' has-detail' : ''}`}>
+                <nav className="proj-list" role="menu" aria-label="Project list">
+                    {projects.map((p, idx) => (
+                        <FocusableItem key={idx} index={idx} onSelect={() => setSelectedProject(idx)}>
+                            <span className="proj-item-name">{p.name}</span>
+                            <span className="proj-item-title">{p.title}</span>
+                        </FocusableItem>
+                    ))}
+                </nav>
+
+                {proj && (
+                    <div className="proj-detail" key={selectedProject}>
+                        <h3 className="proj-detail-name">{proj.name}</h3>
+                        <p className="proj-detail-subtitle">{proj.title}</p>
+
+                        <div className="proj-detail-media">
+                            {proj.embed
+                                ? <iframe src={proj.embed} title={proj.name} className="proj-iframe" />
+                                : proj.image && <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />
+                            }
+                        </div>
+
+                        <p className="proj-detail-desc">{proj.description}</p>
+
+                        <div className="proj-detail-tech">
+                            {proj.tech.map((t, i) => (
+                                <span key={i} className="tech-tag">{t}</span>
+                            ))}
+                        </div>
+
+                        <div className="proj-detail-links">
+                            <a href={proj.repo} target="_blank" rel="noreferrer"><FaLink /> Repository</a>
+                            {proj.demo && <a href={proj.demo} target="_blank" rel="noreferrer"><FaLink /> Live Demo</a>}
+                        </div>
+                    </div>
+                )}
+            </div>
 
             <div className="screen-footer">
                 <span className="key-badge">↑↓</span> Navigate

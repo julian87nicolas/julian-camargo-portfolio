@@ -16,6 +16,9 @@ function Header() {
         { label: "Contact", index: 3 },
     ];
 
+    /* Build circular track: [...tabs, ...tabs, ...tabs] — center copy holds the real refs */
+    const circularTabs = [...tabs, ...tabs, ...tabs];
+
     useEffect(() => {
         if (activeRef.current && ulRef.current) {
             const ul = ulRef.current;
@@ -31,18 +34,23 @@ function Header() {
         <div id="header">
             <nav>
                 <ul ref={ulRef}>
-                    {tabs.map((tab, i) => (
-                        <li key={tab.label}>
-                            {i > 0 && <span className="nav-separator">|</span>}
-                            <button
-                                ref={activePanelIndex === tab.index ? activeRef : null}
-                                className={`nav-tab${activePanelIndex === tab.index ? ' is-active' : ''}`}
-                                onClick={() => goToPanel(tab.index)}
-                            >
-                                {tab.label}
-                            </button>
-                        </li>
-                    ))}
+                    {circularTabs.map((tab, i) => {
+                        /* The center copy is items [tabs.length .. 2*tabs.length-1] */
+                        const isCenter = i >= tabs.length && i < tabs.length * 2;
+                        const isActive = isCenter && activePanelIndex === tab.index;
+                        return (
+                            <li key={`${tab.label}-${i}`}>
+                                {i > 0 && <span className="nav-separator">|</span>}
+                                <button
+                                    ref={isActive ? activeRef : null}
+                                    className={`nav-tab${isActive ? ' is-active' : ''}`}
+                                    onClick={() => goToPanel(tab.index)}
+                                >
+                                    {tab.label}
+                                </button>
+                            </li>
+                        );
+                    })}
                 </ul>
             </nav>
             <span className="lang-switch">
