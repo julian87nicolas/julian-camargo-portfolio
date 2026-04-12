@@ -45,7 +45,7 @@ function PanelContainer() {
             className={`panel-slide${idx === activePanelIndex ? ' is-active' : ''}`}
             key={idx}
             aria-hidden={idx !== activePanelIndex}
-            inert={idx !== activePanelIndex ? '' : undefined}
+            inert={idx !== activePanelIndex ? true : undefined}
           >
             <PanelComponent />
           </div>
