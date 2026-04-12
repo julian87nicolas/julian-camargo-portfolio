@@ -1,6 +1,5 @@
 /* ================================================================
-   CMR2 – Top navigation bar
-   Thin horizontal bar with panel tab buttons.
+   Top nav bar — minimal, videogame-style tab bar
    ================================================================ */
 
 #header {
@@ -9,7 +8,7 @@
   left: 0;
   right: 0;
   z-index: 50;
-  height: var(--nav-height, 56px);
+  height: var(--nav-height, 48px);
   display: flex;
   align-items: center;
   background: var(--bg-main);
@@ -18,9 +17,9 @@
 
 nav {
   width: 100%;
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 1rem;
 }
 
 nav ul {
@@ -32,43 +31,32 @@ nav ul {
   gap: 0;
 }
 
-/* logo / name */
 nav li:first-child {
-  margin-right: auto;
+  margin-right: 1.5rem;
 }
 
 nav h1 {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-nav h1 a,
 nav h1 button.nav-tab {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--text-primary);
   opacity: 1;
-  font-size: 0.95rem;
-  font-weight: 700;
 }
 
-nav h1 a:hover,
 nav h1 button.nav-tab:hover { color: var(--accent-blue); }
 
-.fa-solid.fa-code { color: var(--accent-blue); }
-
-/* ---- tab-style nav links ---- */
-nav a,
 nav button.nav-tab {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  padding: 0.45rem 0.7rem;
+  padding: 0.4rem 0.65rem;
   font-family: var(--sans);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -80,49 +68,32 @@ nav button.nav-tab {
   transition: color 150ms ease, background-color 150ms ease;
 }
 
-nav a:hover,
 nav button.nav-tab:hover {
   color: var(--text-primary);
   background: var(--highlight-bar);
 }
 
-nav a.active,
 nav button.nav-tab.is-active {
   color: var(--accent-blue);
 }
 
-nav a.active::after,
 nav button.nav-tab.is-active::after {
   content: "";
   position: absolute;
   bottom: -1px;
-  left: 0.7rem;
-  right: 0.7rem;
+  left: 0.5rem;
+  right: 0.5rem;
   height: 2px;
   background: var(--accent-blue);
   border-radius: 1px;
 }
 
-/* resume CTA */
-nav .resume a {
-  background: var(--accent-blue);
-  color: #000;
-  padding: 0.35rem 0.7rem;
-  border-radius: 3px;
-  font-weight: 700;
+.nav-spacer {
+  flex: 1;
 }
-
-nav .resume a:hover {
-  background: var(--highlight-blue);
-  color: #000;
-}
-
-/* theme toggle */
-.theme-toggle { display: none; }   /* removed — dark-only game theme */
 
 .lang-switch {
-  width: 1.4rem;
-  margin-left: 0.4rem;
+  width: 1.2rem;
 }
 
 .lang-switch img {
@@ -131,20 +102,12 @@ nav .resume a:hover {
   display: block;
 }
 
-/* Hide border gradient in header */
 #header .border-gradient { display: none; }
+.theme-toggle { display: none; }
+nav .resume { display: none; }
 
-@media (max-width: 849px) {
-  nav a span:not(.sr-only),
-  nav button.nav-tab span { display: none; }
-  nav { padding: 0 0.6rem; }
-  nav h1 { font-size: 0.82rem; }
-}
-
-@media (min-width: 850px) {
-  nav a,
-  nav button.nav-tab {
-    font-size: 0.82rem;
-    padding: 0.45rem 0.85rem;
-  }
+@media (max-width: 600px) {
+  nav { padding: 0 0.5rem; }
+  nav button.nav-tab { font-size: 0.68rem; padding: 0.35rem 0.45rem; }
+  nav h1 { font-size: 0.78rem; }
 }

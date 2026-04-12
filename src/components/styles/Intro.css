@@ -1,98 +1,16 @@
 /* ================================================================
-   CMR2 – Home / Intro panel
+   Home / Main Menu screen
+   Simple videogame main menu: title + 3 options
    ================================================================ */
 
-#intro {
-  display: flex;
-  flex-direction: column;
+#intro.screen {
   justify-content: center;
-  min-height: 60vh;
-  padding: 3rem 2rem;
-  max-width: 900px;
-  margin: 0 auto;
+  align-items: flex-start;
+  padding-top: 0;
 }
 
-#intro .name {
-  font-size: 0.85rem;
-  font-family: var(--mono);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-  margin: 0 0 0.5rem;
+#intro .screen-header {
+  margin-bottom: 3rem;
 }
 
-.name span {
-  display: block;
-  font-family: var(--sans);
-  font-size: clamp(2rem, 6vw, 3.6rem);
-  font-weight: 700;
-  color: var(--accent-blue);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1.1;
-  margin-top: 0.3rem;
-}
-
-#intro h2 {
-  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-  font-weight: 600;
-  max-width: 22ch;
-  margin: 1rem 0 1.2rem;
-  color: var(--text-primary);
-  letter-spacing: 0.02em;
-}
-
-#intro > p:not(.name) {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
-  max-width: 56ch;
-  margin: 0;
-}
-
-.intro-actions {
-  display: flex;
-  gap: 0.7rem;
-  margin-top: 2rem;
-}
-
-.intro-actions a,
-.intro-actions button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.55rem 1.2rem;
-  border: none;
-  border-radius: 3px;
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
-}
-
-.intro-actions .btn-primary {
-  background: var(--accent-blue);
-  color: #000;
-}
-
-.intro-actions .btn-primary:hover {
-  background: var(--highlight-blue);
-  color: #000;
-}
-
-.intro-actions .btn-secondary {
-  background: transparent;
-  color: var(--accent-blue);
-  border: 1px solid var(--accent-blue);
-}
-
-.intro-actions .btn-secondary:hover {
-  background: var(--highlight-bar);
-  color: var(--highlight-blue);
-}
-
-/* hide old border gradient in panels */
 #intro + .border-gradient { display: none; }

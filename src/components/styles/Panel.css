@@ -1,14 +1,12 @@
 /* ================================================================
-   CMR2 – Panel system
-   Fullscreen horizontal slide panels — no vertical scroll.
+   Videogame panel system — fullscreen horizontal slides, no scroll
    ================================================================ */
 
 .panel-viewport {
   position: fixed;
   inset: 0;
   overflow: hidden;
-  /* leave room for the top nav bar */
-  top: var(--nav-height, 56px);
+  top: var(--nav-height, 48px);
 }
 
 .panel-track {
@@ -18,136 +16,191 @@
   transition: transform 300ms ease-in-out;
 }
 
-.panel-track.is-sliding {
-  transition: transform 300ms ease-in-out;
-}
-
 .panel-slide {
   flex: 0 0 100vw;
   width: 100vw;
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* Edge */
+  overflow: hidden;
 }
 
-.panel-slide::-webkit-scrollbar {
-  display: none;                /* Chrome/Safari */
-}
-
-/* Only the active panel is interactive */
 .panel-slide:not(.is-active) {
   pointer-events: none;
   user-select: none;
 }
 
-/* Inner panel content wrapper */
-.panel-content {
+/* ================================================================
+   Screen — every panel's root element
+   ================================================================ */
+
+.screen {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
-  padding: 2.5rem 2rem 3rem;
-  max-width: 1100px;
+  height: 100%;
+  padding: 2.5rem 3rem 1.5rem;
+  max-width: 900px;
   margin: 0 auto;
-}
-
-/* ---- Focusable item highlight (CMR2 menu bar) ---- */
-.focusable-item {
   position: relative;
-  padding: 0.75rem 1.25rem;
-  margin: 0.15rem 0;
-  cursor: pointer;
-  border-radius: 4px;
-  outline: none;
-  transition:
-    background-color 180ms ease,
-    color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
+  overflow: hidden;
 }
 
-.focusable-item.is-focused {
-  background-color: var(--highlight-bar);
-  color: #FFFFFF;
-  transform: scale(1.02);
-  box-shadow: inset 3px 0 0 var(--accent-blue);
+/* ---- Screen header area ---- */
+.screen-header {
+  margin-bottom: 2rem;
 }
 
-.focusable-item:hover {
-  background-color: var(--highlight-bar);
+.screen-label {
+  font-size: 0.78rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  margin: 0 0 0.4rem;
 }
 
-/* ---- Panel heading ---- */
-.panel-title {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+.screen-title {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin: 0 0 1.5rem;
   color: var(--accent-blue);
+  margin: 0 0 0.4rem;
 }
 
-.panel-subtitle {
+.screen-subtitle {
   font-size: 1rem;
   color: var(--text-secondary);
-  margin: 0 0 2rem;
-  max-width: 56ch;
-  line-height: 1.6;
+  margin: 0;
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
 }
 
-/* ---- Breadcrumb / back indicator ---- */
-.panel-back {
+/* ---- Back button ---- */
+.back-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.82rem;
+  gap: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-secondary);
-  margin-bottom: 1.2rem;
-  cursor: pointer;
-  transition: color 150ms ease;
   background: none;
   border: none;
   padding: 0;
-  font-family: inherit;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  transition: color 150ms ease;
 }
 
-.panel-back:hover,
-.panel-back:focus-visible {
+.back-btn:hover,
+.back-btn:focus-visible {
   color: var(--accent-blue);
 }
 
-/* ---- detail sub-panel (expands within a panel) ---- */
-.detail-overlay {
+/* ---- Focus item (menu item with highlight bar) ---- */
+.focus-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.85rem 1.2rem;
+  margin: 0.15rem 0;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+  color: var(--text-secondary);
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.focus-item .focus-indicator {
   position: absolute;
-  inset: 0;
-  background: var(--bg-surface);
-  z-index: 10;
-  padding: 2rem;
-  overflow-y: auto;
-  animation: detail-in 250ms ease-out forwards;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  border-radius: 2px;
+  transition: background-color 200ms ease;
 }
 
-@keyframes detail-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+.focus-item.is-focused {
+  background: var(--highlight-bar);
+  color: var(--text-primary);
+  transform: scale(1.02);
 }
 
-/* ---- Keyboard hint badges ---- */
-.key-hint {
+.focus-item.is-focused .focus-indicator {
+  background: var(--accent-blue);
+}
+
+.focus-item:hover {
+  background: var(--highlight-bar);
+  color: var(--text-primary);
+}
+
+/* ---- Menu list ---- */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.menu-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.menu-hint {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.focus-item.is-focused .menu-hint {
+  opacity: 1;
+  color: var(--accent-blue);
+}
+
+/* ---- Screen footer (keyboard hints) ---- */
+.screen-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 1rem;
+  margin-top: auto;
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  border-top: 1px solid var(--separator);
+}
+
+.key-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 1.5rem;
-  height: 1.5rem;
+  height: 1.4rem;
   padding: 0 0.35rem;
-  font-size: 0.7rem;
-  font-family: var(--mono, monospace);
+  font-size: 0.65rem;
   border: 1px solid var(--text-secondary);
   border-radius: 3px;
   color: var(--text-secondary);
-  opacity: 0.5;
-  margin-left: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .screen {
+    padding: 1.5rem 1.2rem 1rem;
+  }
 }

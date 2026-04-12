@@ -1,22 +1,40 @@
+import { useEffect } from "react";
 import { useNavigation } from "./NavigationContext";
+import FocusableItem from "./FocusableItem";
 import "./styles/Intro.css"
 
 function Intro () {
-    const { goToPanel } = useNavigation();
+    const { goToPanel, setFocusCount } = useNavigation();
+
+    useEffect(() => { setFocusCount(3); }, [setFocusCount]);
 
     return (
-        <section id="intro">
-            <p className="name">Hi, I am <span>Julián Camargo.</span></p>
+        <section id="intro" className="screen" role="menu">
+            <div className="screen-header">
+                <p className="screen-label">Julián Camargo</p>
+                <h2 className="screen-title">Backend Developer</h2>
+                <p className="screen-subtitle">Java · Cloud · IoT</p>
+            </div>
 
-            <h2>Backend developer focused on Java, cloud and IoT integrations.</h2>
+            <nav className="menu-list" aria-label="Main menu">
+                <FocusableItem index={0} onSelect={() => goToPanel(1)}>
+                    <span className="menu-text">Highlights</span>
+                    <span className="menu-hint">→</span>
+                </FocusableItem>
+                <FocusableItem index={1} onSelect={() => goToPanel(2)}>
+                    <span className="menu-text">Projects</span>
+                    <span className="menu-hint">→</span>
+                </FocusableItem>
+                <FocusableItem index={2} onSelect={() => goToPanel(3)}>
+                    <span className="menu-text">Contact</span>
+                    <span className="menu-hint">→</span>
+                </FocusableItem>
+            </nav>
 
-            <p>
-            Backend developer specialized in Java microservices, cloud infrastructure, and integration between software and embedded systems. Experience in cloud migration projects, CI/CD automation, and API design for scalable and reliable services.
-            </p>
-
-            <div className="intro-actions">
-                <button onClick={() => goToPanel(3)} className="btn-primary">View Projects</button>
-                <button onClick={() => goToPanel(4)} className="btn-secondary">Let&apos;s Talk</button>
+            <div className="screen-footer">
+                <span className="key-badge">↑↓</span> Navigate
+                <span className="key-badge">Enter</span> Select
+                <span className="key-badge">→</span> Next
             </div>
         </section>
     )

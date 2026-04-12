@@ -1,37 +1,53 @@
 /* ================================================================
-   CMR2 – Contact panel
+   Contact screen — focusable contact options
    ================================================================ */
 
-#contact {
-  padding: 2.5rem 2rem;
+#contact.screen {
   max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
-#contact h2 {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--accent-blue);
-  margin: 0 0 0.8rem;
+#contact .screen-title {
+  margin-bottom: 0.4rem;
 }
 
-#contact p {
+.contact-subtitle {
+  font-size: 0.88rem;
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin: 0.5rem 0;
+  margin: 0 0 1.5rem;
 }
 
-#contact a {
+.contact-icon {
+  font-size: 1.2rem;
   color: var(--accent-blue);
-  font-weight: 600;
+  flex-shrink: 0;
+  width: 1.4rem;
+}
+
+.contact-value {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+}
+
+.focus-item.is-focused .contact-value {
+  color: var(--highlight-blue);
+}
+
+.contact-footer-text {
+  margin-top: auto;
+}
+
+.contact-footer-text p {
+  font-size: 0.72rem;
+  font-family: var(--mono);
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  margin: 0;
 }
 
-#contact a:hover { color: var(--highlight-blue); }
-
-/* hide separator */
 #contact + .border-gradient { display: none; }

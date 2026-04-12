@@ -1,14 +1,13 @@
 import { useMemo } from "react";
 import { NavigationProvider } from "./NavigationContext";
 import PanelContainer from "./PanelContainer";
-import Highlights from "./Highlights";
 import Intro from "./Intro";
+import Highlights from "./Highlights";
 import Projects from "./Projects";
-import Certifications from "./Certifications";
 import Contact from "./Contact";
 
-function Mainpage({ HeaderComponent, AboutComponent, FooterComponent }) {
-    const panels = useMemo(() => [Intro, Highlights, Certifications, Projects, ContactFooter], []);
+function Mainpage({ HeaderComponent }) {
+    const panels = useMemo(() => [Intro, Highlights, Projects, Contact], []);
 
     return (
         <NavigationProvider panels={panels}>
@@ -18,10 +17,6 @@ function Mainpage({ HeaderComponent, AboutComponent, FooterComponent }) {
             </div>
         </NavigationProvider>
     );
-}
-
-function ContactFooter() {
-    return <Contact />;
 }
 
 export default Mainpage

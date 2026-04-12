@@ -3,15 +3,11 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useReducer 
 const NavigationContext = createContext(null);
 
 const initialState = {
-  /** Index of the currently visible panel (0-based) */
   activePanelIndex: 0,
-  /** Index of the focused item within the active panel */
   focusIndex: 0,
-  /** Direction of the last transition: 'left' | 'right' | null */
+  focusCount: 0,
   direction: null,
-  /** Stack for back navigation — stores previous panel indices */
   history: [],
-  /** Whether a transition is currently animating */
   isAnimating: false,
 };
 
@@ -25,6 +21,7 @@ function navReducer(state, action) {
         ...state,
         activePanelIndex: next,
         focusIndex: 0,
+        focusCount: 0,
         direction: next > state.activePanelIndex ? 'right' : 'left',
         history: [...state.history, state.activePanelIndex],
         isAnimating: true,
@@ -38,17 +35,22 @@ function navReducer(state, action) {
         ...state,
         activePanelIndex: prev,
         focusIndex: 0,
+        focusCount: 0,
         direction: 'left',
         history: state.history.slice(0, -1),
         isAnimating: true,
       };
     }
-    case 'FOCUS_NEXT':
-      return { ...state, focusIndex: state.focusIndex + 1 };
+    case 'FOCUS_NEXT': {
+      const max = state.focusCount > 0 ? state.focusCount - 1 : 999;
+      return { ...state, focusIndex: Math.min(state.focusIndex + 1, max) };
+    }
     case 'FOCUS_PREV':
       return { ...state, focusIndex: Math.max(0, state.focusIndex - 1) };
     case 'SET_FOCUS':
       return { ...state, focusIndex: action.index };
+    case 'SET_FOCUS_COUNT':
+      return { ...state, focusCount: action.count, focusIndex: Math.min(state.focusIndex, Math.max(0, action.count - 1)) };
     case 'ANIMATION_DONE':
       return { ...state, isAnimating: false };
     default:
@@ -74,11 +76,12 @@ export function NavigationProvider({ panels, children }) {
   const focusNext = useCallback(() => dispatch({ type: 'FOCUS_NEXT' }), []);
   const focusPrev = useCallback(() => dispatch({ type: 'FOCUS_PREV' }), []);
   const setFocus = useCallback((i) => dispatch({ type: 'SET_FOCUS', index: i }), []);
+  const setFocusCount = useCallback((c) => dispatch({ type: 'SET_FOCUS_COUNT', count: c }), []);
   const onAnimationDone = useCallback(() => dispatch({ type: 'ANIMATION_DONE' }), []);
 
-  // Keyboard handler
   useEffect(() => {
     function handleKey(e) {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
       switch (e.key) {
         case 'ArrowRight':
           e.preventDefault();
@@ -120,9 +123,10 @@ export function NavigationProvider({ panels, children }) {
       focusNext,
       focusPrev,
       setFocus,
+      setFocusCount,
       onAnimationDone,
     }),
-    [state, panels, panelCount, goToPanel, goBack, focusNext, focusPrev, setFocus, onAnimationDone]
+    [state, panels, panelCount, goToPanel, goBack, focusNext, focusPrev, setFocus, setFocusCount, onAnimationDone]
   );
 
   return <NavigationContext.Provider value={value}>{children}</NavigationContext.Provider>;

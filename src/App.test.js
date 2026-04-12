@@ -9,7 +9,7 @@ test('renders english landing page by default', () => {
     </MemoryRouter>
   );
 
-  expect(screen.getByRole('heading', { name: /backend developer focused on java/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /backend developer/i })).toBeInTheDocument();
 });
 
 test('renders spanish landing page for es route', () => {
@@ -19,5 +19,5 @@ test('renders spanish landing page for es route', () => {
     </MemoryRouter>
   );
 
-  expect(screen.getByRole('heading', { name: /desarrollador backend con foco en java/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /desarrollador backend/i })).toBeInTheDocument();
 });

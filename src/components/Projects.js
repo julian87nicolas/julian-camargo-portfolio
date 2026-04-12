@@ -1,84 +1,75 @@
-import { useMemo, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import { useNavigation } from "./NavigationContext";
+import FocusableItem from "./FocusableItem";
 import listProjects from "./list-project.json"
 import { FaLink } from "react-icons/fa6";
 import "./styles/ProjectAbout.css"
 
-const PROJECT_FILTERS = [
-    { key: "all", label: "All projects" },
-    { key: "web", label: "Websites" },
-    { key: "engineering", label: "Engineering" }
-];
-
-const categorizeProject = (project) => {
-    const text = `${project.title} ${project.name} ${project.tech.join(" ")}`.toLowerCase();
-
-    if (text.includes("electronic") || text.includes("iot") || text.includes("lora") || text.includes("microcontroller") || text.includes("esp")) {
-        return "engineering";
-    }
-
-    if (text.includes("react") || text.includes("web") || text.includes("website") || text.includes("html") || text.includes("css") || text.includes("bootstrap")) {
-        return "web";
-    }
-
-    return "app";
-};
-
 function Projects () {
-    const [activeFilter, setActiveFilter] = useState("all");
+    const { setFocusCount, goBack } = useNavigation();
+    const [selectedProject, setSelectedProject] = useState(null);
 
-    const projectsWithCategory = useMemo(
-        () => listProjects.map((project) => ({ ...project, category: categorizeProject(project) })),
-        []
-    );
+    const projects = useMemo(() => listProjects, []);
 
-    const visibleProjects = useMemo(
-        () => projectsWithCategory.filter((project) => activeFilter === "all" || project.category === activeFilter),
-        [activeFilter, projectsWithCategory]
-    );
+    useEffect(() => {
+        if (selectedProject === null) {
+            setFocusCount(projects.length);
+        }
+    }, [setFocusCount, projects.length, selectedProject]);
+
+    if (selectedProject !== null) {
+        const proj = projects[selectedProject];
+        return (
+            <section id="projects" className="screen">
+                <button className="back-btn" onClick={() => setSelectedProject(null)}>
+                    ← Back to list
+                </button>
+                <div className="proj-detail" key={selectedProject}>
+                    <h2 className="screen-title">{proj.name}</h2>
+                    <p className="proj-detail-subtitle">{proj.title}</p>
+
+                    <div className="proj-detail-media">
+                        {proj.image && <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />}
+                    </div>
+
+                    <p className="proj-detail-desc">{proj.description}</p>
+
+                    <div className="proj-detail-tech">
+                        {proj.tech.map((t, i) => (
+                            <span key={i} className="tech-tag">{t}</span>
+                        ))}
+                    </div>
+
+                    <div className="proj-detail-links">
+                        <a href={proj.repo} target="_blank" rel="noreferrer"><FaLink /> Repository</a>
+                        {proj.demo && <a href={proj.demo} target="_blank" rel="noreferrer"><FaLink /> Live Demo</a>}
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
     return (
-        <section id="projects" className="projects-section">
-        <h2>Projects I'm proud of</h2>
-        <p className="projects-intro">Selected work across web, apps and engineering systems.</p>
+        <section id="projects" className="screen">
+            <button className="back-btn" onClick={goBack}>
+                ← Back
+            </button>
+            <h2 className="screen-title">Projects</h2>
 
-                <div className="projects-filters" role="tablist" aria-label="Project categories">
-                    {PROJECT_FILTERS.map((filter) => (
-                        <button
-                            key={filter.key}
-                            type="button"
-                            className={`projects-filter-btn${activeFilter === filter.key ? " is-active" : ""}`}
-                            onClick={() => setActiveFilter(filter.key)}
-                            role="tab"
-                            aria-selected={activeFilter === filter.key}
-                        >
-                            <span>{filter.label}</span>
-                        </button>
-                    ))}
-                </div>
+            <nav className="proj-list" role="menu" aria-label="Project list">
+                {projects.map((proj, idx) => (
+                    <FocusableItem key={idx} index={idx} onSelect={() => setSelectedProject(idx)}>
+                        <span className="proj-item-name">{proj.name}</span>
+                        <span className="proj-item-title">{proj.title}</span>
+                    </FocusableItem>
+                ))}
+            </nav>
 
-                <div className="projects-grid" role="list">
-                    {visibleProjects.map((proj, idx) =>
-                        <article className="project-card" key={`${proj.name}-${idx}`} role="listitem">
-                            <a className="project-card-link" href={proj.demo || proj.repo} target="_blank" rel="noreferrer" aria-label={proj.name}>
-                            <div className={`project-media${proj.embed ? " project-media--embed" : proj.image.url.includes("odontointegral-cover") ? " project-media--left-crop" : ""}`}>
-                                {proj.embed
-                                    ? <iframe src={proj.embed} title={proj.name} scrolling="no" loading="lazy" sandbox="allow-scripts allow-same-origin" />
-                                    : <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />
-                                }
-                            </div>
-
-                            <div className="project-info">
-                                <p className="project-caption"><b>{proj.name}</b> - {proj.title}</p>
-                            </div>
-                            </a>
-
-                            <div className="project-links">
-                                <a href={proj.repo} target="_blank" rel="noreferrer"><FaLink /> Repo</a>
-                                {proj.demo && <a href={proj.demo} target="_blank" rel="noreferrer"><FaLink /> Live</a>}
-                            </div>
-                        </article>
-                    )}
-                </div>
+            <div className="screen-footer">
+                <span className="key-badge">↑↓</span> Navigate
+                <span className="key-badge">Enter</span> Open
+                <span className="key-badge">Esc</span> Back
+            </div>
         </section>
     )
 }

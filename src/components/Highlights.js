@@ -1,29 +1,56 @@
+import { useEffect } from "react";
+import { useNavigation } from "./NavigationContext";
+import FocusableItem from "./FocusableItem";
 import listHighlights from "./list-highlights.json"
 import "./styles/HighLights.css"
 
 function Highlights() {
+    const { focusIndex, setFocusCount, goBack } = useNavigation();
+
+    useEffect(() => { setFocusCount(listHighlights.length); }, [setFocusCount]);
+
+    const active = listHighlights[focusIndex] || listHighlights[0];
+
     return (
-        <section id="highlights">
-            <h2>Highlights</h2>
-            <div className="hl_timeline">
-                {listHighlights.map((highl, idx) =>
-                    <article className="hl_item surface-card" key={`${highl.title}-${idx}`}>
-                        <span className="hl_marker" aria-hidden="true"></span>
-                        <div className="hl_content">
-                            <p className="hl_time">{highl.time_interval}</p>
-                            <h3>{highl.title} - {highl.company.url && <a href={highl.company.url} target="_blank" rel="noreferrer">{highl.company.name}</a>}{!highl.company.url && highl.company.name}</h3>
-                            <h4>Description</h4>
-                            <ul className="hl_points">
-                                {highl.description.map((d, descIdx) =>
-                                    <li key={`${highl.title}-${descIdx}`}>
-                                        <p>{d.summary}</p>
-                                        {d.tech && <p className="tech">{d.tech}</p>}
-                                    </li>
-                                )}
-                            </ul>
-                        </div>
-                    </article>
-                )}
+        <section id="highlights" className="screen">
+            <button className="back-btn" onClick={goBack}>
+                ← Back
+            </button>
+            <h2 className="screen-title">Highlights</h2>
+
+            <div className="hl-layout">
+                <nav className="hl-list" role="menu" aria-label="Experience list">
+                    {listHighlights.map((hl, idx) => (
+                        <FocusableItem key={idx} index={idx}>
+                            <span className="hl-item-title">{hl.title}</span>
+                            <span className="hl-item-company">{hl.company.name}</span>
+                        </FocusableItem>
+                    ))}
+                </nav>
+
+                <div className="hl-detail" key={focusIndex}>
+                    <p className="hl-time">{active.time_interval}</p>
+                    <h3>{active.title}</h3>
+                    <p className="hl-company-name">
+                        {active.company.url
+                            ? <a href={active.company.url} target="_blank" rel="noreferrer">{active.company.name}</a>
+                            : active.company.name
+                        }
+                    </p>
+                    <ul className="hl-desc">
+                        {active.description.map((d, i) => (
+                            <li key={i}>
+                                <p>{d.summary}</p>
+                                {d.tech && <p className="hl-tech">{d.tech}</p>}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            <div className="screen-footer">
+                <span className="key-badge">↑↓</span> Navigate
+                <span className="key-badge">Esc</span> Back
             </div>
         </section>
     );
