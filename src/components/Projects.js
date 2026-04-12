@@ -41,7 +41,7 @@ function Projects () {
 
                         <div className="proj-detail-media">
                             {proj.embed
-                                ? <iframe src={proj.embed} title={proj.name} className="proj-iframe" />
+                                ? <iframe src={proj.embed} title={proj.name} className="proj-iframe" sandbox="allow-scripts allow-same-origin" />
                                 : proj.image && <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />
                             }
                         </div>
