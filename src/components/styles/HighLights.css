@@ -1,155 +1,128 @@
 /* ================================================================
-   CMR2 – Highlights / Timeline section
-   Blue timeline line, cyan markers, blue highlight bars on items
+   CMR2 – Highlights / Experience panel
    ================================================================ */
 
 #highlights {
-  padding: 5rem var(--section-pad-x);
-  max-width: var(--content-max);
+  padding: 2.5rem 2rem 3rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .section-black {
-  background-color: var(--plum);
+  background: transparent;
+}
+
+#highlights h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--accent-blue);
+  margin-bottom: 1.8rem;
 }
 
 .hl_timeline {
   position: relative;
   display: grid;
-  gap: 1.3rem;
-  padding-left: 1.35rem;
+  gap: 1rem;
+  padding-left: 1.2rem;
 }
 
 .hl_timeline::before {
   content: "";
   position: absolute;
-  left: 0.38rem;
-  top: 0.2rem;
-  bottom: 0.2rem;
+  left: 0.3rem;
+  top: 0;
+  bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, var(--cmr-blue) 0%, rgba(58, 159, 216, 0.15) 100%);
+  background: linear-gradient(180deg, var(--accent-blue) 0%, rgba(0,122,255,0.1) 100%);
 }
 
 .hl_item {
   position: relative;
   width: 100%;
-  color: var(--white);
-  padding: 1.3rem 1.3rem 1.15rem;
+  color: var(--text-primary);
+  padding: 1rem 1.1rem 0.9rem;
 }
 
 .hl_marker {
   position: absolute;
-  left: -1.04rem;
-  top: 1.55rem;
-  width: 0.78rem;
-  height: 0.78rem;
+  left: -0.95rem;
+  top: 1.3rem;
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 50%;
-  background: var(--cmr-cyan);
-  border: 2px solid var(--cmr-dark);
-  box-shadow: 0 0 0 3px rgba(58, 159, 216, 0.2), 0 0 8px rgba(92, 184, 255, 0.15);
-}
-
-.hl_item:hover {
-  transform: translateY(-1px);
+  background: var(--accent-blue);
+  border: 2px solid var(--bg-main);
+  box-shadow: 0 0 0 3px rgba(0,122,255,0.2);
 }
 
 .hl_content {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .hl_time {
   margin: 0;
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   font-family: var(--mono);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--cmr-yellow);
+  color: var(--accent-yellow);
+}
+
+#highlights h3 {
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+  font-size: 1rem;
+}
+
+#highlights h4 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 #highlights .hl_points {
   list-style: none;
-  margin: 0.3rem 0 0;
+  margin: 0.2rem 0 0;
   padding: 0;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 #highlights .hl_points li {
-  padding: 0.78rem 0.9rem;
-  border-radius: 2px;
-  background: var(--chip-bg-soft);
-  border: 1px solid var(--chip-border-soft);
-  border-left: 3px solid var(--cmr-blue);
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 3px solid var(--accent-blue);
 }
 
 #highlights .hl_points p {
   margin: 0;
-  max-width: 60ch;
-  font-size: 0.96rem;
-  line-height: 1.6;
+  max-width: 56ch;
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 #highlights .hl_points .tech {
-  margin-top: 0.35rem;
-  font-size: 0.86rem;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
   font-family: var(--mono);
-  color: var(--cmr-yellow);
-}
-
-#highlights h2 {
-  font-size: var(--step-3);
-  letter-spacing: 0.04em;
-  margin-bottom: 2.8rem;
-  color: var(--cmr-cyan);
-}
-
-#highlights h3 {
-  color: var(--cmr-lightblue);
-  line-height: 1.3;
-  margin: 0;
-}
-
-#highlights h4 {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-faint);
-  margin: 0;
+  color: var(--accent-yellow);
 }
 
 #highlights a {
-  color: var(--cmr-cyan);
-  text-decoration: none;
+  color: var(--accent-blue);
 }
 
 #highlights a:hover {
-  color: var(--cmr-lightblue);
+  color: var(--highlight-blue);
 }
 
-@media (min-width: 800px) {
-  #highlights {
-    padding-top: 6rem;
-    padding-bottom: 6.4rem;
-  }
-
-  #highlights h2 {
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
-  }
-
-  .hl_timeline {
-    gap: 1.25rem;
-    padding-left: 1.75rem;
-  }
-
-  .hl_timeline::before {
-    left: 0.6rem;
-  }
-
-  .hl_marker {
-    left: -1.35rem;
-  }
-}
+/* hide old separator */
+.section-black .border-gradient { display: none; }
 
 .cross-fade-leave { opacity: 1; }
 .cross-fade-leave.cross-fade-leave-active { opacity: 0; transition: opacity 1s ease-in; }

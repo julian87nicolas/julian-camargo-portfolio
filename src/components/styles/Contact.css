@@ -1,41 +1,37 @@
 /* ================================================================
-   CMR2 – Contact section
-   Blue heading, cyan links, dark panel background
+   CMR2 – Contact panel
    ================================================================ */
 
 #contact {
-  background-color: var(--plum);
-  margin: 0;
-  padding: 4rem;
+  padding: 2.5rem 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  text-align: center;
   align-items: center;
 }
 
 #contact h2 {
-  display: block;
-  font-size: 2rem;
-  margin: 0;
-  padding: 0;
-  color: var(--cmr-cyan);
-  letter-spacing: 0.06em;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--accent-blue);
+  margin: 0 0 0.8rem;
 }
 
 #contact p {
-  width: 18rem;
-  font-size: 1rem;
-  margin-top: 2rem;
-  margin-bottom: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
 }
 
 #contact a {
-  color: var(--cmr-cyan);
+  color: var(--accent-blue);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
-#contact a:hover {
-  color: var(--cmr-lightblue);
-}
+#contact a:hover { color: var(--highlight-blue); }
+
+/* hide separator */
+#contact + .border-gradient { display: none; }

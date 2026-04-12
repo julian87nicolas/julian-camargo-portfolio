@@ -1,25 +1,26 @@
 /* ================================================================
-   CMR2 – Navigation bar
-   Horizontal tabs with blue highlight bars, thin blue separator,
-   matching the game's CHAMPIONSHIP / SINGLE STAGE / OPTIONS tabs.
+   CMR2 – Top navigation bar
+   Thin horizontal bar with panel tab buttons.
    ================================================================ */
 
 #header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: linear-gradient(180deg, var(--header-bg) 0%, rgba(6, 13, 24, 0.88) 100%);
+  height: var(--nav-height, 56px);
+  display: flex;
+  align-items: center;
+  background: var(--bg-main);
+  border-bottom: 1px solid var(--separator);
 }
 
 nav {
-  font-family: var(--sans);
-  font-size: 0.88rem;
-  font-weight: 600;
-  padding: 0.6rem 1.25rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
 }
 
 nav ul {
@@ -27,192 +28,123 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
   align-items: center;
   gap: 0;
 }
 
-nav h1 a {
-  font-family: var(--sans);
+/* logo / name */
+nav li:first-child {
+  margin-right: auto;
+}
+
+nav h1 {
+  font-size: 0.95rem;
+  font-weight: 700;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+nav h1 a,
+nav h1 button.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-primary);
+  opacity: 1;
+  font-size: 0.95rem;
   font-weight: 700;
 }
 
-/* CMR2-style nav links: translucent blue highlight bar on hover/active */
-nav a {
-  color: var(--white);
-  text-decoration: none;
-  display: block;
-  padding: 0.5rem 0.9rem;
+nav h1 a:hover,
+nav h1 button.nav-tab:hover { color: var(--accent-blue); }
+
+.fa-solid.fa-code { color: var(--accent-blue); }
+
+/* ---- tab-style nav links ---- */
+nav a,
+nav button.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.45rem 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
   position: relative;
-  opacity: 0.7;
-  transition:
-    color 0.15s ease,
-    opacity 0.15s ease,
-    background-color 0.15s ease;
+  transition: color 150ms ease, background-color 150ms ease;
 }
 
-nav a::before {
+nav a:hover,
+nav button.nav-tab:hover {
+  color: var(--text-primary);
+  background: var(--highlight-bar);
+}
+
+nav a.active,
+nav button.nav-tab.is-active {
+  color: var(--accent-blue);
+}
+
+nav a.active::after,
+nav button.nav-tab.is-active::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: var(--cmr-highlight);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: -1;
-  border-left: 3px solid var(--cmr-blue);
+  bottom: -1px;
+  left: 0.7rem;
+  right: 0.7rem;
+  height: 2px;
+  background: var(--accent-blue);
+  border-radius: 1px;
 }
 
-nav a:hover {
-  opacity: 1;
-  color: var(--cmr-cyan);
-}
-
-nav a:hover::before {
-  opacity: 1;
-}
-
-nav a.active {
-  color: var(--cmr-cyan);
-  opacity: 1;
-}
-
-nav a.active::before {
-  opacity: 1;
-  background: var(--cmr-highlight-strong);
-}
-
-/* name / logo */
-.fa-solid.fa-code {
-  color: var(--cmr-cyan);
-}
-
-nav li:first-child {
-  flex-basis: 100%;
-  text-align: left;
-}
-
-nav li:first-child {
-  color: var(--cmr-lightblue);
-  transition: color var(--theme-transition-duration) var(--theme-transition-easing);
-}
-
-nav li:first-child a {
-  opacity: 1;
-}
-
-nav li:first-child a::before {
-  display: none;
-}
-
-nav li:first-child a:hover {
-  color: var(--cmr-cyan);
-}
-
-/* resume / curriculum button – CMR2 blue button style */
+/* resume CTA */
 nav .resume a {
-  background-color: var(--cmr-blue);
-  color: var(--cmr-dark);
-  padding: 0.42rem 0.82rem;
-  border-radius: 2px;
+  background: var(--accent-blue);
+  color: #000;
+  padding: 0.35rem 0.7rem;
+  border-radius: 3px;
   font-weight: 700;
-  opacity: 1;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-nav .resume a::before {
-  display: none;
 }
 
 nav .resume a:hover {
-  color: var(--cmr-dark);
-  background-color: var(--cmr-cyan);
-  box-shadow: 0 0 12px var(--cmr-glow);
+  background: var(--highlight-blue);
+  color: #000;
 }
 
-nav .resume a:active {
-  transform: translateY(1px);
-}
-
-/* toggle / switch */
-.theme-toggle,
-.lang-switch {
-  border: none;
-  list-style: none;
-}
-
-.theme-toggle {
-  width: auto;
-}
-
-.theme-switch {
-  display: inline-flex;
-  align-items: center;
-  width: 3.2rem;
-  height: 1.9rem;
-  padding: 0.12rem;
-  border-radius: 2px;
-  border: 1px solid var(--cmr-panel-border);
-  background: var(--cmr-highlight);
-  cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.theme-switch:hover {
-  background: var(--cmr-highlight-strong);
-  border-color: var(--cmr-blue);
-}
-
-.theme-switch-thumb {
-  width: 1.55rem;
-  height: 1.55rem;
-  border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--cmr-cyan);
-  background: var(--cmr-dark);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  transform: translateX(0);
-  transition:
-    transform 0.3s ease,
-    color 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.theme-switch.is-light .theme-switch-thumb {
-  transform: translateX(1.3rem);
-}
-
-.theme-switch-thumb svg {
-  font-size: 0.78rem;
-}
+/* theme toggle */
+.theme-toggle { display: none; }   /* removed — dark-only game theme */
 
 .lang-switch {
-  width: 1.6rem;
+  width: 1.4rem;
+  margin-left: 0.4rem;
 }
 
 .lang-switch img {
   border-radius: 2px;
-  border: 1px solid var(--cmr-panel-border);
+  width: 100%;
+  display: block;
+}
+
+/* Hide border gradient in header */
+#header .border-gradient { display: none; }
+
+@media (max-width: 849px) {
+  nav a span:not(.sr-only),
+  nav button.nav-tab span { display: none; }
+  nav { padding: 0 0.6rem; }
+  nav h1 { font-size: 0.82rem; }
 }
 
 @media (min-width: 850px) {
-  nav {
-    max-width: var(--content-max);
-    margin: 0 auto;
-    padding: 0.45rem 1.5rem;
-  }
-
-  nav li:first-child {
-    flex-basis: auto;
-    text-align: left;
-    margin-right: auto;
+  nav a,
+  nav button.nav-tab {
+    font-size: 0.82rem;
+    padding: 0.45rem 0.85rem;
   }
 }

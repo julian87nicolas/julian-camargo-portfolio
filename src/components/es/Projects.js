@@ -37,7 +37,6 @@ function Projects () {
     );
 
     return (
-    <div className="section-blue">
         <section id="projects" className="projects-section">
         <h2>Proyectos personales</h2>
         <p className="projects-intro">Seleccion de trabajos en web, aplicaciones y sistemas de ingenieria.</p>
@@ -81,8 +80,6 @@ function Projects () {
                     )}
                 </div>
         </section>
-        <div className="border-gradient"></div>
-        </div>
     )
 }
 

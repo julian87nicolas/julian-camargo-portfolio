@@ -1,98 +1,77 @@
 /* ================================================================
-   CMR2 – Certifications section
-   Blue panel cards with cyan headings, yellow metadata (like
-   CMR2's settings values), blue "See more" button.
+   CMR2 – Certifications panel
    ================================================================ */
 
 #certifications {
-  padding: 5rem var(--section-pad-x);
-  max-width: var(--content-max);
+  padding: 2.5rem 2rem 3rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 #certifications h2 {
-  font-size: var(--step-3);
-  letter-spacing: 0.04em;
-  margin-bottom: 0.9rem;
-  color: var(--cmr-cyan);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--accent-blue);
+  margin-bottom: 0.6rem;
 }
 
 .cert-intro {
-  margin: 0 0 2rem;
-  color: var(--text-soft);
-  max-width: 65ch;
+  margin: 0 0 1.5rem;
+  color: var(--text-secondary);
+  max-width: 56ch;
+  font-size: 0.92rem;
 }
 
 .cert-grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.cert-card {
-  padding: 1.2rem 1.1rem;
-}
+.cert-card { padding: 1rem 1rem; }
 
 .cert-meta {
-  margin: 0 0 0.45rem;
-  font-size: 0.84rem;
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
   font-family: var(--mono);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--cmr-yellow);
+  color: var(--accent-yellow);
 }
 
 .cert-card h3 {
-  margin: 0 0 0.65rem;
-  color: var(--cmr-lightblue);
-  line-height: 1.35;
-  font-size: 1.02rem;
+  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+  font-size: 0.95rem;
 }
 
-.cert-card a {
-  font-size: 0.92rem;
-  color: var(--cmr-cyan);
-}
+.cert-card a { color: var(--accent-blue); font-size: 0.85rem; }
+.cert-card a:hover { color: var(--highlight-blue); }
 
-.cert-card a:hover {
-  color: var(--cmr-lightblue);
-}
-
-.cert-more {
-  margin-top: 1.6rem;
-}
+.cert-more { margin-top: 1.2rem; }
 
 .cert-more-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 8.3rem;
-  height: 2.2rem;
-  padding: 0 0.95rem;
-  border-radius: 2px;
-  border: 2px solid var(--cmr-blue);
+  min-width: 7.5rem;
+  height: 2rem;
+  padding: 0 0.8rem;
+  border-radius: 3px;
+  border: 1px solid var(--accent-blue);
   background: transparent;
-  color: var(--cmr-cyan);
-  font-size: 0.9rem;
+  color: var(--accent-blue);
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  transition: background 150ms ease, color 150ms ease;
 }
 
 .cert-more-link:hover {
-  color: var(--cmr-dark);
-  background: var(--cmr-blue);
-  box-shadow: 0 0 12px var(--cmr-glow);
+  background: var(--accent-blue);
+  color: #000;
 }
 
-@media (min-width: 800px) {
-  #certifications {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
-  #certifications h2 {
-    font-size: clamp(2rem, 3.5vw, 3.1rem);
-  }
-}
+/* hide old separator */
+.section-blue .border-gradient { display: none; }

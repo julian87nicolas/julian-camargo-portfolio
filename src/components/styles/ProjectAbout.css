@@ -1,74 +1,59 @@
 /* ================================================================
-   CMR2 – Projects & About section
-   Blue tab filters (like CMR2 CHAMPIONSHIP/SINGLE STAGE tabs),
-   dark panels with blue borders, blue highlight bar on hover.
+   CMR2 – Projects panel / About page
    ================================================================ */
 
 #projects {
-  padding: 5rem var(--section-pad-x) 8rem;
-  max-width: var(--content-max);
+  padding: 2.5rem 2rem 3rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
+.section-blue { background: transparent; }
+
 @keyframes initialTransition {
-  0%   { opacity: 0; transform: translateX(-30px); }
+  0%   { opacity: 0; transform: translateX(-20px); }
   100% { opacity: 1; transform: translateX(0); }
 }
 
-.section-blue {
-  animation: initialTransition 0.6s ease-out forwards;
-  background-color: var(--dkblue);
-}
-
-#projects.projects-section .projects-deck {
-  display: none;
-}
+#projects.projects-section .projects-deck { display: none; }
 
 #projects h2 {
-  font-size: var(--step-3);
-  margin-bottom: 0.8rem;
-  letter-spacing: 0.04em;
-  color: var(--cmr-cyan);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 0.6rem;
+  color: var(--accent-blue);
 }
 
 #projects.projects-section .projects-intro {
   margin: 0;
-  max-width: var(--reading-max);
-  color: var(--text-soft);
-  font-size: 1.05rem;
-  line-height: 1.62;
+  max-width: 56ch;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
 }
 
-/* ---- filter tabs (CMR2 horizontal tab style with blue highlight bar) ---- */
+/* ---- filter tabs ---- */
 #projects.projects-section .projects-filters {
-  margin: 2.4rem 0 2.8rem;
+  margin: 1.5rem 0 1.8rem;
   display: flex;
-  align-items: center;
   gap: 0;
   overflow-x: auto;
-  white-space: nowrap;
-  scrollbar-width: none;
-  border-bottom: 1px solid var(--cmr-separator);
+  border-bottom: 1px solid var(--separator);
 }
 
-#projects.projects-section .projects-filters::-webkit-scrollbar {
-  display: none;
-}
+#projects.projects-section .projects-filters::-webkit-scrollbar { display: none; }
 
 #projects.projects-section .projects-filter-btn {
   position: relative;
   border: none;
   background: transparent;
-  color: var(--text-faint);
-  padding: 0.6rem 1rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.9rem;
   font-family: var(--sans);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  line-height: 1.1;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: color 0.15s ease, background-color 0.15s ease;
+  transition: color 150ms ease, background-color 150ms ease;
 }
 
 #projects.projects-section .projects-filter-btn span {
@@ -76,26 +61,13 @@
   display: inline-block;
 }
 
-#projects.projects-section .projects-filter-btn span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.55rem;
-  border: none;
-  height: 0;
-  transform: scaleX(0);
-}
-
 #projects.projects-section .projects-filter-btn:hover {
-  color: var(--cmr-lightblue);
-  background-color: var(--cmr-highlight);
+  color: var(--text-primary);
+  background: var(--highlight-bar);
 }
 
-/* CMR2-style active tab: blue translucent highlight bar */
 #projects.projects-section .projects-filter-btn.is-active {
-  color: var(--cmr-cyan);
-  background-color: var(--cmr-highlight-strong);
+  color: var(--accent-blue);
 }
 
 #projects.projects-section .projects-filter-btn.is-active::after {
@@ -105,24 +77,22 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--cmr-blue);
+  background: var(--accent-blue);
 }
 
-#projects.projects-section .projects-filter-btn.is-active span::after {
-  transform: scaleX(1);
-}
+#projects.projects-section .projects-filter-btn span::after { display: none; }
 
 /* ---- project grid ---- */
 #projects.projects-section .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 #projects.projects-section .project-card {
   position: relative;
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 #projects.projects-section .project-card-link {
@@ -133,20 +103,19 @@
 #projects.projects-section .project-media {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 10;
   margin: 0;
-  border-radius: 2px;
-  border: 1px solid var(--cmr-panel-border);
-  background: var(--panel-bg-soft);
-  transition: transform 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg-surface);
+  transition: transform 350ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
 #projects.projects-section .project-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.01);
-  transition: transform 0.5s ease;
+  transition: transform 350ms ease;
 }
 
 #projects.projects-section .project-media.project-media--left-crop img {
@@ -162,111 +131,66 @@
 }
 
 #projects.projects-section .project-card:hover .project-media {
-  transform: scale(0.985);
-  border-color: var(--cmr-blue);
-  box-shadow: 0 0 16px var(--cmr-glow);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 12px rgba(0,122,255,0.15);
 }
 
 #projects.projects-section .project-card:hover .project-media img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-#projects.projects-section .project-info {
-  margin-top: 0.9rem;
-}
+#projects.projects-section .project-info { margin-top: 0.4rem; }
 
 #projects.projects-section .project-caption {
   margin: 0;
   max-width: 90%;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--text-soft);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
 }
 
-/* ---- project link pills (CMR2 button style) ---- */
+/* ---- project link pills ---- */
 #projects.projects-section .project-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: 0.45rem;
 }
 
 #projects.projects-section .project-links a {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  width: 6.4rem;
-  height: 2rem;
-  line-height: 1;
-  white-space: nowrap;
-  flex: 0 0 6.4rem;
+  gap: 0.25rem;
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.34rem 0.56rem;
-  border-radius: 2px;
-  border: 1px solid var(--cmr-panel-border);
-  color: var(--cmr-cyan);
-  background: var(--chip-bg-soft);
-  text-decoration: none;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  padding: 0.3rem 0.55rem;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--accent-blue);
+  background: rgba(0,122,255,0.06);
+  transition: background 150ms ease, color 150ms ease;
 }
 
 #projects.projects-section .project-links a:hover {
-  background: var(--cmr-blue);
-  color: var(--cmr-dark);
-  border-color: var(--cmr-blue);
-  box-shadow: 0 0 10px var(--cmr-glow);
+  background: var(--accent-blue);
+  color: #000;
 }
 
 @media (min-width: 800px) {
-  #projects {
-    padding: 6rem var(--section-pad-x) 9rem;
-  }
-
-  #projects h2 {
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
-  }
-
-  #projects.projects-section .projects-intro {
-    font-size: 1.12rem;
-  }
-
-  #projects.projects-section .projects-filters {
-    gap: 0;
-    margin: 4rem 0 5.5rem;
-    overflow: visible;
-  }
-
-  #projects.projects-section .projects-filter-btn {
-    font-size: 1.1rem;
-    padding: 0.65rem 1.2rem;
-  }
-
   #projects.projects-section .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 30rem));
-    justify-content: space-between;
-    gap: 5.5rem 3.5rem;
-  }
-
-  #projects.projects-section .project-card:nth-child(2n) {
-    top: 6.2rem;
-  }
-
-  #projects.projects-section .project-card:nth-child(2n):last-child {
-    margin-bottom: 6.2rem;
-  }
-
-  #projects.projects-section .project-caption {
-    max-width: 75%;
-    font-size: 1.12rem;
-  }
-
-  #projects.projects-section .project-links a {
-    font-size: 0.76rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 2rem;
   }
 }
+
+/* ---- About page ---- */
+article .text { max-width: 56ch; }
+article .text h3 { color: var(--accent-blue); margin-bottom: 0.8rem; }
+article .text h4 { color: var(--text-secondary); margin: 1rem 0 0.4rem; font-size: 0.9rem; }
+article .text p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; }
+article .text ul { color: var(--text-secondary); padding-left: 1.2rem; }
+article .text ul li { margin: 0.2rem 0; }
+article .profile { max-width: 220px; border-radius: 4px; margin-top: 1.5rem; }
 
 .cross-fade-leave { opacity: 1; }
 .cross-fade-leave.cross-fade-leave-active { opacity: 0; transition: opacity 1s ease-in; }

@@ -1,81 +1,59 @@
-import { Link, NavLink } from "react-router-dom";
-import { FaAward, FaCertificate, FaCircleInfo, FaCode, FaEnvelope, FaGears, FaGithub, FaMoon, FaSun, FaUser } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { FaAward, FaCertificate, FaCode, FaEnvelope, FaGears, FaGithub, FaUser } from "react-icons/fa6";
+import { useNavigation } from "../NavigationContext";
 
 import "./../styles/Header.css"
 
-function Header({ theme, onToggleTheme }) {
-    return (
-        <>
-            <div id="header">
-                <nav>
-                    <ul>
-                        <li>
-                            <h1>
-                                <NavLink to={"/es"}>
-                                    <FaCode className="fa-solid fa-code" /> Julián Camargo
-                                </NavLink>
-                            </h1>
-                        </li>
-                        <li>
-                            <a href="/es/#highlights">
-                                Hitos <FaAward className="fa-solid fa-award" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/es/#projects">
-                                Proyectos <FaGears className="fa-solid fa-gears" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/es/#certifications">
-                                Certificaciones <FaCertificate className="fa-solid fa-certificate" />
-                            </a>
-                        </li>
-                        <li>
-                            <NavLink to={"/es/about"}>
-                                Sobre <FaCircleInfo className="fa-solid fa-circle-info" />
-                            </NavLink>
-                        </li>
-                        <li>
-                            <a href="/es/#contact">
-                                Contacto <FaEnvelope className="fa-solid fa-envelope" />
-                            </a>
-                        </li>
+function Header() {
+    const { activePanelIndex, goToPanel } = useNavigation();
 
-                        <li>
-                            <a href="https://github.com/julian87nicolas" target="_blank" rel="noreferrer">
-                                GitHub <FaGithub className="fa-brands fa-github" />
-                            </a>
-                        </li>
-                        <li className="resume">
-                            <a href="./CV.pdf" target="_blank" rel="noopener noreferrer">
-                                Curriculum <FaUser className="fa-solid fa-user" />
-                            </a>
-                        </li>
-                        <li className="theme-toggle">
+    const tabs = [
+        { label: "Inicio", icon: null, index: 0 },
+        { label: "Hitos", icon: <FaAward className="fa-solid fa-award" />, index: 1 },
+        { label: "Certificaciones", icon: <FaCertificate className="fa-solid fa-certificate" />, index: 2 },
+        { label: "Proyectos", icon: <FaGears className="fa-solid fa-gears" />, index: 3 },
+        { label: "Contacto", icon: <FaEnvelope className="fa-solid fa-envelope" />, index: 4 },
+    ];
+
+    return (
+        <div id="header">
+            <nav>
+                <ul>
+                    <li>
+                        <h1>
+                            <button className="nav-tab" onClick={() => goToPanel(0)}>
+                                <FaCode className="fa-solid fa-code" /> Julián Camargo
+                            </button>
+                        </h1>
+                    </li>
+                    {tabs.slice(1).map((tab) => (
+                        <li key={tab.label}>
                             <button
-                                type="button"
-                                className={`theme-switch ${theme === "light" ? "is-light" : "is-dark"}`}
-                                onClick={onToggleTheme}
-                                aria-label="Cambiar modo de color"
-                                aria-pressed={theme === "light"}
+                                className={`nav-tab${activePanelIndex === tab.index ? ' is-active' : ''}`}
+                                onClick={() => goToPanel(tab.index)}
                             >
-                                <span className="theme-switch-thumb" aria-hidden="true">
-                                    {theme === "dark" ? <FaMoon /> : <FaSun />}
-                                </span>
+                                {tab.label} {tab.icon}
                             </button>
                         </li>
-                        <li className="lang-switch">
-                            <Link to="/">
-                                <img src="images/united-states.png" alt="Switch to English" />
-                            </Link>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div className="border-gradient"></div>
-            </div>
-        </>
+                    ))}
+                    <li>
+                        <a href="https://github.com/julian87nicolas" target="_blank" rel="noreferrer">
+                            GitHub <FaGithub className="fa-brands fa-github" />
+                        </a>
+                    </li>
+                    <li className="resume">
+                        <a href="./CV.pdf" target="_blank" rel="noopener noreferrer">
+                            Curriculum <FaUser className="fa-solid fa-user" />
+                        </a>
+                    </li>
+                    <li className="lang-switch">
+                        <Link to="/">
+                            <img src="images/united-states.png" alt="Switch to English" />
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     )
 }
 

@@ -1,108 +1,98 @@
 /* ================================================================
-   CMR2 – Intro / Hero section
-   Clean dark panel with cyan name highlight, like a rally stage intro
+   CMR2 – Home / Intro panel
    ================================================================ */
 
 #intro {
-  padding-bottom: 8rem;
-  padding: 5rem var(--section-pad-x) 8rem;
-  max-width: min(1100px, var(--content-max));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 3rem 2rem;
+  max-width: 900px;
   margin: 0 auto;
-  text-align: left;
-}
-
-#intro > * {
-  max-width: 84ch;
-}
-
-#intro p {
-  font-size: var(--step-1);
-  line-height: 1.72;
-  color: var(--text-muted);
 }
 
 #intro .name {
+  font-size: 0.85rem;
   font-family: var(--mono);
-  letter-spacing: 0.04em;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
 }
 
 .name span {
-  font-family: var(--sans);
-  font-size: clamp(2.2rem, 8vw, 4.2rem);
-  font-weight: 700;
-  color: var(--cmr-cyan);
   display: block;
-  letter-spacing: 0.04em;
+  font-family: var(--sans);
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  color: var(--accent-blue);
   text-transform: uppercase;
-  text-shadow: 0 0 20px var(--cmr-glow);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-top: 0.3rem;
 }
 
 #intro h2 {
-  font-size: var(--step-4);
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
   font-weight: 600;
-  max-width: 20ch;
+  max-width: 22ch;
+  margin: 1rem 0 1.2rem;
+  color: var(--text-primary);
   letter-spacing: 0.02em;
-  margin: 1.25rem 0 1.4rem;
-  color: var(--white);
+}
+
+#intro > p:not(.name) {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 56ch;
+  margin: 0;
 }
 
 .intro-actions {
   display: flex;
-  gap: 0.9rem;
-  margin-top: 2.2rem;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  gap: 0.7rem;
+  margin-top: 2rem;
 }
 
-.intro-actions a {
+.intro-actions a,
+.intro-actions button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6rem 1.3rem;
-  border-radius: 2px;
-  font-size: 0.9rem;
+  padding: 0.55rem 1.2rem;
+  border: none;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  border: 2px solid transparent;
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
 }
 
 .intro-actions .btn-primary {
-  color: var(--cmr-dark);
-  background-color: var(--cmr-blue);
-  border-color: var(--cmr-blue);
+  background: var(--accent-blue);
+  color: #000;
 }
 
 .intro-actions .btn-primary:hover {
-  color: var(--cmr-dark);
-  background-color: var(--cmr-cyan);
-  box-shadow: 0 0 18px var(--cmr-glow);
+  background: var(--highlight-blue);
+  color: #000;
 }
 
 .intro-actions .btn-secondary {
-  color: var(--cmr-cyan);
-  background-color: transparent;
-  border-color: var(--cmr-blue);
+  background: transparent;
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue);
 }
 
 .intro-actions .btn-secondary:hover {
-  color: var(--cmr-dark);
-  background-color: var(--cmr-blue);
-  box-shadow: 0 0 18px var(--cmr-glow);
+  background: var(--highlight-bar);
+  color: var(--highlight-blue);
 }
 
-@media (min-width: 900px) {
-  #intro {
-    padding-top: 5.8rem;
-  }
-
-  #intro h2 {
-    max-width: 17ch;
-  }
-}
+/* hide old border gradient in panels */
+#intro + .border-gradient { display: none; }

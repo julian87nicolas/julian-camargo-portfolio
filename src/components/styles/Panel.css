@@ -1,0 +1,153 @@
+/* ================================================================
+   CMR2 – Panel system
+   Fullscreen horizontal slide panels — no vertical scroll.
+   ================================================================ */
+
+.panel-viewport {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  /* leave room for the top nav bar */
+  top: var(--nav-height, 56px);
+}
+
+.panel-track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  transition: transform 300ms ease-in-out;
+}
+
+.panel-track.is-sliding {
+  transition: transform 300ms ease-in-out;
+}
+
+.panel-slide {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* Edge */
+}
+
+.panel-slide::-webkit-scrollbar {
+  display: none;                /* Chrome/Safari */
+}
+
+/* Only the active panel is interactive */
+.panel-slide:not(.is-active) {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Inner panel content wrapper */
+.panel-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 2.5rem 2rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---- Focusable item highlight (CMR2 menu bar) ---- */
+.focusable-item {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin: 0.15rem 0;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.focusable-item.is-focused {
+  background-color: var(--highlight-bar);
+  color: #FFFFFF;
+  transform: scale(1.02);
+  box-shadow: inset 3px 0 0 var(--accent-blue);
+}
+
+.focusable-item:hover {
+  background-color: var(--highlight-bar);
+}
+
+/* ---- Panel heading ---- */
+.panel-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem;
+  color: var(--accent-blue);
+}
+
+.panel-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 2rem;
+  max-width: 56ch;
+  line-height: 1.6;
+}
+
+/* ---- Breadcrumb / back indicator ---- */
+.panel-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  transition: color 150ms ease;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+.panel-back:hover,
+.panel-back:focus-visible {
+  color: var(--accent-blue);
+}
+
+/* ---- detail sub-panel (expands within a panel) ---- */
+.detail-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-surface);
+  z-index: 10;
+  padding: 2rem;
+  overflow-y: auto;
+  animation: detail-in 250ms ease-out forwards;
+}
+
+@keyframes detail-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Keyboard hint badges ---- */
+.key-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 0.35rem;
+  font-size: 0.7rem;
+  font-family: var(--mono, monospace);
+  border: 1px solid var(--text-secondary);
+  border-radius: 3px;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  margin-left: 0.5rem;
+}

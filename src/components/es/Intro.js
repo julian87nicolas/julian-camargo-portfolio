@@ -1,8 +1,10 @@
+import { useNavigation } from "../NavigationContext";
 import "../styles/Intro.css"
 
 function Intro () {
+    const { goToPanel } = useNavigation();
+
     return (
-        <>
         <section id="intro">
             <p className="name">Hola, soy <span>Julián Camargo.</span></p>
 
@@ -13,13 +15,10 @@ function Intro () {
             </p>
 
             <div className="intro-actions">
-                <a href="/es/#projects" className="btn-primary">Ver Proyectos</a>
-                <a href="/es/#contact" className="btn-secondary">Hablemos</a>
+                <button onClick={() => goToPanel(3)} className="btn-primary">Ver Proyectos</button>
+                <button onClick={() => goToPanel(4)} className="btn-secondary">Hablemos</button>
             </div>
         </section>
-
-        <div className="border-gradient"></div>
-        </>
     )
 }
 
