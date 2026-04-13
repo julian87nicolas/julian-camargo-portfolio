@@ -11,9 +11,8 @@ function Intro () {
     return (
         <section id="intro" className="screen" role="menu">
             <div className="screen-header">
-                <p className="screen-label">Julián Camargo</p>
-                <h2 className="screen-title">Desarrollador Backend</h2>
-                <p className="screen-subtitle">Java · Cloud · IoT</p>
+                <h2 className="screen-title">Camargo Julian 2.0</h2>
+                <p className="screen-subtitle">Desarrollador Backend · Java · Cloud · IoT</p>
             </div>
 
             <nav className="menu-list" aria-label="Menú principal">

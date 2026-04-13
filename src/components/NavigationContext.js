@@ -85,13 +85,11 @@ export function NavigationProvider({ panels, children }) {
       switch (e.key) {
         case 'ArrowRight':
           e.preventDefault();
-          if (state.activePanelIndex < panelCount - 1) {
-            goToPanel(state.activePanelIndex + 1);
-          }
+          goToPanel((state.activePanelIndex + 1) % panelCount);
           break;
         case 'ArrowLeft':
           e.preventDefault();
-          goBack();
+          goToPanel((state.activePanelIndex - 1 + panelCount) % panelCount);
           break;
         case 'ArrowDown':
           e.preventDefault();
