@@ -132,7 +132,8 @@ nav button.nav-tab.is-active {
   transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
 }
 
-.lang-switch:hover .lang-label {
+.lang-switch:hover .lang-label,
+.lang-switch:focus-visible .lang-label {
   color: var(--text-primary);
   border-color: var(--text-primary);
   background: var(--highlight-bar);
