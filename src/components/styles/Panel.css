@@ -235,7 +235,10 @@
 
 @media (max-width: 600px) {
   .screen {
-    padding: 1.5rem 1.2rem 1rem;
+    padding: 1.5rem 1.2rem 1.5rem;
+  }
+  .back-btn {
+    margin-left: 2.2rem;
   }
   .keyboard-hints {
     padding: 0.5rem 1.2rem;
