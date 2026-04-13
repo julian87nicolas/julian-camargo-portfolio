@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigation } from "./NavigationContext";
 import FocusableItem from "./FocusableItem";
 import TextPathAnimation from "./TextPathAnimation";
@@ -6,14 +6,43 @@ import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 import "./styles/Contact.css"
 
 function Contact() {
-    const { goBack, setFocusCount } = useNavigation();
+    const { goBack, setFocusCount, activePanelIndex } = useNavigation();
+    const [contentOpen, setContentOpen] = useState(false);
 
-    useEffect(() => { setFocusCount(3); }, [setFocusCount]);
+    useEffect(() => { setFocusCount(contentOpen ? 3 : 0); }, [setFocusCount, contentOpen]);
+
+    // Reset when navigating away
+    useEffect(() => {
+        if (activePanelIndex !== 3) setContentOpen(false);
+    }, [activePanelIndex]);
+
+    // Enter key opens content in preview mode
+    useEffect(() => {
+        if (!contentOpen && activePanelIndex === 3) {
+            const handler = (e) => {
+                if (e.key === 'Enter') { e.preventDefault(); setContentOpen(true); }
+            };
+            window.addEventListener('keydown', handler);
+            return () => window.removeEventListener('keydown', handler);
+        }
+    }, [contentOpen, activePanelIndex]);
+
+    const openContent = () => setContentOpen(true);
+
+    if (!contentOpen) {
+        return (
+            <section id="contact" className="screen panel-preview">
+                <TextPathAnimation panelKey="contact" text="Julian Camargo - Backend Developer" onClick={openContent} />
+                <h2 className="screen-title preview-title" onClick={openContent}>Contact</h2>
+                <p className="preview-hint">Press Enter or click to open</p>
+            </section>
+        );
+    }
 
     return (
         <section id="contact" className="screen">
             <TextPathAnimation panelKey="contact" text="Julian Camargo - Backend Developer" />
-            <button className="back-btn" onClick={goBack}>
+            <button className="back-btn" onClick={() => setContentOpen(false)}>
                 ← Back
             </button>
             <h2 className="screen-title">Contact</h2>

@@ -3,6 +3,7 @@
    Text moves along an SVG path outline, looping infinitely
    ================================================================ */
 
+/* ---- Default: background decoration (content is open) ---- */
 .text-path-animation {
   position: absolute;
   top: 0;
@@ -14,8 +15,8 @@
   justify-content: center;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.35;
-  transition: opacity 300ms ease-in-out;
+  opacity: 0.15;
+  transition: opacity 300ms ease-in-out, width 300ms ease-in-out;
 }
 
 .text-path-svg {
@@ -34,6 +35,33 @@
   text-transform: uppercase;
 }
 
+/* ---- Clickable animation (in preview mode) ---- */
+.text-path-animation.clickable {
+  pointer-events: auto;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ---- Preview mode: animation is the main focus ---- */
+.screen.panel-preview .text-path-animation {
+  position: relative;
+  width: 100%;
+  height: 55%;
+  opacity: 0.65;
+  pointer-events: auto;
+  cursor: pointer;
+  right: auto;
+  top: auto;
+  margin: 0 auto;
+}
+
+.screen.panel-preview .text-path-svg {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+}
+
 /* Hide animation when detail view is active */
 .has-detail ~ .text-path-animation,
 .screen .has-detail ~ .text-path-animation {
@@ -41,22 +69,29 @@
 }
 
 /* Ensure all screen content is above the animation */
-.screen > *:not(.text-path-animation) {
+.screen:not(.panel-preview) > *:not(.text-path-animation) {
   position: relative;
   z-index: 1;
 }
 
-/* Mobile: shift to center-right and reduce opacity */
+/* ---- Mobile: background mode adjustments ---- */
 @media (max-width: 768px) {
   .text-path-animation {
     width: 60%;
     right: -5%;
-    opacity: 0.2;
+    opacity: 0.12;
   }
 
   .text-path-svg {
     width: 100%;
     height: 60%;
+  }
+
+  .screen.panel-preview .text-path-animation {
+    width: 100%;
+    height: 45%;
+    right: auto;
+    opacity: 0.55;
   }
 }
 
@@ -64,7 +99,14 @@
   .text-path-animation {
     width: 70%;
     right: -10%;
-    opacity: 0.15;
+    opacity: 0.1;
+  }
+
+  .screen.panel-preview .text-path-animation {
+    width: 100%;
+    height: 40%;
+    right: auto;
+    opacity: 0.5;
   }
 }
 

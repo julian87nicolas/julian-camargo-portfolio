@@ -211,6 +211,33 @@
   color: var(--text-secondary);
 }
 
+/* ---- Panel preview mode (animation-first, no content) ---- */
+.screen.panel-preview {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.preview-title {
+  cursor: pointer;
+  transition: color 200ms ease;
+  margin-bottom: 0.4rem;
+}
+
+.preview-title:hover {
+  color: var(--text-primary);
+}
+
+.preview-hint {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  opacity: 0.45;
+  margin: 0.6rem 0 0;
+}
+
 @media (max-width: 600px) {
   .screen {
     padding: 1.5rem 1.2rem 1rem;

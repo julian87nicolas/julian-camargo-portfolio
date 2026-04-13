@@ -30,7 +30,7 @@ const PANEL_PATHS = {
   },
 };
 
-function TextPathAnimation({ panelKey, text }) {
+function TextPathAnimation({ panelKey, text, onClick }) {
   const pathConfig = PANEL_PATHS[panelKey];
   const pathId = `cmr-path-${panelKey}`;
 
@@ -41,7 +41,14 @@ function TextPathAnimation({ panelKey, text }) {
   if (!pathConfig) return null;
 
   return (
-    <div className="text-path-animation" aria-hidden="true">
+    <div
+      className={`text-path-animation${onClick ? ' clickable' : ''}`}
+      aria-hidden="true"
+      onClick={onClick}
+      role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => { if (e.key === 'Enter') onClick(); } : undefined}
+    >
       <svg
         viewBox={pathConfig.viewBox}
         xmlns="http://www.w3.org/2000/svg"
