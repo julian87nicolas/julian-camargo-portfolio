@@ -9,7 +9,7 @@ function Intro () {
     useEffect(() => { setFocusCount(0); }, [setFocusCount]);
 
     return (
-        <section id="intro" className="screen" role="banner">
+        <section id="intro" className="screen">
             <TextPathAnimation panelKey="home" text="Julian Camargo - Backend Developer" />
             <div className="screen-header intro-content">
                 <h2 className="screen-title">Camargo Julian 2.0</h2>
