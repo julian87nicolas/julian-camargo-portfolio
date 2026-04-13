@@ -5,11 +5,11 @@ import MorphingTextPath from "../MorphingTextPath";
 import KeyboardHints from "../KeyboardHints";
 import Intro from "./Intro"
 import Projects from "./Projects"
-import HighLights from "./Highlights"
+import Highlights from "./Highlights"
 import Contact from "./Contact"
 
 function Mainpage({ HeaderComponent }) {
-    const panels = useMemo(() => [Intro, HighLights, Projects, Contact], []);
+    const panels = useMemo(() => [Intro, Highlights, Projects, Contact], []);
 
     return (
         <NavigationProvider panels={panels}>

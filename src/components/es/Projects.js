@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { useNavigation } from "../NavigationContext";
 import FocusableItem from "../FocusableItem";
 import listProjects from "./list-project.json"
@@ -9,7 +9,7 @@ function Projects () {
     const { setFocusCount, contentOpen, openContent, closeContent } = useNavigation();
     const [selectedProject, setSelectedProject] = useState(null);
 
-    const projects = useMemo(() => listProjects, []);
+    const projects = listProjects;
 
     useEffect(() => {
         setFocusCount(contentOpen ? projects.length : 0);

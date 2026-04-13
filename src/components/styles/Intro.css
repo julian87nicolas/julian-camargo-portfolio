@@ -34,8 +34,6 @@
   color: var(--text-secondary);
 }
 
-#intro + .border-gradient { display: none; }
-
 @media (max-width: 600px) {
   #intro.screen {
     padding: 2.5rem 1.8rem 1.5rem;

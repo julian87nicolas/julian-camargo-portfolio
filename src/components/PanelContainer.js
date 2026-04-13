@@ -2,6 +2,10 @@ import { useEffect, useRef } from 'react';
 import { useNavigation } from './NavigationContext';
 import './styles/Panel.css';
 
+/* Fallback timeout slightly longer than the CSS transition (300ms) to ensure
+   the animation-done event fires even when transitionend is missed */
+const ANIMATION_FALLBACK_MS = 400;
+
 function PanelContainer() {
   const { panels, activePanelIndex, isAnimating, onAnimationDone } = useNavigation();
   const trackRef = useRef(null);
@@ -18,7 +22,7 @@ function PanelContainer() {
 
   useEffect(() => {
     if (isAnimating) {
-      const id = setTimeout(onAnimationDone, 400);
+      const id = setTimeout(onAnimationDone, ANIMATION_FALLBACK_MS);
       return () => clearTimeout(id);
     }
   }, [isAnimating, onAnimationDone]);

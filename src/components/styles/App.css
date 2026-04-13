@@ -8,12 +8,7 @@
   --bg-surface:    #4a5a70;
   --text-primary:  #f9f9f8;
   --text-secondary:#b2b6b8;
-  --accent-blue:   #f9f9f8;
-  --highlight-blue:#ffffff;
-  --accent-green:  #34C759;
-  --accent-red:    #FF3B30;
   --accent-yellow: #b2b6b8;
-  --overlay:       rgba(0,0,0,0.6);
 
   --highlight-bar: rgba(249, 249, 248, 0.12);
   --separator:     rgba(178, 182, 184, 0.25);
@@ -60,11 +55,11 @@ a {
   transition: color 150ms ease;
 }
 
-a:hover { color: var(--highlight-blue); }
+a:hover { color: var(--text-primary); }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--highlight-blue);
+  outline: 2px solid var(--text-primary);
   outline-offset: 2px;
 }
 

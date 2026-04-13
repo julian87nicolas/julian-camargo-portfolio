@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useNavigation } from "../NavigationContext";
 import FocusableItem from "../FocusableItem";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
@@ -8,6 +8,10 @@ function Contact() {
     const { setFocusCount, contentOpen, openContent, closeContent } = useNavigation();
 
     useEffect(() => { setFocusCount(contentOpen ? 3 : 0); }, [setFocusCount, contentOpen]);
+
+    const openEmail = useCallback(() => window.open('mailto:julicmrgo@gmail.com', '_blank'), []);
+    const openLinkedIn = useCallback(() => window.open('https://www.linkedin.com/in/julian-camargo/', '_blank'), []);
+    const openGitHub = useCallback(() => window.open('https://github.com/julian87nicolas', '_blank'), []);
 
     if (!contentOpen) {
         return (
@@ -27,17 +31,17 @@ function Contact() {
             <p className="contact-subtitle">Siempre interesado en nuevas oportunidades de crecimiento.</p>
 
             <nav className="menu-list" role="menu" aria-label="Opciones de contacto">
-                <FocusableItem index={0} onSelect={() => window.open('mailto:julicmrgo@gmail.com', '_blank')}>
+                <FocusableItem index={0} onSelect={openEmail}>
                     <FaEnvelope className="contact-icon" />
                     <span className="menu-text">Email</span>
                     <span className="contact-value">julicmrgo@gmail.com</span>
                 </FocusableItem>
-                <FocusableItem index={1} onSelect={() => window.open('https://www.linkedin.com/in/julian-camargo/', '_blank')}>
+                <FocusableItem index={1} onSelect={openLinkedIn}>
                     <FaLinkedin className="contact-icon" />
                     <span className="menu-text">LinkedIn</span>
                     <span className="contact-value">julian-camargo</span>
                 </FocusableItem>
-                <FocusableItem index={2} onSelect={() => window.open('https://github.com/julian87nicolas', '_blank')}>
+                <FocusableItem index={2} onSelect={openGitHub}>
                     <FaGithub className="contact-icon" />
                     <span className="menu-text">GitHub</span>
                     <span className="contact-value">julian87nicolas</span>

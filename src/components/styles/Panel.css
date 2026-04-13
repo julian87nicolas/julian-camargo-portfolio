@@ -127,19 +127,18 @@
   transition: background-color 200ms ease;
 }
 
-.focus-item.is-focused {
+.focus-item.is-focused,
+.focus-item:hover {
   background: var(--highlight-bar);
   color: var(--text-primary);
+}
+
+.focus-item.is-focused {
   transform: scale(1.02);
 }
 
 .focus-item.is-focused .focus-indicator {
   background: var(--text-primary);
-}
-
-.focus-item:hover {
-  background: var(--highlight-bar);
-  color: var(--text-primary);
 }
 
 /* ---- Menu list ---- */
@@ -169,11 +168,6 @@
 .focus-item.is-focused .menu-hint {
   opacity: 1;
   color: var(--text-primary);
-}
-
-/* ---- Screen footer (keyboard hints) — removed from panels, now in KeyboardHints.js ---- */
-.screen-footer {
-  display: none;
 }
 
 /* ---- Fixed keyboard hints (above bottom nav bar) ---- */

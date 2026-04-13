@@ -41,23 +41,6 @@ nav li {
   align-items: center;
 }
 
-/* Don't hide any nav items */
-
-nav h1 {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-nav h1 button.nav-tab {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  opacity: 1;
-}
-
-nav h1 button.nav-tab:hover { color: var(--highlight-blue); }
-
 /* Pipe separator between menu items */
 .nav-separator {
   color: var(--text-secondary);
@@ -94,10 +77,6 @@ nav button.nav-tab:hover {
 nav button.nav-tab.is-active {
   color: var(--text-primary);
   font-weight: 700;
-}
-
-.nav-spacer {
-  display: none;
 }
 
 .lang-switch {
@@ -138,10 +117,6 @@ nav button.nav-tab.is-active {
   border-color: var(--text-primary);
   background: var(--highlight-bar);
 }
-
-#header .border-gradient { display: none; }
-.theme-toggle { display: none; }
-nav .resume { display: none; }
 
 @media (max-width: 600px) {
   nav button.nav-tab { font-size: 0.7rem; padding: 0.35rem 0.4rem; }

@@ -33,7 +33,7 @@
 }
 
 .focus-item.is-focused .contact-value {
-  color: var(--highlight-blue);
+  color: var(--text-primary);
 }
 
 .contact-footer-text {
@@ -49,5 +49,3 @@
   opacity: 0.5;
   margin: 0;
 }
-
-#contact + .border-gradient { display: none; }

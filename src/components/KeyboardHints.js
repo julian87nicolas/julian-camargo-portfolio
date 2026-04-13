@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useNavigation } from './NavigationContext';
 import './styles/Panel.css';
 
@@ -24,4 +25,4 @@ function KeyboardHints({ labels }) {
   );
 }
 
-export default KeyboardHints;
+export default memo(KeyboardHints);

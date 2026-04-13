@@ -44,7 +44,7 @@ function navReducer(state, action) {
       };
     }
     case 'FOCUS_NEXT': {
-      const max = state.focusCount > 0 ? state.focusCount - 1 : 999;
+      const max = state.focusCount > 0 ? state.focusCount - 1 : 0;
       return { ...state, focusIndex: Math.min(state.focusIndex + 1, max) };
     }
     case 'FOCUS_PREV':

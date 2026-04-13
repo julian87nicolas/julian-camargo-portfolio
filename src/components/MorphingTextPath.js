@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigation } from './NavigationContext';
 import './styles/MorphingTextPath.css';
 
@@ -126,8 +126,10 @@ function MorphingTextPath({ text }) {
     if (e.key === 'Enter' && !contentOpen) openContent();
   }, [contentOpen, openContent]);
 
-  const separator = " \u00B7 ";
-  const repeatedText = Array(TEXT_REPETITIONS).fill(text).join(separator) + separator;
+  const repeatedText = useMemo(() => {
+    const separator = " \u00B7 ";
+    return Array(TEXT_REPETITIONS).fill(text).join(separator) + separator;
+  }, [text]);
   const pathId = "cmr-morph-path";
 
   return (

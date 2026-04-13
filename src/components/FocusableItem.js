@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { memo, useCallback, useEffect, useRef } from 'react';
 import { useNavigation } from './NavigationContext';
 
 function FocusableItem({ index, onSelect, children, className = '', as: Tag = 'div', ...rest }) {
@@ -39,4 +39,4 @@ function FocusableItem({ index, onSelect, children, className = '', as: Tag = 'd
   );
 }
 
-export default FocusableItem;
+export default memo(FocusableItem);

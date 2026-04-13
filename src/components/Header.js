@@ -1,8 +1,11 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useNavigation } from "./NavigationContext";
 
 import "./styles/Header.css"
+
+const COPIES = 9;
+const ANIMATION_DURATION_MS = 320; /* slightly > CSS 300ms transition */
 
 function Header() {
     const { activePanelIndex, goToPanel } = useNavigation();
@@ -12,27 +15,27 @@ function Header() {
     const prevPanelRef = useRef(0);
     const activePanelRef = useRef(0);
 
-    const tabs = [
+    const tabs = useMemo(() => [
         { label: "Home", index: 0 },
         { label: "Highlights", index: 1 },
         { label: "Projects", index: 2 },
         { label: "Contact", index: 3 },
-    ];
+    ], []);
 
-    /* 9 copies so there are always 4 full copies on each side of center —
-       gives the infinite circular scroll illusion on any screen width */
-    const COPIES = 9;
-    const ANIMATION_DURATION_MS = 320; /* slightly > CSS 300ms transition */
-    const circularTabs = Array.from({ length: COPIES }, () => tabs).flat();
+    const tabCount = tabs.length;
+    const circularTabs = useMemo(
+        () => Array.from({ length: COPIES }, () => tabs).flat(),
+        [tabs]
+    );
     const centerCopy = Math.floor(COPIES / 2);
-    const centerStart = centerCopy * tabs.length;
-    const centerEnd = centerStart + tabs.length;
+    const centerStart = centerCopy * tabCount;
+    const centerEnd = centerStart + tabCount;
 
     /* Get the n-th nav-tab button from the rendered list */
     const getButton = (copyIdx, panelIdx) => {
         if (!ulRef.current) return null;
         const allButtons = ulRef.current.querySelectorAll('button.nav-tab');
-        return allButtons[copyIdx * tabs.length + panelIdx] || null;
+        return allButtons[copyIdx * tabCount + panelIdx] || null;
     };
 
     /* Center the given button in the nav viewport */
@@ -61,7 +64,6 @@ function Header() {
     /* Recenter with direction awareness for infinite carousel effect */
     const recenter = (animate, prevPanel) => {
         const current = activePanelRef.current;
-        const tabCount = tabs.length;
         let targetCopy = centerCopy;
 
         if (animate && prevPanel !== undefined && prevPanel !== current) {
