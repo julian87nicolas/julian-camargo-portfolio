@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useNavigation } from './NavigationContext';
+import useSwipeGestures from './useSwipeGestures';
 import './styles/Panel.css';
 
 /* Fallback timeout slightly longer than the CSS transition (300ms) to ensure
@@ -9,6 +10,9 @@ const ANIMATION_FALLBACK_MS = 400;
 function PanelContainer() {
   const { panels, activePanelIndex, isAnimating, onAnimationDone } = useNavigation();
   const trackRef = useRef(null);
+  const viewportRef = useRef(null);
+
+  useSwipeGestures(viewportRef);
 
   useEffect(() => {
     const el = trackRef.current;
@@ -28,7 +32,7 @@ function PanelContainer() {
   }, [isAnimating, onAnimationDone]);
 
   return (
-    <div className="panel-viewport">
+    <div className="panel-viewport" ref={viewportRef}>
       <div
         className={`panel-track${isAnimating ? ' is-sliding' : ''}`}
         ref={trackRef}
