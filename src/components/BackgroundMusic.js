@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, memo } from 'react';
 import './styles/BackgroundMusic.css';
 
-const MUSIC_URL = 'https://drive.google.com/uc?export=download&id=11ciyiTnA7c6BhdrbAKnAvdiReYAD9IYQ';
+const MUSIC_URL = process.env.PUBLIC_URL + '/audio/main-theme.mp3';
 
 function BackgroundMusic() {
   const audioRef = useRef(null);
@@ -45,7 +45,7 @@ function BackgroundMusic() {
 
   return (
     <>
-      <audio ref={audioRef} src={MUSIC_URL} loop preload="none" />
+      <audio ref={audioRef} src={MUSIC_URL} loop preload="auto" />
       <button
         className="music-toggle"
         onClick={toggle}
