@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from 'react';
 import { playNavigateSound, playFocusSound, playSelectSound, playBackSound } from './SoundEffects';
 
 const NavigationContext = createContext(null);
@@ -67,6 +67,7 @@ function navReducer(state, action) {
 
 export function NavigationProvider({ panels, children }) {
   const [state, dispatch] = useReducer(navReducer, initialState);
+  const focusRef = useRef(0);
 
   const panelCount = panels.length;
 
@@ -85,9 +86,16 @@ export function NavigationProvider({ panels, children }) {
   const closeContent = useCallback(() => { playBackSound(); dispatch({ type: 'CLOSE_CONTENT' }); }, []);
   const focusNext = useCallback(() => { playFocusSound(); dispatch({ type: 'FOCUS_NEXT' }); }, []);
   const focusPrev = useCallback(() => { playFocusSound(); dispatch({ type: 'FOCUS_PREV' }); }, []);
-  const setFocus = useCallback((i) => { playFocusSound(); dispatch({ type: 'SET_FOCUS', index: i }); }, []);
+  const setFocus = useCallback((i) => {
+    if (i !== focusRef.current) { playFocusSound(); }
+    focusRef.current = i;
+    dispatch({ type: 'SET_FOCUS', index: i });
+  }, []);
   const setFocusCount = useCallback((c) => dispatch({ type: 'SET_FOCUS_COUNT', count: c }), []);
   const onAnimationDone = useCallback(() => dispatch({ type: 'ANIMATION_DONE' }), []);
+
+  /* Keep focusRef in sync with state so setFocus guard works after focusNext/focusPrev */
+  useEffect(() => { focusRef.current = state.focusIndex; }, [state.focusIndex]);
 
   useEffect(() => {
     function handleKey(e) {
