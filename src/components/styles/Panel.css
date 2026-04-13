@@ -6,7 +6,7 @@
   position: fixed;
   inset: 0;
   overflow: hidden;
-  bottom: var(--nav-height, 48px);
+  bottom: calc(var(--nav-height, 48px) + 2rem);
   top: 0;
 }
 
@@ -171,14 +171,23 @@
   color: var(--text-primary);
 }
 
-/* ---- Screen footer (keyboard hints) ---- */
+/* ---- Screen footer (keyboard hints) — legacy, kept for compat ---- */
 .screen-footer {
+  display: none;
+}
+
+/* ---- Fixed keyboard hints (above bottom nav bar) ---- */
+.keyboard-hints {
+  position: fixed;
+  bottom: var(--nav-height, 48px);
+  left: 0;
+  right: 0;
+  z-index: 45;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.6rem;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-  margin-top: auto;
+  padding: 0.6rem 3rem;
   font-size: 0.72rem;
   font-family: var(--mono);
   text-transform: uppercase;
@@ -186,6 +195,7 @@
   color: var(--text-secondary);
   opacity: 0.5;
   border-top: 1px solid var(--separator);
+  pointer-events: none;
 }
 
 .key-badge {
@@ -204,5 +214,8 @@
 @media (max-width: 600px) {
   .screen {
     padding: 1.5rem 1.2rem 1rem;
+  }
+  .keyboard-hints {
+    padding: 0.5rem 1.2rem;
   }
 }

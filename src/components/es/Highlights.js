@@ -54,12 +54,6 @@ function Highlights() {
                     </div>
                 )}
             </div>
-
-            <div className="screen-footer">
-                <span className="key-badge">↑↓</span> Navegar
-                <span className="key-badge">Enter</span> Abrir
-                <span className="key-badge">Esc</span> Volver
-            </div>
         </section>
     );
 }

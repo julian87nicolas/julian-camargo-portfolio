@@ -21,11 +21,6 @@ function Intro () {
                     para servicios escalables y confiables.
                 </p>
             </div>
-
-            <div className="screen-footer">
-                <span className="key-badge">←→</span> Navegar
-                <span className="key-badge">Enter</span> Seleccionar
-            </div>
         </section>
     )
 }

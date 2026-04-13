@@ -21,11 +21,6 @@ function Intro () {
                     reliable services.
                 </p>
             </div>
-
-            <div className="screen-footer">
-                <span className="key-badge">←→</span> Navigate
-                <span className="key-badge">Enter</span> Select
-            </div>
         </section>
     )
 }

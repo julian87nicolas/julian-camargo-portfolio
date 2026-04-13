@@ -163,25 +163,27 @@
   background: #fff;
 }
 
-/* Mobile: stack layout */
+/* Mobile: horizontal slide for detail (like panel-within-a-panel) */
 @media (max-width: 700px) {
   .proj-layout {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
   }
-  /* Make all items full-width on mobile so they align consistently */
+  .proj-list {
+    flex: 0 0 100%;
+    align-items: stretch;
+    justify-content: flex-start;
+    transition: margin-left 300ms ease-in-out;
+  }
   .proj-list .focus-item {
     width: 100%;
   }
-  /* When detail is open on mobile: hide list, detail takes full space */
   .proj-layout.has-detail .proj-list {
-    display: none;
-  }
-  .proj-layout.has-detail {
-    gap: 0;
+    margin-left: -100%;
   }
   .proj-detail {
-    flex: 1;
+    flex: 0 0 100%;
     min-height: 0;
     overflow-y: auto;
   }

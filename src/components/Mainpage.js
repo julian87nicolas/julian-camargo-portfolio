@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { NavigationProvider } from "./NavigationContext";
 import PanelContainer from "./PanelContainer";
+import KeyboardHints from "./KeyboardHints";
 import Intro from "./Intro";
 import Highlights from "./Highlights";
 import Projects from "./Projects";
@@ -14,6 +15,7 @@ function Mainpage({ HeaderComponent }) {
             <div id="page">
                 {HeaderComponent && <HeaderComponent />}
                 <PanelContainer />
+                <KeyboardHints labels={{ navigate: "Navigate", select: "Select", open: "Open", back: "Back" }} />
             </div>
         </NavigationProvider>
     );

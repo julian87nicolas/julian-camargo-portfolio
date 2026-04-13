@@ -40,12 +40,6 @@ function Contact() {
             <div className="contact-footer-text">
                 <p>© 2022 Julián Camargo. Todos los derechos reservados.</p>
             </div>
-
-            <div className="screen-footer">
-                <span className="key-badge">↑↓</span> Navegar
-                <span className="key-badge">Enter</span> Abrir
-                <span className="key-badge">Esc</span> Volver
-            </div>
         </section>
     )
 }
