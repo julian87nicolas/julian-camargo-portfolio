@@ -94,7 +94,7 @@ nav button.nav-tab.is-active {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   pointer-events: none;
-  max-width: calc(100vw - 56px - 70px);
+  max-width: calc(100vw - 56px - 70px); /* 56px = own left offset; 70px = lang-switch clearance (right:16px + ~3.4rem width) */
   overflow: hidden;
   white-space: nowrap;
 }
@@ -166,5 +166,5 @@ nav button.nav-tab.is-active {
   .nav-separator { padding: 0 0.2rem; font-size: 0.85rem; }
   .lang-switch { top: 8px; right: 10px; }
   .lang-label { min-width: 1.8rem; height: 1.4rem; font-size: 0.65rem; }
-  .breadcrumb { top: 8px; left: 48px; font-size: 0.6rem; gap: 0.3rem; max-width: calc(100vw - 48px - 55px); }
+  .breadcrumb { top: 8px; left: 48px; font-size: 0.6rem; gap: 0.3rem; max-width: calc(100vw - 48px - 55px); /* 48px = mobile left offset; 55px = mobile lang-switch clearance */ }
 }
