@@ -126,11 +126,9 @@ function Header() {
                     })}
                 </ul>
             </nav>
-            <span className="lang-switch">
-                <Link to="/">
-                    <img src="images/united-states.png" alt="EN" />
-                </Link>
-            </span>
+            <Link to="/" className="lang-switch">
+                <span className="lang-label">EN</span>
+            </Link>
         </div>
     )
 }

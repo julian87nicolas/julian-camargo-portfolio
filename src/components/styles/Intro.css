@@ -6,7 +6,8 @@
 #intro.screen {
   justify-content: center;
   align-items: flex-start;
-  padding-top: 0;
+  max-width: 1000px;
+  padding: 3.5rem 4rem 2rem;
 }
 
 #intro .intro-content {
@@ -15,12 +16,28 @@
   margin-bottom: 0;
 }
 
+#intro .screen-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.6rem;
+}
+
+#intro .screen-subtitle {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
 #intro .intro-description {
-  max-width: 500px;
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
-  line-height: 1.7;
+  max-width: 560px;
+  margin-top: 2rem;
+  font-size: 1rem;
+  line-height: 1.8;
   color: var(--text-secondary);
 }
 
 #intro + .border-gradient { display: none; }
+
+@media (max-width: 600px) {
+  #intro.screen {
+    padding: 2.5rem 1.8rem 1.5rem;
+  }
+}
