@@ -3,54 +3,13 @@
   "name": "Julián Camargo Portfolio",
   "icons": [
     {
-      "src": "united-states.png",
+      "src": "images/logo.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "spain.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png"
-    }
-    ,
-    {
-      "src": "odonto-integral.webp",
-      "sizes": "128x128",
-      "type": "image/webp"
-    },
-    {
-      "src": "reactflix.webp",
-      "sizes": "128x128",
-      "type": "image/webp"
-    },
-    {
-      "src": "doggos.webp",
-      "sizes": "128x128",
-      "type": "image/webp"
-    },
-    {
-      "src": "calculator.webp",
-      "sizes": "128x128",
-      "type": "image/webp"
-    },
-    {
-      "src": "float-real.webp",
-      "sizes": "128x128",
-      "type": "image/webp"
-    },
-    {
-      "src": "profile.webp",
-      "sizes": "128x128",
-      "type": "image/webp"
-    },
-    {
-      "src": "logo.png",
-      "sizes":"64x64 32x32 24x24 16x16",
       "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#57667d",
+  "background_color": "#57667d"
 }

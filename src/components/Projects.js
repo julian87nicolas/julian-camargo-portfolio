@@ -9,11 +9,9 @@ function Projects () {
     const { setFocusCount, contentOpen, openContent, closeContent, setDetailName, detailName } = useNavigation();
     const [selectedProject, setSelectedProject] = useState(null);
 
-    const projects = listProjects;
-
     useEffect(() => {
-        setFocusCount(contentOpen ? projects.length : 0);
-    }, [setFocusCount, projects.length, contentOpen]);
+        setFocusCount(contentOpen ? listProjects.length : 0);
+    }, [setFocusCount, contentOpen]);
 
     // Reset detail when content closes
     useEffect(() => {
@@ -28,13 +26,13 @@ function Projects () {
     // Update breadcrumb detail name when selection changes
     useEffect(() => {
         if (selectedProject !== null) {
-            setDetailName(projects[selectedProject].name);
+            setDetailName(listProjects[selectedProject].name);
         } else {
             setDetailName(null);
         }
-    }, [selectedProject, projects, setDetailName]);
+    }, [selectedProject, setDetailName]);
 
-    const proj = selectedProject !== null ? projects[selectedProject] : null;
+    const proj = selectedProject !== null ? listProjects[selectedProject] : null;
 
     if (!contentOpen) {
         return (
@@ -54,7 +52,7 @@ function Projects () {
 
             <div className={`proj-layout${selectedProject !== null ? ' has-detail' : ''}`}>
                 <nav className="proj-list" role="menu" aria-label="Project list">
-                    {projects.map((p, idx) => (
+                    {listProjects.map((p, idx) => (
                         <FocusableItem key={idx} index={idx} onSelect={() => setSelectedProject(idx)}>
                             <span className="proj-item-name">{p.name}</span>
                             <span className="proj-item-title">{p.title}</span>

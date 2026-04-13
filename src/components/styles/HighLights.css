@@ -17,7 +17,7 @@
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  transition: all 300ms ease-in-out;
+  transition: flex 300ms ease-in-out, gap 300ms ease-in-out;
 }
 
 /* By default: list centered */
@@ -85,7 +85,7 @@
   font-family: var(--mono);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-yellow);
+  color: var(--text-secondary);
 }
 
 .hl-detail h3 {
@@ -126,7 +126,7 @@
   margin-top: 0.2rem !important;
   font-size: 0.78rem !important;
   font-family: var(--mono);
-  color: var(--accent-yellow) !important;
+  color: var(--text-secondary) !important;
 }
 
 /* Mobile: horizontal slide for detail (like panel-within-a-panel) */

@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, memo } from 'react';
 import './styles/BackgroundMusic.css';
 
 const MUSIC_URL = process.env.PUBLIC_URL + '/audio/main-theme.mp3';
+const MUSIC_VOLUME = 0.35;
 
 function BackgroundMusic() {
   const audioRef = useRef(null);
@@ -14,7 +15,7 @@ function BackgroundMusic() {
     function handleInteraction() {
       const audio = audioRef.current;
       if (!audio) return;
-      audio.volume = 0.35;
+      audio.volume = MUSIC_VOLUME;
       audio.play().then(() => {
         setPlaying(true);
         setStarted(true);
@@ -35,7 +36,7 @@ function BackgroundMusic() {
       audio.pause();
       setPlaying(false);
     } else {
-      audio.volume = 0.35;
+      audio.volume = MUSIC_VOLUME;
       audio.play().then(() => {
         setPlaying(true);
         setStarted(true);

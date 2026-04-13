@@ -96,10 +96,7 @@ nav button.nav-tab.is-active {
   pointer-events: none;
 }
 
-.breadcrumb-dim {
-  color: #293e53;
-}
-
+.breadcrumb-dim,
 .breadcrumb-sep {
   color: #293e53;
 }

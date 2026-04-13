@@ -122,10 +122,6 @@ function MorphingTextPath({ text }) {
     if (!contentOpen) openContent();
   }, [contentOpen, openContent]);
 
-  const handleKeyDown = useCallback((e) => {
-    if (e.key === 'Enter' && !contentOpen) openContent();
-  }, [contentOpen, openContent]);
-
   const repeatedText = useMemo(() => {
     const separator = " \u00B7 ";
     return Array(TEXT_REPETITIONS).fill(text).join(separator) + separator;
@@ -148,7 +144,6 @@ function MorphingTextPath({ text }) {
         className={`morph-text-path${contentOpen ? ' content-open' : ' preview-mode'}`}
         aria-hidden="true"
         onClick={handleClick}
-        onKeyDown={handleKeyDown}
         role={!contentOpen ? "button" : undefined}
         tabIndex={!contentOpen ? 0 : undefined}
       >
