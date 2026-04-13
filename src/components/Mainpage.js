@@ -3,6 +3,7 @@ import { NavigationProvider } from "./NavigationContext";
 import PanelContainer from "./PanelContainer";
 import MorphingTextPath from "./MorphingTextPath";
 import KeyboardHints from "./KeyboardHints";
+import BackgroundMusic from "./BackgroundMusic";
 import Intro from "./Intro";
 import Highlights from "./Highlights";
 import Projects from "./Projects";
@@ -15,6 +16,7 @@ function Mainpage({ HeaderComponent }) {
         <NavigationProvider panels={panels}>
             <div id="page">
                 {HeaderComponent && <HeaderComponent />}
+                <BackgroundMusic />
                 <MorphingTextPath text="Julian Camargo - Backend Developer" />
                 <PanelContainer />
                 <KeyboardHints labels={{ navigate: "Navigate", select: "Select", open: "Open", back: "Back" }} />

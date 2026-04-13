@@ -13,7 +13,7 @@
   --highlight-bar: rgba(249, 249, 248, 0.12);
   --separator:     rgba(178, 182, 184, 0.25);
   --nav-height:    48px;
-  --hints-height:  2.5rem;
+  --hints-height:  3rem;
 
   --sans: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --mono: "Share Tech Mono", "SF Mono", "Menlo", monospace;
