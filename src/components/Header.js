@@ -22,6 +22,7 @@ function Header() {
     /* 9 copies so there are always 4 full copies on each side of center —
        gives the infinite circular scroll illusion on any screen width */
     const COPIES = 9;
+    const ANIMATION_DURATION_MS = 320; /* slightly > CSS 300ms transition */
     const circularTabs = Array.from({ length: COPIES }, () => tabs).flat();
     const centerCopy = Math.floor(COPIES / 2);
     const centerStart = centerCopy * tabs.length;
@@ -79,7 +80,7 @@ function Header() {
             setTimeout(() => {
                 const centerBtn = getButton(centerCopy, activePanelRef.current);
                 centerOnButton(centerBtn, false);
-            }, 320);
+            }, ANIMATION_DURATION_MS);
         }
     };
 
