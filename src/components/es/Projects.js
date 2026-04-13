@@ -6,7 +6,7 @@ import { FaLink } from "react-icons/fa6";
 import "../styles/ProjectAbout.css"
 
 function Projects () {
-    const { setFocusCount, contentOpen, openContent, closeContent } = useNavigation();
+    const { setFocusCount, contentOpen, openContent, closeContent, setDetailName, detailName } = useNavigation();
     const [selectedProject, setSelectedProject] = useState(null);
 
     const projects = listProjects;
@@ -19,6 +19,20 @@ function Projects () {
     useEffect(() => {
         if (!contentOpen) setSelectedProject(null);
     }, [contentOpen]);
+
+    // Clear selection when breadcrumb clears detailName
+    useEffect(() => {
+        if (detailName === null && contentOpen) setSelectedProject(null);
+    }, [detailName, contentOpen]);
+
+    // Update breadcrumb detail name when selection changes
+    useEffect(() => {
+        if (selectedProject !== null) {
+            setDetailName(projects[selectedProject].name);
+        } else {
+            setDetailName(null);
+        }
+    }, [selectedProject, projects, setDetailName]);
 
     const proj = selectedProject !== null ? projects[selectedProject] : null;
 

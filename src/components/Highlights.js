@@ -5,7 +5,7 @@ import listHighlights from "./list-highlights.json"
 import "./styles/HighLights.css"
 
 function Highlights() {
-    const { setFocusCount, contentOpen, openContent, closeContent } = useNavigation();
+    const { setFocusCount, contentOpen, openContent, closeContent, setDetailName, detailName } = useNavigation();
     const [selectedIndex, setSelectedIndex] = useState(null);
 
     useEffect(() => {
@@ -16,6 +16,20 @@ function Highlights() {
     useEffect(() => {
         if (!contentOpen) setSelectedIndex(null);
     }, [contentOpen]);
+
+    // Clear selection when breadcrumb clears detailName
+    useEffect(() => {
+        if (detailName === null && contentOpen) setSelectedIndex(null);
+    }, [detailName, contentOpen]);
+
+    // Update breadcrumb detail name when selection changes
+    useEffect(() => {
+        if (selectedIndex !== null) {
+            setDetailName(listHighlights[selectedIndex].title);
+        } else {
+            setDetailName(null);
+        }
+    }, [selectedIndex, setDetailName]);
 
     const active = selectedIndex !== null
         ? (listHighlights[selectedIndex] || listHighlights[0])

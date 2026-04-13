@@ -11,7 +11,7 @@ const BREADCRUMB_ROOT = "CAMARGO JULIAN 2.0";
 const BREADCRUMB_LABELS = ["Inicio", "Hitos", "Proyectos", "Contacto"];
 
 function Header() {
-    const { activePanelIndex, goToPanel } = useNavigation();
+    const { activePanelIndex, goToPanel, contentOpen, closeContent, detailName, setDetailName } = useNavigation();
     const ulRef = useRef(null);
     const txRef = useRef(0);
     const mountedRef = useRef(false);
@@ -113,13 +113,27 @@ function Header() {
     return (
         <div id="header">
             <div className="breadcrumb">
-                {activePanelIndex === 0 ? (
+                {activePanelIndex === 0 && !contentOpen ? (
                     <span className="breadcrumb-active">{BREADCRUMB_ROOT}</span>
-                ) : (
+                ) : activePanelIndex === 0 && contentOpen ? (
                     <>
-                        <span className="breadcrumb-dim">{BREADCRUMB_ROOT}</span>
+                        <span className="breadcrumb-link breadcrumb-dim" onClick={closeContent}>{BREADCRUMB_ROOT}</span>
+                        <span className="breadcrumb-sep">&gt;</span>
+                        <span className="breadcrumb-active">Inicio</span>
+                    </>
+                ) : !detailName ? (
+                    <>
+                        <span className="breadcrumb-link breadcrumb-dim" onClick={() => { closeContent(); }}>{BREADCRUMB_ROOT}</span>
                         <span className="breadcrumb-sep">&gt;</span>
                         <span className="breadcrumb-active">{BREADCRUMB_LABELS[activePanelIndex]}</span>
+                    </>
+                ) : (
+                    <>
+                        <span className="breadcrumb-link breadcrumb-dim" onClick={() => { closeContent(); }}>{BREADCRUMB_ROOT}</span>
+                        <span className="breadcrumb-sep">&gt;</span>
+                        <span className="breadcrumb-link breadcrumb-dim" onClick={() => setDetailName(null)}>{BREADCRUMB_LABELS[activePanelIndex]}</span>
+                        <span className="breadcrumb-sep">&gt;</span>
+                        <span className="breadcrumb-active">{detailName}</span>
                     </>
                 )}
             </div>

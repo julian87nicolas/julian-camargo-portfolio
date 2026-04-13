@@ -11,6 +11,7 @@ const initialState = {
   history: [],
   isAnimating: false,
   contentOpen: false,
+  detailName: null,
 };
 
 function navReducer(state, action) {
@@ -28,6 +29,7 @@ function navReducer(state, action) {
         history: [...state.history, state.activePanelIndex],
         isAnimating: true,
         contentOpen: false,
+        detailName: null,
       };
     }
     case 'GO_BACK': {
@@ -57,7 +59,9 @@ function navReducer(state, action) {
     case 'OPEN_CONTENT':
       return { ...state, contentOpen: true };
     case 'CLOSE_CONTENT':
-      return { ...state, contentOpen: false };
+      return { ...state, contentOpen: false, detailName: null };
+    case 'SET_DETAIL_NAME':
+      return { ...state, detailName: action.name };
     case 'ANIMATION_DONE':
       return { ...state, isAnimating: false };
     default:
@@ -92,6 +96,7 @@ export function NavigationProvider({ panels, children }) {
     dispatch({ type: 'SET_FOCUS', index: i });
   }, []);
   const setFocusCount = useCallback((c) => dispatch({ type: 'SET_FOCUS_COUNT', count: c }), []);
+  const setDetailName = useCallback((name) => dispatch({ type: 'SET_DETAIL_NAME', name }), []);
   const onAnimationDone = useCallback(() => dispatch({ type: 'ANIMATION_DONE' }), []);
 
   /* Keep focusRef in sync with state so setFocus guard works after focusNext/focusPrev */
@@ -152,9 +157,10 @@ export function NavigationProvider({ panels, children }) {
       focusPrev,
       setFocus,
       setFocusCount,
+      setDetailName,
       onAnimationDone,
     }),
-    [state, panels, panelCount, goToPanel, goBack, openContent, closeContent, focusNext, focusPrev, setFocus, setFocusCount, onAnimationDone]
+    [state, panels, panelCount, goToPanel, goBack, openContent, closeContent, focusNext, focusPrev, setFocus, setFocusCount, setDetailName, onAnimationDone]
   );
 
   return <NavigationContext.Provider value={value}>{children}</NavigationContext.Provider>;
