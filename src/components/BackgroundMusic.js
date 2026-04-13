@@ -19,8 +19,6 @@ function BackgroundMusic() {
         setPlaying(true);
         setStarted(true);
       }).catch(() => { /* browser blocked — user can click the button */ });
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('keydown', handleInteraction);
     }
     document.addEventListener('click', handleInteraction, { once: true });
     document.addEventListener('keydown', handleInteraction, { once: true });
