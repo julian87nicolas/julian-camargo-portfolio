@@ -7,6 +7,9 @@ import "./styles/Header.css"
 const COPIES = 9;
 const ANIMATION_DURATION_MS = 320; /* slightly > CSS 300ms transition */
 
+const BREADCRUMB_ROOT = "CAMARGO JULIAN 2.0";
+const BREADCRUMB_LABELS = ["Home", "Highlights", "Projects", "Contact"];
+
 function Header() {
     const { activePanelIndex, goToPanel } = useNavigation();
     const ulRef = useRef(null);
@@ -109,6 +112,17 @@ function Header() {
 
     return (
         <div id="header">
+            <div className="breadcrumb">
+                {activePanelIndex === 0 ? (
+                    <span className="breadcrumb-active">{BREADCRUMB_ROOT}</span>
+                ) : (
+                    <>
+                        <span className="breadcrumb-dim">{BREADCRUMB_ROOT}</span>
+                        <span className="breadcrumb-sep">&gt;</span>
+                        <span className="breadcrumb-active">{BREADCRUMB_LABELS[activePanelIndex]}</span>
+                    </>
+                )}
+            </div>
             <nav>
                 <ul ref={ulRef}>
                     {circularTabs.map((tab, i) => {
