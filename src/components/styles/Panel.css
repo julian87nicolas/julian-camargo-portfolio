@@ -170,10 +170,10 @@
   color: var(--text-primary);
 }
 
-/* ---- Fixed keyboard hints (above bottom nav bar) ---- */
+/* ---- Fixed keyboard hints (below bottom nav bar) ---- */
 .keyboard-hints {
   position: fixed;
-  bottom: var(--nav-height, 48px);
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 45;

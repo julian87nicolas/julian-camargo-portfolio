@@ -4,7 +4,7 @@
 
 #header {
   position: fixed;
-  bottom: 0;
+  bottom: var(--hints-height, 3rem);
   left: 0;
   right: 0;
   z-index: 50;
@@ -45,7 +45,7 @@ nav li {
 .nav-separator {
   color: #293e53;
   opacity: 1;
-  font-size: 0.85rem;
+  font-size: 1rem;
   padding: 0 0.5rem;
   user-select: none;
   pointer-events: none;
@@ -57,7 +57,7 @@ nav button.nav-tab {
   gap: 0.3rem;
   padding: 0.4rem 0.65rem;
   font-family: var(--sans);
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -148,7 +148,7 @@ nav button.nav-tab.is-active {
 }
 
 @media (max-width: 600px) {
-  nav button.nav-tab { font-size: 0.7rem; padding: 0.35rem 0.4rem; }
+  nav button.nav-tab { font-size: 0.85rem; padding: 0.35rem 0.4rem; }
   .nav-separator { padding: 0 0.2rem; font-size: 0.7rem; }
   .lang-switch { top: 8px; right: 10px; }
   .lang-label { min-width: 1.8rem; height: 1.4rem; font-size: 0.65rem; }
