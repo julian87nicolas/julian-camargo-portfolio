@@ -19,6 +19,8 @@ const SHAPE_PATHS = {
 
 const PANEL_KEYS = ['home', 'highlights', 'projects', 'contact'];
 const NUM_SAMPLES = 128;
+/* Repeat text enough times to fill even the longest path (gear) with no gaps */
+const TEXT_REPETITIONS = 14;
 
 function samplePath(pathEl, numSamples) {
   const totalLen = pathEl.getTotalLength();
@@ -125,7 +127,7 @@ function MorphingTextPath({ text }) {
   }, [contentOpen, openContent]);
 
   const separator = " \u00B7 ";
-  const repeatedText = Array(14).fill(text).join(separator) + separator;
+  const repeatedText = Array(TEXT_REPETITIONS).fill(text).join(separator) + separator;
   const pathId = "cmr-morph-path";
 
   return (
