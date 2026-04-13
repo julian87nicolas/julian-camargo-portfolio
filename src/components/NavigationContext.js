@@ -9,6 +9,7 @@ const initialState = {
   direction: null,
   history: [],
   isAnimating: false,
+  contentOpen: false,
 };
 
 function navReducer(state, action) {
@@ -25,6 +26,7 @@ function navReducer(state, action) {
         direction: next > state.activePanelIndex ? 'right' : 'left',
         history: [...state.history, state.activePanelIndex],
         isAnimating: true,
+        contentOpen: false,
       };
     }
     case 'GO_BACK': {
@@ -51,6 +53,10 @@ function navReducer(state, action) {
       return { ...state, focusIndex: action.index };
     case 'SET_FOCUS_COUNT':
       return { ...state, focusCount: action.count, focusIndex: Math.min(state.focusIndex, Math.max(0, action.count - 1)) };
+    case 'OPEN_CONTENT':
+      return { ...state, contentOpen: true };
+    case 'CLOSE_CONTENT':
+      return { ...state, contentOpen: false };
     case 'ANIMATION_DONE':
       return { ...state, isAnimating: false };
     default:
@@ -73,6 +79,8 @@ export function NavigationProvider({ panels, children }) {
   );
 
   const goBack = useCallback(() => dispatch({ type: 'GO_BACK' }), []);
+  const openContent = useCallback(() => dispatch({ type: 'OPEN_CONTENT' }), []);
+  const closeContent = useCallback(() => dispatch({ type: 'CLOSE_CONTENT' }), []);
   const focusNext = useCallback(() => dispatch({ type: 'FOCUS_NEXT' }), []);
   const focusPrev = useCallback(() => dispatch({ type: 'FOCUS_PREV' }), []);
   const setFocus = useCallback((i) => dispatch({ type: 'SET_FOCUS', index: i }), []);
@@ -101,7 +109,17 @@ export function NavigationProvider({ panels, children }) {
           break;
         case 'Escape':
           e.preventDefault();
-          goBack();
+          if (state.contentOpen) {
+            closeContent();
+          } else {
+            goBack();
+          }
+          break;
+        case 'Enter':
+          if (!state.contentOpen) {
+            e.preventDefault();
+            openContent();
+          }
           break;
         default:
           break;
@@ -109,7 +127,7 @@ export function NavigationProvider({ panels, children }) {
     }
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [state.activePanelIndex, panelCount, goToPanel, goBack, focusNext, focusPrev]);
+  }, [state.activePanelIndex, state.contentOpen, panelCount, goToPanel, goBack, openContent, closeContent, focusNext, focusPrev]);
 
   const value = useMemo(
     () => ({
@@ -118,13 +136,15 @@ export function NavigationProvider({ panels, children }) {
       panelCount,
       goToPanel,
       goBack,
+      openContent,
+      closeContent,
       focusNext,
       focusPrev,
       setFocus,
       setFocusCount,
       onAnimationDone,
     }),
-    [state, panels, panelCount, goToPanel, goBack, focusNext, focusPrev, setFocus, setFocusCount, onAnimationDone]
+    [state, panels, panelCount, goToPanel, goBack, openContent, closeContent, focusNext, focusPrev, setFocus, setFocusCount, onAnimationDone]
   );
 
   return <NavigationContext.Provider value={value}>{children}</NavigationContext.Provider>;

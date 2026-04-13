@@ -1,36 +1,21 @@
 import { useEffect, useState } from "react";
 import { useNavigation } from "../NavigationContext";
 import FocusableItem from "../FocusableItem";
-import TextPathAnimation from "../TextPathAnimation";
 import listHighlights from "./list-highlights.json";
 import "../styles/HighLights.css"
 
 function Highlights() {
-    const { setFocusCount, goBack, activePanelIndex } = useNavigation();
+    const { setFocusCount, contentOpen, openContent, closeContent } = useNavigation();
     const [selectedIndex, setSelectedIndex] = useState(null);
-    const [contentOpen, setContentOpen] = useState(false);
 
     useEffect(() => {
         setFocusCount(contentOpen ? listHighlights.length : 0);
     }, [setFocusCount, contentOpen]);
 
-    // Reset when navigating away
+    // Reset detail when content closes
     useEffect(() => {
-        if (activePanelIndex !== 1) { setContentOpen(false); setSelectedIndex(null); }
-    }, [activePanelIndex]);
-
-    // Enter key opens content in preview mode
-    useEffect(() => {
-        if (!contentOpen && activePanelIndex === 1) {
-            const handler = (e) => {
-                if (e.key === 'Enter') { e.preventDefault(); setContentOpen(true); }
-            };
-            window.addEventListener('keydown', handler);
-            return () => window.removeEventListener('keydown', handler);
-        }
-    }, [contentOpen, activePanelIndex]);
-
-    const openContent = () => setContentOpen(true);
+        if (!contentOpen) setSelectedIndex(null);
+    }, [contentOpen]);
 
     const active = selectedIndex !== null
         ? (listHighlights[selectedIndex] || listHighlights[0])
@@ -39,7 +24,6 @@ function Highlights() {
     if (!contentOpen) {
         return (
             <section id="highlights" className="screen panel-preview">
-                <TextPathAnimation panelKey="highlights" text="Julian Camargo - Desarrollador Backend" onClick={openContent} />
                 <h2 className="screen-title preview-title" onClick={openContent}>Hitos</h2>
                 <p className="preview-hint">Presiona Enter o haz click para abrir</p>
             </section>
@@ -48,8 +32,7 @@ function Highlights() {
 
     return (
         <section id="highlights" className="screen">
-            <TextPathAnimation panelKey="highlights" text="Julian Camargo - Desarrollador Backend" />
-            <button className="back-btn" onClick={selectedIndex !== null ? () => setSelectedIndex(null) : () => setContentOpen(false)}>
+            <button className="back-btn" onClick={selectedIndex !== null ? () => setSelectedIndex(null) : closeContent}>
                 ← Volver
             </button>
             <h2 className="screen-title">Hitos</h2>

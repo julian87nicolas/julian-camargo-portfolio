@@ -1,15 +1,13 @@
 import { useEffect, useState, useMemo } from "react";
 import { useNavigation } from "../NavigationContext";
 import FocusableItem from "../FocusableItem";
-import TextPathAnimation from "../TextPathAnimation";
 import listProjects from "./list-project.json"
 import { FaLink } from "react-icons/fa6";
 import "../styles/ProjectAbout.css"
 
 function Projects () {
-    const { setFocusCount, goBack, activePanelIndex } = useNavigation();
+    const { setFocusCount, contentOpen, openContent, closeContent } = useNavigation();
     const [selectedProject, setSelectedProject] = useState(null);
-    const [contentOpen, setContentOpen] = useState(false);
 
     const projects = useMemo(() => listProjects, []);
 
@@ -17,30 +15,16 @@ function Projects () {
         setFocusCount(contentOpen ? projects.length : 0);
     }, [setFocusCount, projects.length, contentOpen]);
 
-    // Reset when navigating away
+    // Reset detail when content closes
     useEffect(() => {
-        if (activePanelIndex !== 2) { setContentOpen(false); setSelectedProject(null); }
-    }, [activePanelIndex]);
-
-    // Enter key opens content in preview mode
-    useEffect(() => {
-        if (!contentOpen && activePanelIndex === 2) {
-            const handler = (e) => {
-                if (e.key === 'Enter') { e.preventDefault(); setContentOpen(true); }
-            };
-            window.addEventListener('keydown', handler);
-            return () => window.removeEventListener('keydown', handler);
-        }
-    }, [contentOpen, activePanelIndex]);
-
-    const openContent = () => setContentOpen(true);
+        if (!contentOpen) setSelectedProject(null);
+    }, [contentOpen]);
 
     const proj = selectedProject !== null ? projects[selectedProject] : null;
 
     if (!contentOpen) {
         return (
             <section id="projects" className="screen panel-preview">
-                <TextPathAnimation panelKey="projects" text="Julian Camargo - Desarrollador Backend" onClick={openContent} />
                 <h2 className="screen-title preview-title" onClick={openContent}>Proyectos</h2>
                 <p className="preview-hint">Presiona Enter o haz click para abrir</p>
             </section>
@@ -49,8 +33,7 @@ function Projects () {
 
     return (
         <section id="projects" className="screen">
-            <TextPathAnimation panelKey="projects" text="Julian Camargo - Desarrollador Backend" />
-            <button className="back-btn" onClick={selectedProject !== null ? () => setSelectedProject(null) : () => setContentOpen(false)}>
+            <button className="back-btn" onClick={selectedProject !== null ? () => setSelectedProject(null) : closeContent}>
                 ← Volver
             </button>
             <h2 className="screen-title">Proyectos</h2>
