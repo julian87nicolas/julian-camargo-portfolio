@@ -8,6 +8,8 @@ function Header() {
     const { activePanelIndex, goToPanel } = useNavigation();
     const ulRef = useRef(null);
     const activeRef = useRef(null);
+    const txRef = useRef(0);
+    const mountedRef = useRef(false);
 
     const tabs = [
         { label: "Inicio", index: 0 },
@@ -16,30 +18,59 @@ function Header() {
         { label: "Contacto", index: 3 },
     ];
 
-    /* Build circular track: [...tabs, ...tabs, ...tabs] — center copy holds the real refs */
-    const circularTabs = [...tabs, ...tabs, ...tabs];
+    /* 9 copies so there are always 4 full copies on each side of center —
+       gives the infinite circular scroll illusion on any screen width */
+    const COPIES = 9;
+    const circularTabs = Array.from({ length: COPIES }, () => tabs).flat();
+    const centerStart = Math.floor(COPIES / 2) * tabs.length;
+    const centerEnd = centerStart + tabs.length;
 
-    useEffect(() => {
-        if (activeRef.current && ulRef.current) {
-            const ul = ulRef.current;
-            const btn = activeRef.current;
-            const ulRect = ul.parentElement.getBoundingClientRect();
-            const btnRect = btn.getBoundingClientRect();
-            const offset = btnRect.left + btnRect.width / 2 - ulRect.left - ulRect.width / 2;
-            ul.style.transform = `translateX(${-offset}px)`;
+    /* Compute translateX to center the active button in the nav viewport */
+    const recenter = (animate) => {
+        if (!activeRef.current || !ulRef.current) return;
+        const ul = ulRef.current;
+        const btn = activeRef.current;
+        const nav = ul.parentElement;
+        const navW = nav.offsetWidth;
+
+        const btnRect = btn.getBoundingClientRect();
+        const navRect = nav.getBoundingClientRect();
+        const btnCenterInNav = btnRect.left + btnRect.width / 2 - navRect.left;
+        const naturalCenter = btnCenterInNav - txRef.current;
+        const newTx = navW / 2 - naturalCenter;
+        txRef.current = newTx;
+
+        if (!animate) {
+            ul.style.transition = 'none';
+            ul.style.transform = `translateX(${newTx}px)`;
+            requestAnimationFrame(() => { ul.style.transition = ''; });
+        } else {
+            ul.style.transform = `translateX(${newTx}px)`;
         }
+    };
+
+    /* Center on panel change */
+    useEffect(() => {
+        recenter(mountedRef.current);
+        mountedRef.current = true;
     }, [activePanelIndex]);
+
+    /* Recenter without animation on window resize / orientation change */
+    useEffect(() => {
+        const onResize = () => recenter(false);
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
 
     return (
         <div id="header">
             <nav>
                 <ul ref={ulRef}>
                     {circularTabs.map((tab, i) => {
-                        /* The center copy is items [tabs.length .. 2*tabs.length-1] */
-                        const isCenter = i >= tabs.length && i < tabs.length * 2;
+                        const isCenter = i >= centerStart && i < centerEnd;
                         const isActive = isCenter && activePanelIndex === tab.index;
                         return (
-                            <li key={`${tab.label}-${i}`}>
+                            <li key={`nav-${i}`}>
                                 {i > 0 && <span className="nav-separator">|</span>}
                                 <button
                                     ref={isActive ? activeRef : null}

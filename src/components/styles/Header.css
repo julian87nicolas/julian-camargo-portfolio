@@ -102,9 +102,9 @@ nav button.nav-tab.is-active {
 
 .lang-switch {
   position: fixed;
-  bottom: 12px;
+  top: 12px;
   right: 16px;
-  width: 1.2rem;
+  width: 1.4rem;
   z-index: 55;
 }
 
@@ -120,5 +120,6 @@ nav .resume { display: none; }
 
 @media (max-width: 600px) {
   nav button.nav-tab { font-size: 0.7rem; padding: 0.35rem 0.4rem; }
-  .nav-separator { padding: 0 0.3rem; font-size: 0.7rem; }
+  .nav-separator { padding: 0 0.2rem; font-size: 0.7rem; }
+  .lang-switch { top: 8px; right: 10px; width: 1.2rem; }
 }
