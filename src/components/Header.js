@@ -7,9 +7,10 @@ import "./styles/Header.css"
 function Header() {
     const { activePanelIndex, goToPanel } = useNavigation();
     const ulRef = useRef(null);
-    const activeRef = useRef(null);
     const txRef = useRef(0);
     const mountedRef = useRef(false);
+    const prevPanelRef = useRef(0);
+    const activePanelRef = useRef(0);
 
     const tabs = [
         { label: "Home", index: 0 },
@@ -22,14 +23,21 @@ function Header() {
        gives the infinite circular scroll illusion on any screen width */
     const COPIES = 9;
     const circularTabs = Array.from({ length: COPIES }, () => tabs).flat();
-    const centerStart = Math.floor(COPIES / 2) * tabs.length;
+    const centerCopy = Math.floor(COPIES / 2);
+    const centerStart = centerCopy * tabs.length;
     const centerEnd = centerStart + tabs.length;
 
-    /* Compute translateX to center the active button in the nav viewport */
-    const recenter = (animate) => {
-        if (!activeRef.current || !ulRef.current) return;
+    /* Get the n-th nav-tab button from the rendered list */
+    const getButton = (copyIdx, panelIdx) => {
+        if (!ulRef.current) return null;
+        const allButtons = ulRef.current.querySelectorAll('button.nav-tab');
+        return allButtons[copyIdx * tabs.length + panelIdx] || null;
+    };
+
+    /* Center the given button in the nav viewport */
+    const centerOnButton = (btn, animate) => {
+        if (!btn || !ulRef.current) return;
         const ul = ulRef.current;
-        const btn = activeRef.current;
         const nav = ul.parentElement;
         const navW = nav.offsetWidth;
 
@@ -49,17 +57,51 @@ function Header() {
         }
     };
 
+    /* Recenter with direction awareness for infinite carousel effect */
+    const recenter = (animate, prevPanel) => {
+        const current = activePanelRef.current;
+        const tabCount = tabs.length;
+        let targetCopy = centerCopy;
+
+        if (animate && prevPanel !== undefined && prevPanel !== current) {
+            const diff = current - prevPanel;
+            if (Math.abs(diff) > tabCount / 2) {
+                /* Circular wrap — continue scrolling in the same direction */
+                targetCopy = diff < 0 ? centerCopy + 1 : centerCopy - 1;
+            }
+        }
+
+        const btn = getButton(targetCopy, current);
+        centerOnButton(btn, animate);
+
+        /* If we animated to a non-center copy, silently jump to center copy after animation */
+        if (animate && targetCopy !== centerCopy) {
+            setTimeout(() => {
+                const centerBtn = getButton(centerCopy, activePanelRef.current);
+                centerOnButton(centerBtn, false);
+            }, 320);
+        }
+    };
+
     /* Center on panel change */
     useEffect(() => {
-        recenter(mountedRef.current);
+        const prev = prevPanelRef.current;
+        activePanelRef.current = activePanelIndex;
+        recenter(mountedRef.current, prev);
+        prevPanelRef.current = activePanelIndex;
         mountedRef.current = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activePanelIndex]);
 
     /* Recenter without animation on window resize / orientation change */
     useEffect(() => {
-        const onResize = () => recenter(false);
+        const onResize = () => {
+            const btn = getButton(centerCopy, activePanelRef.current);
+            centerOnButton(btn, false);
+        };
         window.addEventListener('resize', onResize);
         return () => window.removeEventListener('resize', onResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -73,7 +115,6 @@ function Header() {
                             <li key={`nav-${i}`}>
                                 {i > 0 && <span className="nav-separator">|</span>}
                                 <button
-                                    ref={isActive ? activeRef : null}
                                     className={`nav-tab${isActive ? ' is-active' : ''}`}
                                     onClick={() => goToPanel(tab.index)}
                                 >
