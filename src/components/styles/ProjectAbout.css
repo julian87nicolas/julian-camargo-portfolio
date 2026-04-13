@@ -169,12 +169,21 @@
     flex-direction: column;
     gap: 1rem;
   }
+  /* Make all items full-width on mobile so they align consistently */
+  .proj-list .focus-item {
+    width: 100%;
+  }
+  /* When detail is open on mobile: hide list, detail takes full space */
   .proj-layout.has-detail .proj-list {
-    flex: none;
+    display: none;
+  }
+  .proj-layout.has-detail {
+    gap: 0;
   }
   .proj-detail {
     flex: 1;
     min-height: 0;
+    overflow-y: auto;
   }
   .proj-iframe {
     height: 200px;
