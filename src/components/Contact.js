@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigation } from "./NavigationContext";
 import FocusableItem from "./FocusableItem";
+import TextPathAnimation from "./TextPathAnimation";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 import "./styles/Contact.css"
 
@@ -11,6 +12,7 @@ function Contact() {
 
     return (
         <section id="contact" className="screen">
+            <TextPathAnimation panelKey="contact" text="Julian Camargo - Backend Developer" />
             <button className="back-btn" onClick={goBack}>
                 ← Back
             </button>

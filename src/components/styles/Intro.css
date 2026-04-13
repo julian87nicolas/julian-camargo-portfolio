@@ -1,6 +1,6 @@
 /* ================================================================
    Home / Main Menu screen
-   Simple videogame main menu: title + 3 options
+   Introduction panel with text path animation
    ================================================================ */
 
 #intro.screen {
@@ -9,8 +9,18 @@
   padding-top: 0;
 }
 
-#intro .screen-header {
-  margin-bottom: 3rem;
+#intro .intro-content {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+#intro .intro-description {
+  max-width: 500px;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
 }
 
 #intro + .border-gradient { display: none; }

@@ -1,0 +1,75 @@
+/* ================================================================
+   CMR2-style Text Path Animation
+   Text moves along an SVG path outline, looping infinitely
+   ================================================================ */
+
+.text-path-animation {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  transition: opacity 300ms ease-in-out;
+}
+
+.text-path-svg {
+  width: 80%;
+  height: 80%;
+  max-width: 400px;
+  max-height: 400px;
+  overflow: visible;
+}
+
+.text-path-text {
+  font-family: var(--mono);
+  font-size: 8px;
+  fill: var(--text-secondary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Hide animation when detail view is active */
+.has-detail ~ .text-path-animation,
+.screen .has-detail ~ .text-path-animation {
+  opacity: 0;
+}
+
+/* Ensure all screen content is above the animation */
+.screen > *:not(.text-path-animation) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile: shift to center-right and reduce opacity */
+@media (max-width: 768px) {
+  .text-path-animation {
+    width: 60%;
+    right: -5%;
+    opacity: 0.2;
+  }
+
+  .text-path-svg {
+    width: 100%;
+    height: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-path-animation {
+    width: 70%;
+    right: -10%;
+    opacity: 0.15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-path-animation animate {
+    display: none;
+  }
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigation } from "./NavigationContext";
 import FocusableItem from "./FocusableItem";
+import TextPathAnimation from "./TextPathAnimation";
 import listHighlights from "./list-highlights.json"
 import "./styles/HighLights.css"
 
@@ -16,6 +17,7 @@ function Highlights() {
 
     return (
         <section id="highlights" className="screen">
+            <TextPathAnimation panelKey="highlights" text="Julian Camargo - Backend Developer" />
             <button className="back-btn" onClick={selectedIndex !== null ? () => setSelectedIndex(null) : goBack}>
                 ← Back
             </button>

@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { useNavigation } from "./NavigationContext";
 import FocusableItem from "./FocusableItem";
+import TextPathAnimation from "./TextPathAnimation";
 import listProjects from "./list-project.json"
 import { FaLink } from "react-icons/fa6";
 import "./styles/ProjectAbout.css"
@@ -19,6 +20,7 @@ function Projects () {
 
     return (
         <section id="projects" className="screen">
+            <TextPathAnimation panelKey="projects" text="Julian Camargo - Backend Developer" />
             <button className="back-btn" onClick={selectedProject !== null ? () => setSelectedProject(null) : goBack}>
                 ← Back
             </button>

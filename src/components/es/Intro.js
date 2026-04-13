@@ -1,39 +1,30 @@
 import { useEffect } from "react";
 import { useNavigation } from "../NavigationContext";
-import FocusableItem from "../FocusableItem";
+import TextPathAnimation from "../TextPathAnimation";
 import "../styles/Intro.css"
 
 function Intro () {
-    const { goToPanel, setFocusCount } = useNavigation();
+    const { setFocusCount } = useNavigation();
 
-    useEffect(() => { setFocusCount(3); }, [setFocusCount]);
+    useEffect(() => { setFocusCount(0); }, [setFocusCount]);
 
     return (
-        <section id="intro" className="screen" role="menu">
-            <div className="screen-header">
+        <section id="intro" className="screen" role="banner">
+            <TextPathAnimation panelKey="home" text="Julian Camargo - Desarrollador Backend" />
+            <div className="screen-header intro-content">
                 <h2 className="screen-title">Camargo Julian 2.0</h2>
                 <p className="screen-subtitle">Desarrollador Backend · Java · Cloud · IoT</p>
+                <p className="intro-description">
+                    Desarrollador backend especializado en microservicios Java, infraestructura
+                    cloud e integración entre software y sistemas embebidos. Experiencia en
+                    proyectos de migración cloud, automatización de CI/CD y diseño de APIs
+                    para servicios escalables y confiables.
+                </p>
             </div>
 
-            <nav className="menu-list" aria-label="Menú principal">
-                <FocusableItem index={0} onSelect={() => goToPanel(1)}>
-                    <span className="menu-text">Hitos</span>
-                    <span className="menu-hint">→</span>
-                </FocusableItem>
-                <FocusableItem index={1} onSelect={() => goToPanel(2)}>
-                    <span className="menu-text">Proyectos</span>
-                    <span className="menu-hint">→</span>
-                </FocusableItem>
-                <FocusableItem index={2} onSelect={() => goToPanel(3)}>
-                    <span className="menu-text">Contacto</span>
-                    <span className="menu-hint">→</span>
-                </FocusableItem>
-            </nav>
-
             <div className="screen-footer">
-                <span className="key-badge">↑↓</span> Navegar
+                <span className="key-badge">←→</span> Navegar
                 <span className="key-badge">Enter</span> Seleccionar
-                <span className="key-badge">→</span> Siguiente
             </div>
         </section>
     )
