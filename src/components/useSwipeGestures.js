@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useNavigation } from './NavigationContext';
 
 const SWIPE_THRESHOLD = 50;
+const SWIPE_DISTANCE_THRESHOLD = 100;
 const SWIPE_VELOCITY_THRESHOLD = 0.3;
 
 /**
@@ -47,7 +48,7 @@ export default function useSwipeGestures(containerRef) {
       if (Math.abs(dx) < SWIPE_THRESHOLD) return;
 
       const velocity = Math.abs(dx) / dt;
-      if (velocity < SWIPE_VELOCITY_THRESHOLD && Math.abs(dx) < 100) return;
+      if (velocity < SWIPE_VELOCITY_THRESHOLD && Math.abs(dx) < SWIPE_DISTANCE_THRESHOLD) return;
 
       if (dx < 0) {
         // Swipe left → next section
