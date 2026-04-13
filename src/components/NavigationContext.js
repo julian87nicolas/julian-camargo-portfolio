@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
+import { playNavigateSound, playFocusSound, playSelectSound, playBackSound } from './SoundEffects';
 
 const NavigationContext = createContext(null);
 
@@ -72,18 +73,19 @@ export function NavigationProvider({ panels, children }) {
   const goToPanel = useCallback(
     (index) => {
       if (index >= 0 && index < panelCount) {
+        playNavigateSound();
         dispatch({ type: 'GO_TO_PANEL', index });
       }
     },
     [panelCount]
   );
 
-  const goBack = useCallback(() => dispatch({ type: 'GO_BACK' }), []);
-  const openContent = useCallback(() => dispatch({ type: 'OPEN_CONTENT' }), []);
-  const closeContent = useCallback(() => dispatch({ type: 'CLOSE_CONTENT' }), []);
-  const focusNext = useCallback(() => dispatch({ type: 'FOCUS_NEXT' }), []);
-  const focusPrev = useCallback(() => dispatch({ type: 'FOCUS_PREV' }), []);
-  const setFocus = useCallback((i) => dispatch({ type: 'SET_FOCUS', index: i }), []);
+  const goBack = useCallback(() => { playBackSound(); dispatch({ type: 'GO_BACK' }); }, []);
+  const openContent = useCallback(() => { playSelectSound(); dispatch({ type: 'OPEN_CONTENT' }); }, []);
+  const closeContent = useCallback(() => { playBackSound(); dispatch({ type: 'CLOSE_CONTENT' }); }, []);
+  const focusNext = useCallback(() => { playFocusSound(); dispatch({ type: 'FOCUS_NEXT' }); }, []);
+  const focusPrev = useCallback(() => { playFocusSound(); dispatch({ type: 'FOCUS_PREV' }); }, []);
+  const setFocus = useCallback((i) => { playFocusSound(); dispatch({ type: 'SET_FOCUS', index: i }); }, []);
   const setFocusCount = useCallback((c) => dispatch({ type: 'SET_FOCUS_COUNT', count: c }), []);
   const onAnimationDone = useCallback(() => dispatch({ type: 'ANIMATION_DONE' }), []);
 
