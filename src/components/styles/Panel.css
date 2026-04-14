@@ -1,0 +1,249 @@
+/* ================================================================
+   Videogame panel system — fullscreen horizontal slides, no scroll
+   ================================================================ */
+
+.panel-viewport {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  bottom: calc(var(--nav-height, 48px) + var(--hints-height, 2rem));
+  top: 0;
+}
+
+.panel-track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  transition: transform 300ms ease-in-out;
+}
+
+.panel-slide {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+.panel-slide:not(.is-active) {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ================================================================
+   Screen — every panel's root element
+   ================================================================ */
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.5rem 3rem 1.5rem;
+  max-width: 900px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---- Screen header area ---- */
+.screen-header {
+  margin-bottom: 2rem;
+}
+
+.screen-label {
+  font-size: 0.78rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  margin: 0 0 0.4rem;
+}
+
+.screen-title {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 0.4rem;
+}
+
+.screen-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
+
+/* ---- Back button ---- */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.back-btn:hover,
+.back-btn:focus-visible {
+  color: var(--text-primary);
+}
+
+/* ---- Focus item (menu item with highlight bar) ---- */
+.focus-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.85rem 1.2rem;
+  margin: 0.15rem 0;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+  color: var(--text-secondary);
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.focus-item .focus-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  border-radius: 2px;
+  transition: background-color 200ms ease;
+}
+
+.focus-item.is-focused,
+.focus-item:hover {
+  background: var(--highlight-bar);
+  color: var(--text-primary);
+}
+
+.focus-item.is-focused {
+  transform: scale(1.02);
+}
+
+.focus-item.is-focused .focus-indicator {
+  background: var(--text-primary);
+}
+
+/* ---- Menu list ---- */
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.menu-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.menu-hint {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.focus-item.is-focused .menu-hint {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+/* ---- Fixed keyboard hints (below bottom nav bar) ---- */
+.keyboard-hints {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  padding: 0.6rem 3rem;
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  border-top: 1px solid var(--separator);
+  background: var(--bg-main);
+  pointer-events: none;
+}
+
+.key-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.4rem;
+  padding: 0 0.35rem;
+  font-size: 0.65rem;
+  border: 1px solid var(--text-secondary);
+  border-radius: 3px;
+  color: var(--text-secondary);
+}
+
+/* ---- Panel preview mode (animation-first, no content) ---- */
+.screen.panel-preview {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.preview-title {
+  cursor: pointer;
+  transition: color 200ms ease;
+  margin-bottom: 0.4rem;
+}
+
+.preview-title:hover {
+  color: var(--text-primary);
+}
+
+.preview-hint {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  opacity: 0.45;
+  margin: 2rem 0 0;
+}
+
+@media (max-width: 600px) {
+  .panel-viewport {
+    bottom: calc(var(--nav-height, 48px) + var(--hints-height, 3rem) + 0.5rem);
+  }
+  .screen {
+    padding: 1.5rem 1.2rem 1rem;
+  }
+  .back-btn {
+    margin-left: 2.2rem;
+  }
+  .keyboard-hints {
+    padding: 0.5rem 1.2rem;
+  }
+}

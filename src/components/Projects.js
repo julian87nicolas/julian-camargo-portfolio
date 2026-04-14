@@ -1,88 +1,93 @@
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigation } from "./NavigationContext";
+import FocusableItem from "./FocusableItem";
 import listProjects from "./list-project.json"
 import { FaLink } from "react-icons/fa6";
 import "./styles/ProjectAbout.css"
 
-const PROJECT_FILTERS = [
-    { key: "all", label: "All projects" },
-    { key: "web", label: "Websites" },
-    { key: "engineering", label: "Engineering" }
-];
-
-const categorizeProject = (project) => {
-    const text = `${project.title} ${project.name} ${project.tech.join(" ")}`.toLowerCase();
-
-    if (text.includes("electronic") || text.includes("iot") || text.includes("lora") || text.includes("microcontroller") || text.includes("esp")) {
-        return "engineering";
-    }
-
-    if (text.includes("react") || text.includes("web") || text.includes("website") || text.includes("html") || text.includes("css") || text.includes("bootstrap")) {
-        return "web";
-    }
-
-    return "app";
-};
-
 function Projects () {
-    const [activeFilter, setActiveFilter] = useState("all");
+    const { setFocusCount, contentOpen, openContent, closeContent, setDetailName, detailName } = useNavigation();
+    const [selectedProject, setSelectedProject] = useState(null);
 
-    const projectsWithCategory = useMemo(
-        () => listProjects.map((project) => ({ ...project, category: categorizeProject(project) })),
-        []
-    );
+    useEffect(() => {
+        setFocusCount(contentOpen ? listProjects.length : 0);
+    }, [setFocusCount, contentOpen]);
 
-    const visibleProjects = useMemo(
-        () => projectsWithCategory.filter((project) => activeFilter === "all" || project.category === activeFilter),
-        [activeFilter, projectsWithCategory]
-    );
+    // Reset detail when content closes
+    useEffect(() => {
+        if (!contentOpen) setSelectedProject(null);
+    }, [contentOpen]);
+
+    // Clear selection when breadcrumb clears detailName
+    useEffect(() => {
+        if (detailName === null && contentOpen) setSelectedProject(null);
+    }, [detailName, contentOpen]);
+
+    // Update breadcrumb detail name when selection changes
+    useEffect(() => {
+        if (selectedProject !== null) {
+            setDetailName(listProjects[selectedProject].name);
+        } else {
+            setDetailName(null);
+        }
+    }, [selectedProject, setDetailName]);
+
+    const proj = selectedProject !== null ? listProjects[selectedProject] : null;
+
+    if (!contentOpen) {
+        return (
+            <section id="projects" className="screen panel-preview">
+                <h2 className="screen-title preview-title" onClick={openContent}>Projects</h2>
+                <p className="preview-hint">Press Enter or click to open</p>
+            </section>
+        );
+    }
 
     return (
-    <div className="section-blue">
-        <section id="projects" className="projects-section">
-        <h2>Projects I'm proud of</h2>
-        <p className="projects-intro">Selected work across web, apps and engineering systems.</p>
+        <section id="projects" className="screen">
+            <button className="back-btn" onClick={selectedProject !== null ? () => setSelectedProject(null) : closeContent}>
+                ← Back
+            </button>
+            <h2 className="screen-title">Projects</h2>
 
-                <div className="projects-filters" role="tablist" aria-label="Project categories">
-                    {PROJECT_FILTERS.map((filter) => (
-                        <button
-                            key={filter.key}
-                            type="button"
-                            className={`projects-filter-btn${activeFilter === filter.key ? " is-active" : ""}`}
-                            onClick={() => setActiveFilter(filter.key)}
-                            role="tab"
-                            aria-selected={activeFilter === filter.key}
-                        >
-                            <span>{filter.label}</span>
-                        </button>
+            <div className={`proj-layout${selectedProject !== null ? ' has-detail' : ''}`}>
+                <nav className="proj-list" role="menu" aria-label="Project list">
+                    {listProjects.map((p, idx) => (
+                        <FocusableItem key={idx} index={idx} onSelect={() => setSelectedProject(idx)}>
+                            <span className="proj-item-name">{p.name}</span>
+                            <span className="proj-item-title">{p.title}</span>
+                        </FocusableItem>
                     ))}
-                </div>
+                </nav>
 
-                <div className="projects-grid" role="list">
-                    {visibleProjects.map((proj, idx) =>
-                        <article className="project-card" key={`${proj.name}-${idx}`} role="listitem">
-                            <a className="project-card-link" href={proj.demo || proj.repo} target="_blank" rel="noreferrer" aria-label={proj.name}>
-                            <div className={`project-media${proj.embed ? " project-media--embed" : proj.image.url.includes("odontointegral-cover") ? " project-media--left-crop" : ""}`}>
-                                {proj.embed
-                                    ? <iframe src={proj.embed} title={proj.name} scrolling="no" loading="lazy" sandbox="allow-scripts allow-same-origin" />
-                                    : <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />
-                                }
-                            </div>
+                {proj && (
+                    <div className="proj-detail" key={selectedProject}>
+                        <h3 className="proj-detail-name">{proj.name}</h3>
+                        <p className="proj-detail-subtitle">{proj.title}</p>
 
-                            <div className="project-info">
-                                <p className="project-caption"><b>{proj.name}</b> - {proj.title}</p>
-                            </div>
-                            </a>
+                        <div className="proj-detail-media">
+                            {proj.embed
+                                ? <iframe src={proj.embed} title={proj.name} className="proj-iframe" sandbox="allow-scripts allow-same-origin" />
+                                : proj.image && <img src={proj.image.url} alt={proj.image.alt} loading="lazy" />
+                            }
+                        </div>
 
-                            <div className="project-links">
-                                <a href={proj.repo} target="_blank" rel="noreferrer"><FaLink /> Repo</a>
-                                {proj.demo && <a href={proj.demo} target="_blank" rel="noreferrer"><FaLink /> Live</a>}
-                            </div>
-                        </article>
-                    )}
-                </div>
+                        <p className="proj-detail-desc">{proj.description}</p>
+
+                        <div className="proj-detail-tech">
+                            {proj.tech.map((t, i) => (
+                                <span key={i} className="tech-tag">{t}</span>
+                            ))}
+                        </div>
+
+                        <div className="proj-detail-links">
+                            <a href={proj.repo} target="_blank" rel="noreferrer"><FaLink /> Repository</a>
+                            {proj.demo && <a href={proj.demo} target="_blank" rel="noreferrer"><FaLink /> Live Demo</a>}
+                        </div>
+                    </div>
+                )}
+            </div>
         </section>
-        <div className="border-gradient"></div>
-        </div>
     )
 }
 

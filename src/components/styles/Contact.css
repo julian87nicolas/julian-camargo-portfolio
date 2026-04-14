@@ -1,21 +1,51 @@
-#contact {
-    background-color: var(--plum);
-    margin: 0;
-    padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+/* ================================================================
+   Contact screen — focusable contact options
+   ================================================================ */
+
+#contact.screen {
+  max-width: 700px;
+  align-items: flex-start;
 }
-#contact h2 {
-    display: block;
-    font-size: 2rem;
-    margin: 0;
-    padding: 0;
+
+#contact .screen-title {
+  margin-bottom: 0.4rem;
 }
-#contact p {
-    width: 18rem;
-    font-size: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 0;
+
+.contact-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem;
+}
+
+.contact-icon {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  flex-shrink: 0;
+  width: 1.4rem;
+}
+
+.contact-value {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+}
+
+.focus-item.is-focused .contact-value {
+  color: var(--text-primary);
+}
+
+.contact-footer-text {
+  margin-top: auto;
+}
+
+.contact-footer-text p {
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  margin: 0;
 }

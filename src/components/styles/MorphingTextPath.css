@@ -1,0 +1,107 @@
+/* ================================================================
+   Morphing Text Path Animation
+   Global overlay that morphs between shapes when navigating panels.
+   Text fills the entire path as a seamless closed loop.
+   ================================================================ */
+
+.morph-text-path {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--nav-height, 48px) + var(--hints-height, 2rem));
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: opacity 350ms ease-in-out;
+}
+
+.morph-svg {
+  width: 80%;
+  height: 80%;
+  max-width: 500px;
+  max-height: 500px;
+  overflow: visible;
+  transition: width 350ms ease, height 350ms ease, max-width 350ms ease, max-height 350ms ease, opacity 350ms ease;
+}
+
+.morph-text {
+  font-family: var(--mono);
+  font-size: 8px;
+  fill: var(--text-secondary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ---- Preview mode: animation is the main focus ---- */
+.morph-text-path.preview-mode {
+  pointer-events: auto;
+  cursor: pointer;
+  outline: none;
+  opacity: 0.65;
+}
+
+.morph-text-path.preview-mode .morph-svg {
+  width: 90%;
+  height: 85%;
+  max-width: none;
+  max-height: none;
+}
+
+/* ---- Content open: animation fades to subtle background ---- */
+.morph-text-path.content-open {
+  pointer-events: none;
+  opacity: 0.1;
+  justify-content: flex-end;
+}
+
+.morph-text-path.content-open .morph-svg {
+  width: 50%;
+  height: 60%;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+/* ---- Mobile adjustments ---- */
+@media (max-width: 768px) {
+  .morph-text-path.preview-mode {
+    opacity: 0.55;
+  }
+
+  .morph-text-path.preview-mode .morph-svg {
+    width: 90%;
+    height: 70%;
+  }
+
+  .morph-text-path.content-open {
+    opacity: 0.08;
+  }
+
+  .morph-text-path.content-open .morph-svg {
+    width: 60%;
+    height: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+  .morph-text-path.preview-mode {
+    opacity: 0.5;
+  }
+
+  .morph-text-path.preview-mode .morph-svg {
+    width: 95%;
+    height: 60%;
+  }
+
+  .morph-text-path.content-open {
+    opacity: 0.06;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .morph-text-path animate {
+    display: none;
+  }
+}

@@ -1,167 +1,158 @@
-/*------------------------PROJECT and ABOUT page------------------------*/
-#highlights {
-  padding: 5rem var(--section-pad-x);
-  max-width: var(--content-max);
-  margin: 0 auto;
+/* ================================================================
+   Highlights / Experience screen — centered titles, slide-left detail
+   ================================================================ */
+
+#highlights.screen {
+  max-width: 1000px;
 }
 
-.section-black {
-  background-color: var(--plum);
+#highlights .screen-title {
+  margin-bottom: 1.2rem;
 }
 
-.hl_timeline {
-  position: relative;
-  display: grid;
-  gap: 1.3rem;
-  padding-left: 1.35rem;
+/* Layout: titles centered by default, slide left when detail opens */
+.hl-layout {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  transition: flex 300ms ease-in-out, gap 300ms ease-in-out;
 }
 
-.hl_timeline::before {
-  content: "";
-  position: absolute;
-  left: 0.38rem;
-  top: 0.2rem;
-  bottom: 0.2rem;
-  width: 1px;
-  background: linear-gradient(180deg, rgba(140, 180, 217, 0.8) 0%, rgba(140, 180, 217, 0.2) 100%);
+/* By default: list centered */
+.hl-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+  transition: flex 300ms ease-in-out, align-items 300ms ease-in-out;
 }
 
-.hl_item {
-  position: relative;
+/* When detail is open: list slides to the left side */
+.hl-layout.has-detail .hl-list {
+  flex: 0 0 260px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.hl-layout.has-detail .hl-list .focus-item {
   width: 100%;
-  color: var(--white);
-  padding: 1.3rem 1.3rem 1.15rem;
 }
 
-.hl_marker {
-  position: absolute;
-  left: -1.04rem;
-  top: 1.55rem;
-  width: 0.78rem;
-  height: 0.78rem;
-  border-radius: 999px;
-  background: var(--aqua);
-  border: 2px solid rgba(15, 17, 21, 0.92);
-  box-shadow: 0 0 0 3px rgba(140, 180, 217, 0.2);
-}
-
-.hl_item:hover {
-  transform: translateY(-1px);
-}
-
-.hl_content {
-  display: grid;
-  gap: 0.65rem;
-}
-
-.hl_time {
-  margin: 0;
-  font-size: 0.84rem;
-  letter-spacing: 0.04em;
+.hl-item-title {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--text-faint);
 }
 
-#highlights .hl_points {
+.hl-item-company {
+  display: block;
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  margin-top: 0.15rem;
+}
+
+/* Detail pane */
+.hl-detail {
+  flex: 1;
+  min-height: 0;
+  background: var(--bg-surface);
+  border-radius: 4px;
+  border-left: 3px solid var(--text-primary);
+  padding: 1.5rem 1.5rem 2rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  animation: fade-in 250ms ease-out;
+}
+
+.hl-detail::-webkit-scrollbar { display: none; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateX(8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.hl-time {
+  margin: 0 0 0.6rem;
+  font-size: 0.75rem;
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.hl-detail h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin: 0 0 0.3rem;
+}
+
+.hl-company-name {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+}
+
+.hl-desc {
   list-style: none;
-  margin: 0.3rem 0 0;
+  margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
-#highlights .hl_points li {
-  padding: 0.78rem 0.9rem;
-  border-radius: 10px;
-  background: var(--chip-bg-soft);
-  border: 1px solid var(--chip-border-soft);
+.hl-desc li {
+  padding: 0.5rem 0.7rem;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.03);
+  border-left: 2px solid var(--text-primary);
 }
 
-#highlights .hl_points p {
+.hl-desc p {
   margin: 0;
-  max-width: 60ch;
-  font-size: 0.96rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
 }
 
-#highlights .hl_points .tech {
-  margin-top: 0.35rem;
-  font-size: 0.86rem;
-  color: var(--text-soft);
+.hl-tech {
+  margin-top: 0.2rem !important;
+  font-size: 0.78rem !important;
+  font-family: var(--mono);
+  color: var(--text-secondary) !important;
 }
 
-#highlights h2 {
-  font-size: var(--step-3);
-  letter-spacing: -0.01em;
-  margin-bottom: 2.8rem;
-}
-
-#highlights h3 {
-  color: var(--aqua);
-  line-height: 1.3;
-  margin: 0;
-}
-
-#highlights h4 {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--text-faint);
-  margin: 0;
-}
-
-#highlights a {
-  color: var(--magenta);
-  text-decoration: none;
-}
-
-#highlights a:hover {
-  color: var(--hotmag);
-}
-
-
-@media (min-width: 800px) {
-  #highlights {
-    padding-top: 6rem;
-    padding-bottom: 6.4rem;
+/* Mobile: horizontal slide for detail (like panel-within-a-panel) */
+@media (max-width: 700px) {
+  .hl-layout {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
   }
-
-  #highlights h2 {
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
+  .hl-list {
+    flex: 0 0 100%;
+    align-items: stretch;
+    justify-content: flex-start;
+    transition: margin-left 300ms ease-in-out;
   }
-
-  .hl_timeline {
-    gap: 1.25rem;
-    padding-left: 1.75rem;
+  .hl-list .focus-item {
+    width: 100%;
   }
-
-  .hl_timeline::before {
-    left: 0.6rem;
+  .hl-layout.has-detail .hl-list {
+    flex: 0 0 100%;
+    margin-left: -100%;
   }
-
-  .hl_marker {
-    left: -1.35rem;
+  .hl-detail {
+    flex: 0 0 100%;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 1rem 1rem 2.5rem;
   }
-}
-
-.cross-fade-leave {
-  opacity: 1;
-}
-
-.cross-fade-leave.cross-fade-leave-active {
-  opacity: 0;
-  transition: opacity 1s ease-in;
-}
-
-.cross-fade-enter {
-  opacity: 0;
-}
-
-.cross-fade-enter.cross-fade-enter-active {
-  opacity: 1;
-  transition: opacity 1s ease-in;
-}
-
-.cross-fade-height {
-  transition: height 0.5s ease-in-out;
 }
