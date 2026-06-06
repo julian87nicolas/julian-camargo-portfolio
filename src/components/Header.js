@@ -156,9 +156,19 @@ function Header() {
                     })}
                 </ul>
             </nav>
-            <Link to="/es/" className="lang-switch">
-                <span className="lang-label">ES</span>
-            </Link>
+            <div className="header-actions">
+                <a
+                    href="https://shhnrhfmvombagmkvvgw.supabase.co/storage/v1/object/public/resumes/CV_Julian_Camargo_Backend_EN.pdf"
+                    className="resume-btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    CV
+                </a>
+                <Link to="/es/" className="lang-switch">
+                    <span className="lang-label">ES</span>
+                </Link>
+            </div>
         </div>
     )
 }
