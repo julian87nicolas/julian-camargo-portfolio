@@ -117,21 +117,21 @@ function Header() {
                     <span className="breadcrumb-active">{BREADCRUMB_ROOT}</span>
                 ) : activePanelIndex === 0 && contentOpen ? (
                     <>
-                        <span className="breadcrumb-link breadcrumb-dim" onClick={closeContent}>{BREADCRUMB_ROOT}</span>
+                        <button className="breadcrumb-link breadcrumb-dim" onClick={closeContent}>{BREADCRUMB_ROOT}</button>
                         <span className="breadcrumb-sep">&gt;</span>
                         <span className="breadcrumb-active">Inicio</span>
                     </>
                 ) : !detailName ? (
                     <>
-                        <span className="breadcrumb-link breadcrumb-dim" onClick={() => { closeContent(); }}>{BREADCRUMB_ROOT}</span>
+                        <button className="breadcrumb-link breadcrumb-dim" onClick={closeContent}>{BREADCRUMB_ROOT}</button>
                         <span className="breadcrumb-sep">&gt;</span>
                         <span className="breadcrumb-active">{BREADCRUMB_LABELS[activePanelIndex]}</span>
                     </>
                 ) : (
                     <>
-                        <span className="breadcrumb-link breadcrumb-dim" onClick={() => { closeContent(); }}>{BREADCRUMB_ROOT}</span>
+                        <button className="breadcrumb-link breadcrumb-dim" onClick={closeContent}>{BREADCRUMB_ROOT}</button>
                         <span className="breadcrumb-sep">&gt;</span>
-                        <span className="breadcrumb-link breadcrumb-dim" onClick={() => setDetailName(null)}>{BREADCRUMB_LABELS[activePanelIndex]}</span>
+                        <button className="breadcrumb-link breadcrumb-dim" onClick={() => setDetailName(null)}>{BREADCRUMB_LABELS[activePanelIndex]}</button>
                         <span className="breadcrumb-sep">&gt;</span>
                         <span className="breadcrumb-active">{detailName}</span>
                     </>
