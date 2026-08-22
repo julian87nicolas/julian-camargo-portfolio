@@ -4,6 +4,7 @@ import PanelContainer from "../PanelContainer";
 import MorphingTextPath from "../MorphingTextPath";
 import KeyboardHints from "../KeyboardHints";
 import BackgroundMusic from "../BackgroundMusic";
+import ErrorBoundary from "../ErrorBoundary";
 import Intro from "./Intro"
 import Projects from "./Projects"
 import Highlights from "./Highlights"
@@ -18,7 +19,9 @@ function Mainpage({ HeaderComponent }) {
                 {HeaderComponent && <HeaderComponent />}
                 <BackgroundMusic />
                 <MorphingTextPath text="Julian Camargo - Desarrollador Backend" />
-                <PanelContainer />
+                <ErrorBoundary>
+                    <PanelContainer />
+                </ErrorBoundary>
                 <KeyboardHints labels={{ navigate: "Navegar", select: "Seleccionar", open: "Abrir", back: "Volver" }} />
             </div>
         </NavigationProvider>

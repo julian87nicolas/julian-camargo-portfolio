@@ -46,7 +46,7 @@ function BackgroundMusic() {
 
   return (
     <>
-      <audio ref={audioRef} src={MUSIC_URL} loop preload="auto" />
+      <audio ref={audioRef} src={MUSIC_URL} loop preload="none" />
       <button
         className="music-toggle"
         onClick={toggle}

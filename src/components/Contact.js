@@ -49,7 +49,7 @@ function Contact() {
             </nav>
 
             <div className="contact-footer-text">
-                <p>© 2022 Julián Camargo. All rights reserved.</p>
+                <p>© 2022 – {new Date().getFullYear()} Julián Camargo. All rights reserved.</p>
             </div>
         </section>
     )

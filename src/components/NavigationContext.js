@@ -59,7 +59,7 @@ function navReducer(state, action) {
     case 'OPEN_CONTENT':
       return { ...state, contentOpen: true };
     case 'CLOSE_CONTENT':
-      return { ...state, contentOpen: false, detailName: null };
+      return { ...state, contentOpen: false, detailName: null, isAnimating: false };
     case 'SET_DETAIL_NAME':
       return { ...state, detailName: action.name };
     case 'ANIMATION_DONE':
@@ -131,7 +131,7 @@ export function NavigationProvider({ panels, children }) {
           }
           break;
         case 'Enter':
-          if (!state.contentOpen) {
+          if (!state.contentOpen && !state.isAnimating) {
             e.preventDefault();
             openContent();
           }
